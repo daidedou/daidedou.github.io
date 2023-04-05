@@ -83,7 +83,7 @@ author:
   name             : "Dr. Emery Pierson"
   avatar           : "profile.png"
   bio              : "PhD in computer science. Actually in Vienna."
-  location         : "Vienna"
+  location         : #"Vienna"
   employer         : University of Vienna
   pubmed           : 
   googlescholar    : 
