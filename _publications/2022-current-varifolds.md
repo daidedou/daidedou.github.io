@@ -3,6 +3,7 @@ title: "3D Shape Sequence of Human Comparison and Classification Using Current a
 collection: publications
 permalink: /publication/current-varifolds
 date: 2022-10-20
+author: Emery Pierson, Mohamed Daoudi, Sylvain Arguillere
 venue: 'European Conference on Computer Vision (ECCV) '
 ---
 Emery Pierson, Mohamed Daoudi, Sylvain Arguillere

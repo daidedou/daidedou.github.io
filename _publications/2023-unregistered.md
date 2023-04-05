@@ -3,6 +3,7 @@ title: "BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes"
 collection: publications
 permalink: /publication/unregistered
 date: 2023-04-05
+author: Emmanuel Hartman, Emery Pierson, Martin Bauer, Nicolas Charon, Mohamed Daoudi
 venue: 'Preprint'
 ---
 Emmanuel Hartman, Emery Pierson, Martin Bauer, Nicolas Charon, Mohamed Daoudi

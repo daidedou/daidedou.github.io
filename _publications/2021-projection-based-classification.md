@@ -3,9 +3,9 @@ title: "Projection-based classification of surfaces for 3D human mesh sequence r
 collection: publications
 permalink: /publication/projection-based-classification
 date: 2021-11-16
+author: Emery Pierson, Juan-Carlos Álvarez Paiva, Mohamed Daoudi
 venue: 'Computer & Graphics, Special Section Shape Modeling International'
 ---
-Emery Pierson, Juan-Carlos Álvarez Paiva, Mohamed Daoudi
 
 We analyze human poses and motion by introducing three sequences of easily calculated surface descriptors that are invariant under reparametrizations and Euclidean transformations. These descriptors are obtained by associating to each finitely-triangulated surface two functions on the unit sphere: for each unit vector u we compute the weighted area of the projection of the surface onto the plane orthogonal to u and the length of its projection onto the line spanned by u. The L2 norms and inner products of the projections of these functions onto the space of spherical harmonics of order k provide us with three sequences of Euclidean and reparametrization invariants of the surface. The use of these invariants reduces the comparison of 3D+time surface representations to the comparison of polygonal curves in Rn. The experimental results on the FAUST and CVSSP3D artificial datasets are promising. Moreover, a slight modification of our method yields good results on the noisy CVSSP3D real dataset.
 

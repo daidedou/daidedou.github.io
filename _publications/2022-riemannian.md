@@ -3,6 +3,7 @@ title: "A Riemannian Framework for Analysis of Human Body Surface"
 collection: publications
 permalink: /publication/riemannian-wacv
 date: 2022-01-05
+author: Emery Pierson, Mohamed Daoudi, Alice-Barbara Tumpach 
 venue: 'IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)'
 ---
 Emery Pierson, Mohamed Daoudi, Alice-Barbara Tumpach 
