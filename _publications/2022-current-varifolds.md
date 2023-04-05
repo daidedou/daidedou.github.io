@@ -5,6 +5,8 @@ permalink: /publication/current-varifolds
 date: 2022-10-20
 author: Emery Pierson, Mohamed Daoudi, Sylvain Arguillere
 venue: 'European Conference on Computer Vision (ECCV) '
+paperurl: https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/6963_ECCV_2022_paper.php
+code: https://github.com/CRISTAL-3DSAM/HumanComparisonVarifolds
 ---
 Emery Pierson, Mohamed Daoudi, Sylvain Arguillere
 

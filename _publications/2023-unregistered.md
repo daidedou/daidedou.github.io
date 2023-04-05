@@ -5,6 +5,7 @@ permalink: /publication/unregistered
 date: 2023-04-05
 author: Emmanuel Hartman, Emery Pierson, Martin Bauer, Nicolas Charon, Mohamed Daoudi
 venue: 'Preprint'
+paperurl: https://arxiv.org/pdf/2211.13185.pdf
 ---
 Emmanuel Hartman, Emery Pierson, Martin Bauer, Nicolas Charon, Mohamed Daoudi
 
