@@ -3,7 +3,13 @@ title: "Projection-based classification of surfaces for 3D human mesh sequence r
 collection: publications
 permalink: /publication/projection-based-classification
 date: 2021-11-16
-author: Emery Pierson, Juan-Carlos Álvarez Paiva, Mohamed Daoudi
+author: 
+  - name: Emery Pierson
+    site: https://daidedou.github.io/
+  - name: Juan Carlos Alvarez Paiva
+    site: https://scholar.google.com/citations?user=OZJvCd8AAAAJ
+  - name: Mohamed Daoudi
+    site: https://sites.google.com/view/mohameddaoudi
 venue: 'Computer & Graphics, Special Section Shape Modeling International'
 video: https://drive.google.com/file/d/1QybWovjEJrqoPWGJIDaISGN7Z7G1xcOu/preview
 paperurl: projection_based/paper.pdf

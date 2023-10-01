@@ -34,7 +34,12 @@
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h3>
-    {{ post.author }}
+    <div class="is-size-5 publication-authors">
+    {% for auth in post.author %}
+      <span class="author-block">
+        <a href="{{ auth.site }}">{{ auth.name }}</a></span>
+    {% endfor %}
+    </div>
     <br/>
     <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}
     <br/>

@@ -3,7 +3,13 @@ title: "3D Shape Sequence of Human Comparison and Classification Using Current a
 collection: publications
 permalink: /publication/current-varifolds
 date: 2022-10-20
-author: Emery Pierson, Mohamed Daoudi, Sylvain Arguillere
+author: 
+  - name: Emery Pierson
+    site: https://daidedou.github.io/
+  - name: Mohamed Daoudi
+    site: https://sites.google.com/view/mohameddaoudi
+  - name: Sylvain Arguillère 
+    site: http://math.univ-lyon1.fr/~arguillere/
 venue: 'European Conference on Computer Vision (ECCV) '
 paperurl: https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/6963_ECCV_2022_paper.php
 code: https://github.com/CRISTAL-3DSAM/HumanComparisonVarifolds

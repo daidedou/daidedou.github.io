@@ -3,7 +3,15 @@ title: "Parameterization Robustness of 3D Auto-Encoders"
 collection: publications
 permalink: /publication/robustness
 date: 2022-09-01
-author: Emery Pierson, Thomas Besnier, Mohamed Daoudi, Sylvain Arguillère
+author: 
+  - name: Emery Pierson
+    site: https://daidedou.github.io/
+  - name: Thomas Besnier
+    site: https://tbesnier.github.io/
+  - name: Mohamed Daoudi
+    site: https://sites.google.com/view/mohameddaoudi
+  - name: Sylvain Arguillère 
+    site: http://math.univ-lyon1.fr/~arguillere/
 venue: 'Eurographics Workshop on 3D Object Retrieval (3DOR)'
 teaser: foo-bar-identity-th.jpg
 paperurl: https://diglib.eg.org/handle/10.2312/3dor20221180
