@@ -84,7 +84,7 @@ Needs upload
 
 ### Results (registration)
 
-![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/overlay.gif){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/registration.png){: .align-center}
 
 ### Results (interpolation)
 
@@ -95,7 +95,7 @@ Needs upload
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/motion_transfer.png){: .align-center}
 <figure class="align-center">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/overview.png" alt="">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/RandomShapes.png" alt="">
   <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on the template shape tangent space (details in the paper).</figcaption>
 </figure> 
 
@@ -104,7 +104,7 @@ Needs upload
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
+    <pre><code>@article{hartman2022bareesa,
   author    = {Hartman Emmanuel and Pierson Emery and Bauer Martin and Charon Nicolas and Daoudi Mohamed},
   title     = {BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes},
   journal   = {ICCV},
