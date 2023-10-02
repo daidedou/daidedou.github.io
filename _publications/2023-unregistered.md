@@ -19,33 +19,23 @@ author:
 venue: 'ICCV 2023, Paris'
 paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html
 ---
-[Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
+## [Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
+{: style="text-align: center;"}
 
 <div class="column has-text-centered">
   <div class="publication-links">
     <!-- PDF Link. -->
     <span class="link-block">
-      <a href="https://arxiv.org/pdf/2011.12948"
-          class="external-link button is-normal is-rounded is-dark">
+      <a class="external-link button is-normal is-rounded is-dark" href="https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html">
         <span class="icon">
             <i class="fas fa-file-pdf"></i>
         </span>
         <span>Paper</span>
       </a>
     </span>
-    <span class="link-block">
-      <a href="https://arxiv.org/abs/2011.12948"
-          class="external-link button is-normal is-rounded is-dark">
-        <span class="icon">
-            <i class="ai ai-arxiv"></i>
-        </span>
-        <span>arXiv</span>
-      </a>
-    </span>
     <!-- Video Link. -->
     <span class="link-block">
-      <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-          class="external-link button is-normal is-rounded is-dark">
+      <a class="external-link button is-normal is-rounded is-dark" href="https://www.youtube.com/watch?v=MrKrnHhk8IA">
         <span class="icon">
             <i class="fab fa-youtube"></i>
         </span>
@@ -54,44 +44,51 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
     </span>
     <!-- Code Link. -->
     <span class="link-block">
-      <a href="https://github.com/google/nerfies"
-          class="external-link button is-normal is-rounded is-dark">
+      <a class="button" href="https://github.com/emmanuel-hartman/H2_SurfaceMatch">
         <span class="icon">
             <i class="fab fa-github"></i>
         </span>
         <span>Code</span>
         </a>
+        (experiments coming soon!)
     </span>
   </div>
 </div>
+{: style="text-align: center;"}
 
-### Abstract
+<br />
+{: style="text-align: center;"}
 
 We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannian framework for human body scan representation, interpolation and extrapolation. BaRe-ESA operates directly on unregistered meshes, i.e., without the need to establish prior point to point correspondences or to assume a consistent mesh structure. Our method relies on a latent space representation, which is equipped with a Riemannian (non-Euclidean) metric associated to an invariant higher-order metric on the space of surfaces. Experimental results on the FAUST and DFAUST datasets show that BaRe-ESA brings significant improvements with respect to previous solutions in terms of shape registration, interpolation and extrapolation. The efficiency and strength of our model is further demonstrated in applications such as motion transfer and random generation of body shape and pose. 
 {: style="text-align: justify;"}
 
 
-### Model
+# Model
+{: style="text-align: center;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/overview.png" alt="">
   <figcaption>Overwiew of our method. We seek to represent unparameterized human bodies, with different mesh connectivity, and possible noise or topological changes in a disentangled latent space. We define our latent space as the sum of pose and shape spaces. The paths in the latent space are not linear but curved, corresponding to geodesics in the paramaterized human body space. After retrieving the latent codes of the human bodies, we can use the space along with its Riemmanian metric to solve several problems in human body deformation: inter-extrapolation, motion transfer, shape generation.</figcaption>
 </figure> 
 
-### Video
+# Video
+{: style="text-align: center;"}
 
 Needs upload
 
-### Results (registration)
+#  Results (registration)
+{: style="text-align: center;"}
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/registration.png){: .align-center}
 
-### Results (interpolation)
+# Results (interpolation)
+{: style="text-align: center;"}
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/overlay.gif){: .align-center}
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/compare.gif){: .align-center}
 
-### Applications
+# Applications
+{: style="text-align: center;"}
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/motion_transfer.png){: .align-center}
 <figure class="align-center">
@@ -99,7 +96,7 @@ Needs upload
   <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on the template shape tangent space (details in the paper).</figcaption>
 </figure> 
 
-
+# Citation
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
