@@ -3,6 +3,8 @@ title: "A Riemannian Framework for Analysis of Human Body Surface"
 collection: publications
 permalink: /publication/riemannian-wacv
 date: 2022-01-05
+author_profile: false
+classes: wide
 author: 
   - name: Emery Pierson
     site: https://daidedou.github.io/
