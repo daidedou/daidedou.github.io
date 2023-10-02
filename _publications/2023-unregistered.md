@@ -1,5 +1,7 @@
 ---
 title: "BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes"
+classes: wide
+author_profile: false
 collection: publications
 permalink: /publication/unregistered
 date: 2023-04-05
@@ -17,8 +19,63 @@ author:
 venue: 'Preprint'
 paperurl: https://arxiv.org/pdf/2211.13185.pdf
 ---
-Emmanuel Hartman, Emery Pierson, Martin Bauer, Nicolas Charon, Mohamed Daoudi
+[Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
+
+<div class="column has-text-centered">
+  <div class="publication-links">
+    <!-- PDF Link. -->
+    <span class="link-block">
+      <a href="https://arxiv.org/pdf/2011.12948"
+          class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+        </span>
+        <span>Paper</span>
+      </a>
+    </span>
+    <span class="link-block">
+      <a href="https://arxiv.org/abs/2011.12948"
+          class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="ai ai-arxiv"></i>
+        </span>
+        <span>arXiv</span>
+      </a>
+    </span>
+    <!-- Video Link. -->
+    <span class="link-block">
+      <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+          class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fab fa-youtube"></i>
+        </span>
+        <span>Video</span>
+      </a>
+    </span>
+    <!-- Code Link. -->
+    <span class="link-block">
+      <a href="https://github.com/google/nerfies"
+          class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fab fa-github"></i>
+        </span>
+        <span>Code</span>
+        </a>
+    </span>
+  </div>
+</div>
+
+### Abstract
 
 We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannian framework for human body scan representation, interpolation and extrapolation. BaRe-ESA operates directly on unregistered meshes, i.e., without the need to establish prior point to point correspondences or to assume a consistent mesh structure. Our method relies on a latent space representation, which is equipped with a Riemannian (non-Euclidean) metric associated to an invariant higher-order metric on the space of surfaces. Experimental results on the FAUST and DFAUST datasets show that BaRe-ESA brings significant improvements with respect to previous solutions in terms of shape registration, interpolation and extrapolation. The efficiency and strength of our model is further demonstrated in applications such as motion transfer and random generation of body shape and pose. 
+{: style="text-align: justify;"}
+
+
+### Model
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/overview.png" alt="">
+  <figcaption>Overwiew of our method. We seek to represent unparameterized human bodies, with different mesh connectivity, and possible noise or topological changes in a disentangled latent space. We define our latent space as the sum of pose and shape spaces. The paths in the latent space are not linear but curved, corresponding to geodesics in the paramaterized human body space. After retrieving the latent codes of the human bodies, we can use the space along with its Riemmanian metric to solve several problems in human body deformation: inter-extrapolation, motion transfer, shape generation.</figcaption>
+</figure> 
 
 [Download paper here](https://arxiv.org/pdf/2211.13185.pdf)
