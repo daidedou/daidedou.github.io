@@ -16,8 +16,8 @@ author:
     site: https://www.math.uh.edu/~ncharon/index.html
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
-venue: 'Preprint'
-paperurl: https://arxiv.org/pdf/2211.13185.pdf
+venue: 'ICCV 2023, Paris'
+paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html
 ---
 [Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
 
