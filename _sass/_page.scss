@@ -147,7 +147,7 @@
     }
 
     .page__lead {
-      max-width: $large;
+      max-width: $medium;
     }
 
     .page__title {
@@ -242,7 +242,19 @@
 
 .page__meta-title {
   margin-bottom: 10px;
+  font-size: $type-size-6;
+  text-transform: uppercase;
+}
 
+
+/*
+   Page taxonomy
+   ========================================================================== */
+
+.page__taxonomy {
+  .sep {
+    display: none;
+  }
   strong {
     margin-right: 10px;
   }
