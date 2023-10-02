@@ -78,4 +78,38 @@ We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannia
   <figcaption>Overwiew of our method. We seek to represent unparameterized human bodies, with different mesh connectivity, and possible noise or topological changes in a disentangled latent space. We define our latent space as the sum of pose and shape spaces. The paths in the latent space are not linear but curved, corresponding to geodesics in the paramaterized human body space. After retrieving the latent codes of the human bodies, we can use the space along with its Riemmanian metric to solve several problems in human body deformation: inter-extrapolation, motion transfer, shape generation.</figcaption>
 </figure> 
 
-[Download paper here](https://arxiv.org/pdf/2211.13185.pdf)
+### Video
+
+Needs upload
+
+### Results (registration)
+
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/overlay.gif){: .align-center}
+
+### Results (interpolation)
+
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/overlay.gif){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/compare.gif){: .align-center}
+
+### Applications
+
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/motion_transfer.png){: .align-center}
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/overview.png" alt="">
+  <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on the template shape tangent space (details in the paper).</figcaption>
+</figure> 
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
