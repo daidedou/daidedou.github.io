@@ -34,14 +34,14 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
       </a>
     </span>
     <!-- Video Link. -->
-    <span class="link-block">
+    <!-- <span class="link-block">
       <a class="external-link button is-normal is-rounded is-dark" href="https://www.youtube.com/watch?v=MrKrnHhk8IA">
         <span class="icon">
             <i class="fab fa-youtube"></i>
         </span>
         <span>Video</span>
       </a>
-    </span>
+    </span> -->
     <!-- Code Link. -->
     <span class="link-block">
       <a class="button" href="https://github.com/emmanuel-hartman/H2_SurfaceMatch">
@@ -71,10 +71,12 @@ We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannia
   <figcaption>Overwiew of our method. We seek to represent unparameterized human bodies, with different mesh connectivity, and possible noise or topological changes in a disentangled latent space. We define our latent space as the sum of pose and shape spaces. The paths in the latent space are not linear but curved, corresponding to geodesics in the paramaterized human body space. After retrieving the latent codes of the human bodies, we can use the space along with its Riemmanian metric to solve several problems in human body deformation: inter-extrapolation, motion transfer, shape generation.</figcaption>
 </figure> 
 
-# Video
+<!-- # Video
 {: style="text-align: center;"}
 
-Needs upload
+<video width="320" height="240" controls>
+      <source src="{{ site.url }}{{ site.baseurl }}/files/unregistered/iccv_pres.mp4"  type=video/mp4>
+  </video> -->
 
 #  Results (registration)
 {: style="text-align: center;"}
