@@ -2,6 +2,7 @@
 title: "BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes"
 classes: wide
 author_profile: false
+usemathjax: true
 collection: publications
 permalink: /publication/unregistered
 date: 2023-04-05
@@ -34,14 +35,14 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
       </a>
     </span>
     <!-- Video Link. -->
-    <!-- <span class="link-block">
-      <a class="external-link button is-normal is-rounded is-dark" href="https://www.youtube.com/watch?v=MrKrnHhk8IA">
+    <span class="link-block">
+      <a class="external-link button is-normal is-rounded is-dark" href="https://www.youtube.com/watch?v=5bLGru_OOJQ">
         <span class="icon">
             <i class="fab fa-youtube"></i>
         </span>
         <span>Video</span>
       </a>
-    </span> -->
+    </span>
     <!-- Code Link. -->
     <span class="link-block">
       <a class="button" href="https://github.com/emmanuel-hartman/H2_SurfaceMatch">
@@ -71,12 +72,52 @@ We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannia
   <figcaption>Overwiew of our method. We seek to represent unparameterized human bodies, with different mesh connectivity, and possible noise or topological changes in a disentangled latent space. We define our latent space as the sum of pose and shape spaces. The paths in the latent space are not linear but curved, corresponding to geodesics in the paramaterized human body space. After retrieving the latent codes of the human bodies, we can use the space along with its Riemmanian metric to solve several problems in human body deformation: inter-extrapolation, motion transfer, shape generation.</figcaption>
 </figure> 
 
-<!-- # Video
-{: style="text-align: center;"}
+Our **human shape space** is defined as : 
 
-<video width="320" height="240" controls>
-      <source src="{{ site.url }}{{ site.baseurl }}/files/unregistered/iccv_pres.mp4"  type=video/mp4>
-  </video> -->
+$$\operatorname{Imm}=\left\{ q\in C^{\infty}(\mathcal{T},\mathbb R^3): Tq \text{ is inj.}\right\}$$
+
+We define a linear **Latent space**, define as $${\mathcal L}\subset \mathbb R^{n+m}$$, with latent vectors $$\alpha$$ of human shapes:
+
+$$F(\alpha^j)=\bar q+\sum_{i=1}^m \alpha^j_i h_i+\sum_{i=m+1}^{m+n} \alpha^j_i k_{i-m},$$
+
+where $$\{h_i\}_{i=1}^{m}$$ and $$\{k_i\}_{i=1}^n$$ are shape and motion basis. 
+
+We equipe our latent space with a **Riemannian metric**:
+
+$$\overline{G}_{\alpha}(\beta,\eta):= G_{F(\alpha)}(F(\beta )-\overline{q},F(\eta )-\overline{q}).,$$
+
+where $$G$$ is a weighted Sobolev metric on $$\operatorname{Imm}$$ [*Hartman et al. 2022*].
+\par 
+It has 6 terms, defined as follow:
+
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/equation_draw.png){: .align-center}
+
+Where $$a_0, a_1, b_1, c_1, d_1, a_2$$ are the metric parameters, set to $$1, 1000, 100, 1, 1, 1$$ in this work (penalizing non isometric deformations).
+
+Using this framework, we define **interpolation** between two shapes $$q_0$$ and $$q_1$$ as the path $$\alpha(t)$$,  minimizer of the following energy:
+
+$$ \tilde E(\alpha)= \int_0^1 \overline{G}_{\alpha}(\partial_t\alpha,\partial_t\alpha) dt +\lambda \Gamma(F(\alpha)(0),q_0)+\lambda \Gamma(F(\alpha)(1),q_1), $$
+
+where $$\Gamma$$ is the varifold [*Charon et al. 2013*] discrepancy metric, and is equal to 0 when both $$\alpha(i)$$ and $q_i$ are reparameterization of each other. This allows to work with **unparameterized** human shapes.
+
+We can also define **extrapolation** of the motion of $$q_0$$ with inital velocity $$h = q_1 - q_0$$ as the solution of the equation:
+
+$$ \begin{cases}
+   q(0)&=q_0\\
+   \partial_t q(0)&=h
+   \end{cases},$$
+
+We solve this equation using a Gauss-Newton scheme (details in the paper).
+
+
+# Video
+
+<iframe src="https://www.youtube.com/embed/5bLGru_OOJQ?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+<br/>
+<br/>
 
 #  Results (registration)
 {: style="text-align: center;"}
@@ -95,7 +136,7 @@ We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannia
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/motion_transfer.png){: .align-center}
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/RandomShapes.png" alt="">
-  <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on the template shape tangent space (details in the paper).</figcaption>
+  <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on initial velocities from the template shape tangent space (details in the paper).</figcaption>
 </figure> 
 
 # Citation
