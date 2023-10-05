@@ -87,7 +87,7 @@ We equipe our latent space with a **Riemannian metric**:
 $$\overline{G}_{\alpha}(\beta,\eta):= G_{F(\alpha)}(F(\beta )-\overline{q},F(\eta )-\overline{q}).,$$
 
 where $$G$$ is a weighted Sobolev metric on $$\operatorname{Imm}$$ [*Hartman et al. 2022*].
-\par 
+<br/>
 It has 6 terms, defined as follow:
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/equation_draw.png){: .align-center}
