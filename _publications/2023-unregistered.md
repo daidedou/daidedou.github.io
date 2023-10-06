@@ -139,11 +139,14 @@ We solve this equation using a Gauss-Newton scheme (details in the paper).
   <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on initial velocities from the template shape tangent space (details in the paper).</figcaption>
 </figure> 
 
+# Acknowledgements
+
+This work was supported by ANR projects 16-IDEX-0004 (ULNE) and by ANR-19-CE23-0020 (Human4D); by NSF grants DMS-1912037, DMS-1953244, DMS-1945224 and DMS-1953267, and by FWF grant FWF-P 35813-N. The training of all methods for the experiments presented in this paper were carried out using the Grid’5000 testbed, supported by a scientific interest group hosted by Inria and including CNRS, RENATER and several Universities as well as other organizations (see https://www.grid5000.fr).
+
 # Citation
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
     <pre><code>@article{hartman2022bareesa,
   author    = {Hartman Emmanuel and Pierson Emery and Bauer Martin and Charon Nicolas and Daoudi Mohamed},
   title     = {BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes},
@@ -153,3 +156,4 @@ We solve this equation using a Gauss-Newton scheme (details in the paper).
   </div>
 </section>
 
+This webpage was inspired by [Nerfies](https://nerfies.github.io/).
