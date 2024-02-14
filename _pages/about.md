@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I am actually a research engineer at CHU de Lille, where I work with Pr. Mohamed Daoudi and Pr. Ali Amad on objective assessment of depressive patients (CALYPSO project). Before, I made a short Postdoc in University of Vienna under the supervision of Martin Bauer, working on Riemannian deformable shapes analysis. 
+I am actually a Postdoc at the LIX laboratory at Ecole Polytechnique. I work with Pr. Maks Ovsjanikov, working on generative modeling for non-rigid deformable shapes.
+
+Before, I worked with Pr. Mohamed Daoudi and Pr. Ali Amad on objective assessment of depressive patients (CALYPSO project, September-December 2023), and even before (April-July 2023), made a short Postdoc in University of Vienna under the supervision of Martin Bauer, working on Riemannian analysis of non-rigid deformable shapes. 
 
 I was a PhD student at Université de Lille, supervised by Pr. Mohamed Daoudi and Pr. Juan Carlos Alvarez Paiva. My PhD is entitled: 3D and 4D Human body surface comparison and deformation: From geometric invariants to Riemannian shape analysis. In this thesis, I studied geometric representations, in particular the tools of Riemannian shape analysis, for the comparison and deformation of human shapes.
 
