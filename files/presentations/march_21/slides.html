@@ -473,10 +473,10 @@ C = \underset{C}{\text{argmin}} ||Ca - b||²
 <p>Quick reminder of the original SDS loss. We have a differentiable way of parameterizing an image <span class="math inline">\(I\)</span> by some parameters <span class="math inline">\(\theta\)</span> (NeRF parameters)</p>
 <p>The gradient update of the parameters is given by</p>
 <p><span class="math display">\[
-\nabla \mathcal{L}_{\text{SDS}} = \mathbb{E}_\sigma \left[ D(x_\sigma, \sigma) - x_\sigma \right] \frac{dx}{d\theta}
+\nabla \mathcal{L}_{\text{SDS}}(x = g(\theta)) = \mathbb{E}_{t, \epsilon} \left[ \left(\hat{\epsilon}_{\phi}(x_t, t) - \epsilon\right)  \frac{dx}{d\theta}\right]
 \]</span></p>
 <p>Assuming we can define a way of transferring the target shape coordinates to the PCA coefficients space using the mapping matrix <span class="math inline">\(C\)</span>, such that it is differentiable with respect to <span class="math inline">\(C\)</span>, we can optimize for <span class="math inline">\(C\)</span> using the SDS loss (we replace <span class="math inline">\(\theta\)</span> by <span class="math inline">\(C\)</span>)!</p>
-<p>For the moment, we suppose we are given a good inital map <span class="math inline">\(C\)</span>.</p>
+<p>For the moment, we suppose we are given a good initial map <span class="math inline">\(C\)</span>.</p>
 </section>
 <section id="results-with-naïve-approach" class="slide level2">
 <h2>Results with naïve approach</h2>

@@ -136,12 +136,12 @@ Quick reminder of the original SDS loss. We have a differentiable way of paramet
 The gradient update of the parameters is given by
 
 $$
-\nabla \mathcal{L}_{\text{SDS}} = \mathbb{E}_\sigma \left[ D(x_\sigma, \sigma) - x_\sigma \right] \frac{dx}{d\theta}
+\nabla \mathcal{L}_{\text{SDS}}(x = g(\theta)) = \mathbb{E}_{t, \epsilon} \left[ \left(\hat{\epsilon}_{\phi}(x_t, t) - \epsilon\right)  \frac{dx}{d\theta}\right]
 $$
 
 Assuming we can define a way of transferring the target shape coordinates to the PCA coefficients space using the mapping matrix $C$, such that it is differentiable with respect to $C$, we can optimize for $C$ using the SDS loss (we replace $\theta$ by $C$)!
 
-For the moment, we suppose we are given a good inital map $C$.
+For the moment, we suppose we are given a good initial map $C$.
 
 ## Results with naïve approach
 
