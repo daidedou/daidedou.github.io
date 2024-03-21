@@ -3,10 +3,12 @@
     margin: auto;
     text-align: center;
     color: rgb(77, 74, 74);
+    font-size: 5em;
   }
   
   figcaption {
       margin: auto;
       text-align: center;
       color: rgb(77, 74, 74);
+      font-size: 5em;
   }
