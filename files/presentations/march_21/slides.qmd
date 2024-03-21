@@ -1,5 +1,5 @@
 ---
-title: "Non rigid diffusion: <h3>Application to shape matching (I mean, we try)</h3>"
+title: "Non rigid diffusion: <br/> Application to shape matching"
 
 author: "Emery Pierson, Lei Li, Maks Ovsjanikov"
 format:
@@ -40,7 +40,7 @@ The objective is to take profit of some huge databases of non rigid shapes to im
 
 Let $M$, $N$ two shapes. We aim to find a pointwise map $T : M \to N$
 
-The idea of functional maps is to represent the map as a map $T_F$ between function spaces $\mathcal{F}(M, \mathbb{R}) \to \mathcal{F}(N, \mathbb{R})$, such that for $f: M \to \mathbb{R}$, 
+The idea is to represent the map as a map $T_F$ between function spaces $\mathcal{F}(M, \mathbb{R}) \to \mathcal{F}(N, \mathbb{R})$, such that for $f: M \to \mathbb{R}$, 
 the corresponding function is $g = f \circ T^{-1}$.
 
 This map is linear : 
@@ -60,17 +60,19 @@ If we have a set of basis functions on $N$ $(\Phi_j^N)_j$, for each $T_F( \Phi_i
 Searching for a pointwise map $T$ has now become a search for a functional maps matrix $C$ composed of the $c_{ij}$ (note: a mapping matrix $C$ does not necessarily correspond to a pointwise map)
 
 
-## Background: Functional maps {.smaller}
+## Background: Functional maps {.smaller .scrollable .nostretch}
 
 Let's have two shapes that we wan't to match. The natural basis functions to choose are the Laplace Beltrami Operator (LBO) eigenfunctions. 
-Now, suppose, we know a way to define a set of functions on $N$ and $M$ such that $g(x) \sim f \circ T^{-1}$ (local descriptors which are isometry invariant).
+Now, suppose, we know a way to define a set of functions $f_i$ on $N$ and $g_j$ on $M$ such that $g(x) \sim f \circ T^{-1} (x)$ (local descriptors which are isometry invariant).
 
-We decompose all $f$ as $a \in M$ and $g_j$ as $b \in N$. The functional map can be defined as the solution of:
+We decompose all $f_i$ as $a \in M$ and $g_j$ as $b \in N$. The functional map can be defined as the solution of:
 $$
 C = \underset{C}{\text{argmin}} ||Ca - b||²
 $$
 
-In practice, we compute the pointwise descriptors using a neural network. Since the output of the previous equation can be obtained in closed form, we optimize the output $C$ with respect to the ground truth map $C_{gt}$ or with axiomatic constraints
+In practice, we compute the pointwise descriptors using a neural network. Since the output of the previous equation can be obtained in closed form, we optimize the output $C$ with respect to the ground truth map $C_{gt}$ or with axiomatic constraints, allowing to learn the descriptors
+
+![Deep functional maps approach](images/fmreg_approach.png){width=600}
 
 ## Problem
 
@@ -88,7 +90,7 @@ Denoising diffusion probabilistic models is currently the best way to learn a da
 
 Starting point: learn a diffusion model on a set of already aligned non rigid shapes
 
-
+![&nbsp; ](images/sde_schematic.jpg)
 
 ## {.scrollable}
 
@@ -102,8 +104,11 @@ Advantages:
 
 ![A shape, its restriction on the Laplacian basis, the reconstruction after projecting the restriction to the PCA space](images/fusion_.png)
 
-## Generative model results 
+## Generative model results {.smaller}
 
+Some generated shapes and their nearest neighbor in the training dataset
+
+{{< video images/test.mp4 width="400" height="500" >}}
 
 The data distribution seems to be approximated well with this approach
 
