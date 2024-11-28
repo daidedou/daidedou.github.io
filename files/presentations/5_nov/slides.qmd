@@ -1,0 +1,167 @@
+---
+title: "Denoising Diffusion <br/> in the space of functional maps"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+author: "Emery Pierson, Lei Li, Angela Dai, Maks Ovsjanikov"
+format:
+  revealjs
+css: styles.css
+bibliography: slides.bib
+---
+
+
+## {.smaller} 
+
+### Objective: Regularization of maps {.smaller}
+
+How can we regularize maps between shapes in a efficient, data-driven way?
+
+![&nbsp; ](images/basic_maps.png);
+
+
+## Background: Functional maps {.smaller}
+
+Let $M$, $N$ two shapes. We aim to find a pointwise map $T : M \to N$
+
+The idea is to represent the map as a map $T_F$ between function spaces $\mathcal{F}(M, \mathbb{R}) \to \mathcal{F}(N, \mathbb{R})$, such that for $f: M \to \mathbb{R}$, 
+the corresponding function is $g = f \circ T^{-1}$.
+
+<!-- This map is linear : 
+
+::: {.r-fit-text}
+$$
+T_F(\alpha_1 f_1 + \alpha_2 f_2) = (\alpha_1 f_1 + \alpha_2 f_2) \circ T^{-1} = \alpha_1 f_1 \circ T^{-1} + \alpha_2 f_2 \circ T^{-1} =  \alpha_1 T_F(f_1) + \alpha_2 T_F(f_2)
+$$
+::: -->
+
+It can be shown that this map is linear. We usually represent it as a mapping matrix C between basis function (Laplace Beltrami eigenfunctions) on M and N (note: a mapping matrix $C$ does not necessarily correspond to a pointwise map). 
+
+The pointwise map is then extracted from the mapping matrix.
+<!-- If we have a set of basis functions on $M$ $(\Phi_i^M)_i$ such that $f = \sum_i a_i \Phi_i^M$, we have 
+$$
+T_F(f) = T_F(\sum a_i \Phi_i^M) = \sum a_i T_F( \Phi_i^M)
+$$
+If we have a set of basis functions on $N$ $(\Phi_j^N)_j$, for each $T_F( \Phi_i^M)$ there exists as set of $c_{ij}$ such that $T_F( \Phi_i^M) = \sum_j c_{ij} \Phi_j^N$ -->
+<!-- 
+Searching for a pointwise map $T$ has now become a search for a functional maps matrix $C$ composed of the $c_{ij}$ (note: a mapping matrix $C$ does not necessarily correspond to a pointwise map) -->
+
+
+## Background: Functional maps {.smaller .scrollable .nostretch}
+
+Let's have two shapes that we wan't to match. The natural basis functions to choose are the Laplace Beltrami Operator (LBO) eigenfunctions. 
+Now, suppose, we know a way to define a set of functions $f_i$ on $N$ and $g_j$ on $M$ such that $g(x) \sim f \circ T^{-1} (x)$ (local descriptors which are isometry invariant).
+
+We decompose all $f_i$ as $a \in \mathbb{R}^{n \times m}$ and $g_j$ as $b \in \mathbb{R}^{n \times m}$. The functional map can be defined as the solution of:
+$$
+C = \underset{C}{\text{argmin}} ||Ca - b||²
+$$
+
+In practice, we compute the pointwise descriptors using a neural network. Since the output of the previous equation can be obtained in closed form, we optimize the output $C$ with respect to the ground truth map $C_{gt}$ or with axiomatic constraints, allowing to learn the descriptors.
+
+![Deep functional maps approach](images/fmreg_approach.png){width=600}
+
+
+
+## New problem 
+
+How can we regularize functional maps in a efficient, data-driven way?
+
+![&nbsp; ](images/basic_fm.png);
+
+## Idea: data-driven shape matching {.smaller}
+
+
+We have access to huge datasets of **registered** non rigid shapes nowadays.
+
+
+![A few shapes of AMASS. The whole dataset contains around 100 million poses](images/amass.png)
+
+We can extract the ground truth functional maps to devise a desired structure of maps.
+
+## 
+
+### Promising path: denoising diffusion models
+
+Denoising diffusion probabilistic models is currently the "best" way to learn a data distribution (at least on images).
+
+
+![Image diffusion model](images/sde_diff_orig.png)
+
+
+## Functional map diffusion model {.smaller}
+
+We now train a functional map diffusion model
+
+![Functional map diffusion](images/sde_diff.png)
+
+## Some generated maps
+
+![Some generated maps](images/fusion.png)
+
+
+## {.smaller}
+
+### Straightforward approach: Score distillation for functional map regularization. 
+
+Quick reminder of the original SDS loss. We have a differentiable way of parameterizing an image $I$ by some parameters $\theta$ (NeRF parameters)
+
+The gradient update of the parameters is given by
+
+$$
+\nabla \mathcal{L}_{\text{SDS}}(x = g(\theta)) = \mathbb{E}_{t, \epsilon} \left[ \left(\hat{\epsilon}_{\phi}(x_t, t) - \epsilon\right)  \frac{dx}{d\theta}\right]
+$$
+
+Assuming we can define a way of defining the target map $C$ by some differentiable parameters (FMreg), we can optimize for $C$ using a fmap diffusion model SDS!
+
+
+## Problem: sign ambiguity
+
+![](images/fmap_bad_example.png)
+
+
+## Problem: sign ambiguity
+
+![](images/fmap_bad_example_2.png)
+
+
+## Problem: sign ambiguity {.scrollable}
+
+![](images/fmap_bad_example_2.png)
+
+The map on the left is identified as a good map, and changing the sign is too costly!
+
+![Shape of the loss fuction](images/loss.png)
+
+## Simple strategy 
+
+We train now a model on "absolute" functional maps $|C|$, and use the corresponding SDS ((+ some other techniques of distillation)
+
+![Absolute functional map](images/abs.png)
+
+## Results 
+
+Shape Nonrigid Kinematice (SNK, NIPS 2023) is a state of the art method for zero shot shape matching.
+
+![&nbsp;](images/compa.png)
+
+## Our project: Compositionality of maps {.nostretch}
+
+![&nbsp;](images/variations.png){width=80%};
+
+## Discussion/Thoughts
+
+- No work, or little, ha been done on differentiations this way (except in the seminal paper "Shape Differences, 2013")
+- Sign ambiguity will be a problem, but absolute maps have no compositionality
+- The adjoint operator $C C^T$, does not have sign ambiguity, and has been studied in "Shape Differences, 2013"  
+
+## More Discussion
+
+A potential easy application is motion registration:
+
+
+![](images/motions.png)
