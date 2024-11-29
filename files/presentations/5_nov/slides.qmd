@@ -149,6 +149,12 @@ Shape Nonrigid Kinematice (SNK, NIPS 2023) is a state of the art method for zero
 
 ![&nbsp;](images/compa.png)
 
+## Takeaways
+
+- Yes, diffusion models captures some desired structure of functional maps, and can be used to regularize them
+- Sign ambiguity is an important problem to tackle
+
+
 ## Our project: Compositionality of maps
 
 ![&nbsp;](images/variations.png){ width=50% }
