@@ -149,9 +149,9 @@ Shape Nonrigid Kinematice (SNK, NIPS 2023) is a state of the art method for zero
 
 ![&nbsp;](images/compa.png)
 
-## Our project: Compositionality of maps {.nostretch}
+## Our project: Compositionality of maps
 
-![&nbsp;](images/variations.png){width=80%};
+![&nbsp;](images/variations.png){ width=50% }
 
 ## Discussion/Thoughts
 
