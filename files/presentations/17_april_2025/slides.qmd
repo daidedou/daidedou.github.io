@@ -1,0 +1,126 @@
+---
+title: "Mining information using generative models"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+format:
+  revealjs:
+    auto-stretch: true
+css: styles.css
+bibliography: slides.bib
+---
+
+## Outline
+
+- Diffusion models
+- Overview of distillation techniques
+- Diff-mining paper
+
+## Diffusion models
+
+- Diffusion models are generative models that gradually denoise an input
+- They are easy to condition on various inputs 
+
+![&nbsp; ](images/sde_diff_orig.png){.r-stretch}
+
+## Main application: text-to-image (memes and jokes)
+
+!["A ghibli style photo of the group" ](images/group_photo_ghibli.png){.r-stretch}
+
+## {.smaller}
+
+### Diffusion models carry out information {.smaller}
+
+:::: {.columns}
+
+::: {.column width="30%"}
+!["A man"](images/a_man.webp)
+:::
+
+::: {.column width="30%"}
+!["A happy man"](images/a_happy_man.webp)
+:::
+
+::: {.column width="30%"}
+!["A sad man"](images/a_sad_man.webp)
+:::
+
+
+::::
+
+## {.smaller}
+
+### Diffusion models carry out information {.smaller}
+
+:::: {.columns}
+
+::: {.column width="30%"}
+!["A living room"](images/living_room.webp)
+:::
+
+::: {.column width="30%"}
+!["A french living room"](images/french_living_room.webp)
+:::
+
+::: {.column width="30%"}
+!["A japanese living room"](images/japanese_living_room.webp)
+:::
+
+
+::::
+
+
+There are many ways to distill or mine this information !
+
+## Score distillation (2D-to-3D)
+
+![&nbsp; ](images/dreamfusion.png)
+
+## Score distillation (shape matching)
+
+![&nbsp; ](images/method_2.png)
+
+## Dataset generation/augmentation
+
+DiffusionDB contains 14 million curated images generated using StableDiffusion
+
+![&nbsp; ](images/201762588-f24db2b8-dbb2-4a94-947b-7de393fc3d33.gif)
+
+
+## {.smaller}
+
+### Application : Fine-tuning a Image-to-3D diffusion model {.smaller}
+
+Hi-3DGen finetunes TRELLIS, an Image to 3D model, using synthetic detailed Image-3D pairs
+![&nbsp; ](images/hi_3Dgen.png)
+
+## {.smaller}
+
+### Application : Fine-tuning a Image-to-3D diffusion model {.smaller}
+
+Hi-3DGen is able to capture finer details from images compared to the initial TRELLIS model
+
+![Trellis vs Hi-3DGen](images/lateral_merged_image.png)
+
+## {.smaller}
+
+### Application: Discovering Human-Object Interaction {.smaller}
+
+CHORUS learns Human-Object interaction from synthetic images.
+
+![&nbsp; ](images/chorus.png)
+
+## Image correspondence
+
+Diffusion models implicitly learns correspondences. The features of a trained denoiser can be used for zero-shot image correspondences (no fine-tuning).
+
+![&nbsp; ](images/dift.png){.r-stretch}
+
+## {.smaller}
+
+### Diffusion models as data mining tools
+
