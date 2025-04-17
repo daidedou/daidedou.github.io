@@ -10,7 +10,7 @@
 <link href="slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
-  <title>Mining information using generative models</title>
+  <title>Mining information using diffusion models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -331,7 +331,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Mining information using generative models</h1>
+  <h1 class="title">Mining information using diffusion models</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -343,21 +343,41 @@
 <li>Diffusion models</li>
 <li>Overview of distillation techniques</li>
 <li>Diff-mining paper</li>
+<li>Current project/idea</li>
 </ul>
 </section>
 <section id="diffusion-models" class="slide level2">
 <h2>Diffusion models</h2>
 <ul>
-<li>Diffusion models are generative models that gradually denoise an input</li>
-<li>They are easy to condition on various inputs</li>
+<li>A forward process gradually noising an image <span class="math inline">\(x\)</span>: <span class="math display">\[
+x_t^\epsilon = \sqrt{\alpha_t} x + (1-\sqrt{\alpha_t})\epsilon
+\]</span></li>
+<li>A denoiser <span class="math inline">\(\epsilon_\theta(x_t^\epsilon, t)\)</span></li>
+<li>Trained by minimizing <span class="math display">\[
+L_t(x, \epsilon) = ||\epsilon_\theta(x_t^\epsilon, t) - \epsilon||^2
+\]</span></li>
+<li>Optionnally the denoiser <span class="math inline">\(\epsilon_\theta(x_t^\epsilon, t, c)\)</span> is conditioned on an input <span class="math inline">\(c\)</span> (e.g.&nbsp;text)</li>
 </ul>
+</section>
+<section id="diffusion-models-1" class="slide level2">
+<h2>Diffusion models</h2>
+<p>Diffusion models are generative models that gradually denoise a noisy input</p>
 
 <img data-src="images/sde_diff_orig.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
-<section id="main-application-text-to-image-memes-and-jokes" class="slide level2">
-<h2>Main application: text-to-image (memes and jokes)</h2>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="diffusion-models-score-function">Diffusion models: score function</h3>
+<p>The score of a probability density <span class="math inline">\(p(x)\)</span> is the derivative of the log-density <span class="math inline">\(\nabla_x \log p(x)\)</span> (vector field)</p>
+<p>Following this vector field is equivalent to sample new examples</p>
+<p>Denoising process ~ following the score at different noise levels</p>
+
+<img data-src="images/ald.gif" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="section-1" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="main-application-text-to-image-memes-and-jokes">Main application: text-to-image (memes and jokes)</h3>
 
 <img data-src="images/group_photo_ghibli.png" class="r-stretch quarto-figure-center"><p class="caption">“A ghibli style photo of the group”</p></section>
-<section id="section" class="slide level2 smaller">
+<section id="section-2" class="slide level2 smaller">
 <h2></h2>
 <h3 class="smaller" id="diffusion-models-carry-out-information">Diffusion models carry out information</h3>
 <div class="columns">
@@ -385,7 +405,7 @@
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2 smaller">
+<section id="section-3" class="slide level2 smaller">
 <h2></h2>
 <h3 class="smaller" id="diffusion-models-carry-out-information-1">Diffusion models carry out information</h3>
 <div class="columns">
@@ -414,50 +434,206 @@
 </div>
 <p>There are many ways to distill or mine this information !</p>
 </section>
-<section id="score-distillation-2d-to-3d" class="slide level2">
-<h2>Score distillation (2D-to-3D)</h2>
+<section id="section-4" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="score-distillaton-sampling-2d-to-3d">Score distillaton sampling (2D-to-3D)</h3>
+<p>Score distillation sampling <sup>1</sup> is a technique for transferring knowledge from a source domain (2D) to a target domain (3D) with</p>
+<ul>
+<li>A trained denoiser on the source domain</li>
+<li>A differentiable representation <span class="math inline">\(\psi\)</span> on the target domain</li>
+<li>A differentiable function <span class="math inline">\(x = g(\psi)\)</span> target -&gt; source domain</li>
+</ul>
+<p>By “following” the score on the source domain, we can successfully obtain realistic/faithful representation on the target domain</p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Poole et al.&nbsp;DreamFusion: Text-to-3D using 2D Diffusion</p></li></ol></aside></section>
+<section id="section-5" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="score-distillaton-sampling-2d-to-3d-1">Score distillaton sampling (2D-to-3D)</h3>
 
 <img data-src="images/dreamfusion.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
-<section id="score-distillation-shape-matching" class="slide level2">
+<section id="section-6" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="score-distillaton-sampling-2d-to-3d-2">Score distillaton sampling (2D-to-3D)</h3>
+
+<img data-src="images/dreamfusion_results.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="section-7" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="score-distillation-shape-matching">Score distillation (shape matching)</h3>
+<p>An efficient way to compute matching between shapes is via deep functional maps <sup>1</sup>, that approximates a matching via a functional map matrix C.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fusion_deppfm.png"></p>
+<figcaption>Deep functional maps pipeline</figcaption>
+</figure>
+</div>
+<p>Assuming we have a set of groundtruth functional maps, we can learn a functional maps diffusion model and leverage SDS for zero-shot shape matching!</p>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Donati et al.&nbsp;Deep Geometric Functional Maps: Robust Feature Learning for Shape Correspondence</p></li></ol></aside></section>
+<section id="score-distillation-shape-matching-1" class="slide level2">
 <h2>Score distillation (shape matching)</h2>
 
 <img data-src="images/method_2.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
 <section id="dataset-generationaugmentation" class="slide level2">
 <h2>Dataset generation/augmentation</h2>
-<p>DiffusionDB contains 14 million curated images generated using StableDiffusion</p>
-
-<img data-src="images/201762588-f24db2b8-dbb2-4a94-947b-7de393fc3d33.gif" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
-<section id="section-2" class="slide level2 smaller">
+<p>DiffusionDB <sup>1</sup> contains 14 million curated images generated using StableDiffusion</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/201762588-f24db2b8-dbb2-4a94-947b-7de393fc3d33.gif"></p>
+<figcaption>&nbsp;</figcaption>
+</figure>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Wang et al.&nbsp;DiffusionDB: A Large-Scale Prompt Gallery Dataset for Text-to-Image Generative Models</p></li></ol></aside></section>
+<section id="section-8" class="slide level2 smaller">
 <h2></h2>
 <h3 class="smaller" id="application-fine-tuning-a-image-to-3d-diffusion-model">Application : Fine-tuning a Image-to-3D diffusion model</h3>
-<p>Hi-3DGen finetunes TRELLIS, an Image to 3D model, using synthetic detailed Image-3D pairs <img data-src="images/hi_3Dgen.png" alt="&nbsp;"></p>
-</section>
-<section id="section-3" class="slide level2 smaller">
+<p>Hi-3DGen <sup>1</sup> finetunes TRELLIS <sup>2</sup>, an Image to 3D model, using synthetic detailed Image-3D pairs <img data-src="images/hi_3Dgen.png" alt="&nbsp;"></p>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Chongjie et al.&nbsp;Hi-3DGen: High-fidelity 3D Geometry Generation from Images via Normal Bridging</p></li><li id="fn5"><p>Xiang et al.&nbsp;Structured 3D Latents for Scalable and Versatile 3D Generation</p></li></ol></aside></section>
+<section id="section-9" class="slide level2 smaller">
 <h2></h2>
 <h3 class="smaller" id="application-fine-tuning-a-image-to-3d-diffusion-model-1">Application : Fine-tuning a Image-to-3D diffusion model</h3>
 <p>Hi-3DGen is able to capture finer details from images compared to the initial TRELLIS model</p>
 
 <img data-src="images/lateral_merged_image.png" class="r-stretch quarto-figure-center"><p class="caption">Trellis vs Hi-3DGen</p></section>
-<section id="section-4" class="slide level2 smaller">
+<section id="section-10" class="slide level2 smaller">
 <h2></h2>
 <h3 class="smaller" id="application-discovering-human-object-interaction">Application: Discovering Human-Object Interaction</h3>
-<p>CHORUS learns Human-Object interaction from synthetic images.</p>
-
-<img data-src="images/chorus.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<p>CHORUS <sup>1</sup> learns Human-Object interaction from synthetic images.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/chorus.png"></p>
+<figcaption>&nbsp;</figcaption>
+</figure>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Han et al.&nbsp;CHORUS : Learning Canonicalized 3D Human-Object Spatial Relations from Unbounded Synthesized Images</p></li></ol></aside></section>
 <section id="image-correspondence" class="slide level2">
 <h2>Image correspondence</h2>
-<p>Diffusion models implicitly learns correspondences. The features of a trained denoiser can be used for zero-shot image correspondences (no fine-tuning).</p>
-
-<img data-src="images/dift.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
-<section id="section-5" class="slide level2 smaller">
+<p>Diffusion models implicitly learns correspondences. The features of a trained denoiser can be used for zero-shot image correspondences (no fine-tuning) <sup>1</sup>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/dift.png"></p>
+<figcaption>&nbsp;</figcaption>
+</figure>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn7"><p>Luming et al.&nbsp;Emergent Correspondence from Image Diffusion</p></li></ol></aside></section>
+<section id="section-11" class="slide level2 smaller">
 <h2></h2>
 <h3 id="diffusion-models-as-data-mining-tools">Diffusion models as data mining tools</h3>
-<div class="quarto-auto-generated-content">
+<p>Can you guess where the photo comes from?</p>
+
+<img data-src="images/us_house.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="section-12" class="slide level2 smaller">
+<h2></h2>
+<h3 id="diffusion-models-as-data-mining-tools-1">Diffusion models as data mining tools</h3>
+<p>Answer: USA</p>
+
+<img data-src="images/us_house_patch.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="mining-typical-visual-elements" class="slide level2">
+<h2>Mining typical visual elements</h2>
+<p>Typical visual elements of a location/style/date are:</p>
+<ul>
+<li>discriminative: they distinguish one location from another</li>
+<li>frequent: they appear repeatedly across multiple images of the same location.</li>
+<li>localized (patches)</li>
+</ul>
+<p>Diff-mining <sup>1</sup> proposes a diffusion model based solution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/us_mine.png"></p>
+<figcaption>&nbsp;</figcaption>
+</figure>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>Siglidis et al.&nbsp;Diffusion Models as Data Mining Tools</p></li></ol></aside></section>
+<section id="related-work" class="slide level2">
+<h2>Related work</h2>
+<p>“What makes Paris look like Paris?” <sup>1</sup></p>
+<ul>
+<li>Select random patches from Street-View Paris</li>
+<li>Compute features of the patches (HoG)</li>
+<li>Pick k-NN (positive patches) and k negative patches (for each patch) (1)</li>
+<li>Train a classifier from the patches (for each patch)</li>
+<li>Use the learned weights for patch distance and repeat (1)</li>
+<li>Keep the patches with best classifier performance</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>Doersch et al.&nbsp;What makes Paris look like Paris?</p></li></ol></aside></section>
+<section id="related-work-1" class="slide level2">
+<h2>Related work</h2>
+
+<img data-src="images/paris_patch.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="related-work-drawbacks" class="slide level2">
+<h2>Related work : drawbacks</h2>
+<ul>
+<li>Needs a different dataset for each location</li>
+<li>Process relatively slow</li>
+<li>Not the best features</li>
+<li>Dataset needs to be curated</li>
+</ul>
+
+<img data-src="images/compar.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="diffusion-models-2" class="slide level2">
+<h2>Diffusion models</h2>
+<ul>
+<li>A denoiser <span class="math inline">\(\epsilon_\theta(x_t^\epsilon, t)\)</span></li>
+<li>Trained by minimizing <span class="math display">\[
+L_t(x, \epsilon) = ||\epsilon_\theta(x_t^\epsilon, t) - \epsilon||^2
+\]</span></li>
+<li>Optionnally the denoiser <span class="math inline">\(\epsilon_\theta(x_t^\epsilon, t, c)\)</span> is conditioned on an input <span class="math inline">\(c\)</span> (e.g.&nbsp;text)</li>
+</ul>
+</section>
+<section id="diffusion-based-typicality" class="slide level2">
+<h2>Diffusion based typicality</h2>
+<p>“We design our measure of typicality based on the following intuition: a visual element is typical of a conditioning class label (e.g., country name or date) if the diffusion model is better at denoising the input image in the presence of the label than in its absence.”</p>
+<p>Typicality is defined as <span class="math display">\[
+T(x |c) = \mathbb{E}_{\epsilon, t} [L_t(x, \epsilon, \varnothing) - L(x, \epsilon, c)]
+\]</span></p>
+</section>
+<section id="typicality" class="slide level2">
+<h2>Typicality</h2>
+
+<img data-src="images/typicality.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="section-13" class="slide level2 smaller">
+<h2></h2>
+<h3 class="smaller" id="mining-visual-elements-of-a-dataset">Mining visual elements of a dataset</h3>
+<ul>
+<li>Finetuning a diffusion model (Stable Diffusion) on the dataset with class condition (“An image of {label}”)</li>
+<li>Gather most typical images in patches, and keep the 1000 most typical patches in the dataset</li>
+<li>K-Means clustering to obtain 32 patches (using DIFT features)</li>
+</ul>
+</section>
+<section id="results" class="slide level2">
+<h2>Results</h2>
+
+<img data-src="images/diff_mining_results.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="results-1" class="slide level2">
+<h2>Results</h2>
+
+<img data-src="images/translation.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
+<section id="section-14" class="slide level2 smaller">
+<h2></h2>
+<h3 id="can-we-lift-this-idea-to-3d">Can we lift this idea to 3D?</h3>
+<p>“Co-Locating Style-Defining Elements on 3D Shapes” <sup>1</sup></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/co_locate.png"></p>
+<figcaption>&nbsp;</figcaption>
+</figure>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn10"><p>Hu et al.&nbsp;Co-Locating Style-Defining Elements on 3D Shapes</p></li></ol></aside></section>
+<section id="section-15" class="slide level2 smaller">
+<h2></h2>
+<h3 id="can-we-lift-this-idea-to-3d-1">Can we lift this idea to 3D?</h3>
+<p>Main difficulties/question</p>
+<ul>
+<li>What would be the patch representation?</li>
+<li>Diff-mining is designed for dataset of &gt; 10K images</li>
+<li>No similar dataset for shapes</li>
+<li>Can we generate the dataset ?</li>
+</ul>
+
+<img data-src="images/3d_rec.png" class="r-stretch quarto-figure-center"><p class="caption">Stable diffusion prompt: “A Victorian-era chair crafted from natural wood, featuring carved spindles and a high, elegant back.”</p><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
 </section>
+
     </div>
   </div>
 
