@@ -1,5 +1,6 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
+<<<<<<< HEAD
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
@@ -22,11 +23,20 @@ gem "jekyll", "=3.9.3"
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 # If you have any plugins, put them here!
+=======
+>>>>>>> upstream/master
 group :jekyll_plugins do
-  # gem "jekyll-archives"
-  gem "jekyll-feed"
+  gem 'jekyll'
+  gem 'jekyll-feed'
   gem 'jekyll-sitemap'
-  gem 'hawkins'
+  gem 'jekyll-redirect-from'
+  gem 'jemoji'
+  gem 'webrick', '~> 1.8'
 end
 
+<<<<<<< HEAD
 gem "webrick", "~> 1.8"
+=======
+gem 'github-pages'
+gem 'connection_pool', '2.5.0'
+>>>>>>> upstream/master

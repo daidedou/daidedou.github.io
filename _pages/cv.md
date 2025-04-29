@@ -11,6 +11,7 @@ redirect_from:
 
 Education
 ======
+<<<<<<< HEAD
 * Ph.D: 3D and 4D Human body surface comparison and deformation, supervised by Pr. Mohamed Daoudi and
 Pr. Juan Carlos Alvarez Paiva, Université de Lille, 2023
 * Paris-Saclay University, Master degree "Maths, Vision, Learning", 2019
@@ -33,6 +34,28 @@ Work experience
 * Jan 2018 - Jul 2018: Internship
   * Daimler AG
   * Augmented Reality Conformance Testing
+=======
+* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* M.S. in Jekyll, GitHub University, 2014
+* B.S. in GitHub, GitHub University, 2012
+
+Work experience
+======
+* Spring 2024: Academic Pages Collaborator
+  * GitHub University
+  * Duties includes: Updates and improvements to template
+  * Supervisor: The Users
+
+* Fall 2015: Research Assistant
+  * GitHub University
+  * Duties included: Merging pull requests
+  * Supervisor: Professor Hub
+
+* Summer 2015: Research Assistant
+  * GitHub University
+  * Duties included: Tagging issues
+  * Supervisor: Professor Git
+>>>>>>> upstream/master
   
 * Jul 2017 - Dec 2017: Internship
   * Central Commission of Nuclear Energy and Alternative Energies (CEA)
@@ -50,19 +73,25 @@ Skills
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
+  <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
 <!-- Talks
 ======
+<<<<<<< HEAD
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul> -->
+=======
+  <ul>{% for post in site.talks reversed %}
+    {% include archive-single-talk-cv.html  %}
+  {% endfor %}</ul>
+>>>>>>> upstream/master
   
 Teaching
 ======
-  <ul>{% for post in site.teaching %}
+  <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
