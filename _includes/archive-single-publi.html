@@ -1,7 +1,7 @@
 {% include base_path %}
 
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% if post.teaser %}
+  {% capture teaser %}{{ post.teaser }}{% endcapture %}
 {% else %}
   {% assign teaser = site.teaser %}
 {% endif %}
@@ -14,8 +14,8 @@
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
+    <div style="display: flex; gap: 1rem; align-items: center; margin:0">
+      <div class="archive__item-teaser" style="flex: 1;">
         <img src=
           {% if teaser contains "://" %}
             "{{ teaser }}"
@@ -24,18 +24,22 @@
           {% endif %}
           alt="">
       </div>
-    {% endif %}
-
+    
+    <div style="flex: 3;">
     <p>
     <h3 class="archive__item-title" itemprop="headline">
       {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+        <a href="{{ post.link }}" class="big-text">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h3>
     {% for auth in post.author %}
-        <a href="{{ auth.site }}">{{ auth.name }}</a>
+      {% if auth.site %}
+        <a href="{{ auth.site }}" class="my-link">{{ auth.name }}</a>
+      {% else %}
+        {{ auth.name }}
+      {% endif %}
     {% endfor %}
     <br/>
     {% if post.venue %}
@@ -57,6 +61,7 @@
         <a href=" {{ post.video }} ">Video</a>
         {% endif %}
     </p>
-
+    </div>
+  </div>
   </article>
 </div>

@@ -11,6 +11,7 @@ author:
   - name: Sylvain Arguillère 
     site: http://math.univ-lyon1.fr/~arguillere/
 venue: 'European Conference on Computer Vision (ECCV) '
+teaser: current_varifolds/full.png
 paperurl: https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/6963_ECCV_2022_paper.php
 code: https://github.com/CRISTAL-3DSAM/HumanComparisonVarifolds
 ---

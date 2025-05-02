@@ -25,6 +25,11 @@
       }
     }
   }
+  a.my-link {
+    color: grey;
+    text-decoration: none;
+  }
+
 }
 
 .archive__subtitle {
@@ -43,6 +48,7 @@
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
 
+  font-size: 1.25rem;
   a + a {
     opacity: 0.5;
   }
@@ -54,6 +60,8 @@
   .archive__item-title {
     margin-top: 1em;
     border-bottom: none;
+
+    font-size: 1.25rem;
   }
 }
 

@@ -5,11 +5,11 @@ permalink: /publication/varigrad
 date: 2022-09-01
 author:
   - name: Emmanuel Hartmann
-    site: https://github.com/emmanuel-hartman/
+    site: https://emmanuel-hartman.github.io/
   - name: Emery Pierson
     site: https://daidedou.github.io/
 venue: 'Eurographics Workshop on 3D Object Retrieval (3DOR)'
-teaser: foo-bar-identity-th.jpg
+teaser: unregistered/overview.png
 paperurl: https://doi.org/10.2312/3dor.20231150
 ---
 

@@ -8,6 +8,7 @@ usemathjax: true
 collection: publications
 permalink: /publication/pandas
 date: 2026-01-01
+teaser: pandas/new_teaser.png
 author:
   - name: Thomas Besnier
     site: https://tbesnier.github.io/

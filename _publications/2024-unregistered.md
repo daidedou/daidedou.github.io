@@ -8,7 +8,7 @@ permalink: /publication/unregistered_pami
 date: 2024-09-01
 author:
   - name: Emmanuel Hartmann
-    site: https://github.com/emmanuel-hartman/
+    site: https://emmanuel-hartman.github.io/
   - name: Emery Pierson
     site: https://daidedou.github.io/
   - name: Martin Bauer
@@ -19,6 +19,7 @@ author:
     site: https://sites.google.com/view/mohameddaoudi
 venue: 'International Journal of Computer Vision'
 paperurl: https://arxiv.org/abs/2311.04382
+teaser: figure_shape_space.png
 code: https://github.com/emmanuel-hartman/BaRe-ESA
 ---
 ## [Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)

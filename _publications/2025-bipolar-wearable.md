@@ -17,7 +17,7 @@ author:
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
 venue: 'IEEE International Conference on Automatic Face and Gesture Recognition'
-teaser: foo-bar-identity-th.jpg
+teaser: wearable_teaser.png
 paperurl: https://arxiv.org/pdf/2504.13331
 ---
 

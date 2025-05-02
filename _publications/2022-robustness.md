@@ -13,7 +13,7 @@ author:
   - name: Sylvain Arguillère 
     site: http://math.univ-lyon1.fr/~arguillere/
 venue: 'Eurographics Workshop on 3D Object Retrieval (3DOR)'
-teaser: foo-bar-identity-th.jpg
+teaser: robustness_ellipses.png
 paperurl: https://diglib.eg.org/handle/10.2312/3dor20221180
 ---
 
