@@ -51,7 +51,6 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
         </span>
         <span>Code</span>
         </a>
-        (experiments coming soon!)
     </span>
   </div>
 </div>
@@ -145,15 +144,14 @@ This work was supported by ANR projects 16-IDEX-0004 (ULNE) and by ANR-19-CE23-0
 
 # Citation
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <pre><code>@article{hartman2022bareesa,
-  author    = {Hartman Emmanuel and Pierson Emery and Bauer Martin and Charon Nicolas and Daoudi Mohamed},
-  title     = {BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes},
-  journal   = {ICCV},
-  year      = {2023},
-}</code></pre>
-  </div>
-</section>
+```BibTeX
+@inproceedings{hartman2023bare,
+  title={Bare-esa: A riemannian framework for unregistered human body shapes},
+  author={Hartman, Emmanuel and Pierson, Emery and Bauer, Martin and Charon, Nicolas and Daoudi, Mohamed},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={14181--14191},
+  year={2023}
+}
+```
 
 This webpage was inspired by [Nerfies](https://nerfies.github.io/).

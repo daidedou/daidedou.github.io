@@ -1,12 +1,11 @@
 ---
-title: "Basis restricted elastic shape analysis on the space
-of unregistered surfaces"
+title: "Basis restricted elastic shape analysis on the space of unregistered surfaces"
 classes: wide
 author_profile: false
 usemathjax: true
 collection: publications
-permalink: /publication/unregistered
-date: 2023-04-05
+permalink: /publication/unregistered_pami
+date: 2024-09-01
 author:
   - name: Emmanuel Hartmann
     site: https://github.com/emmanuel-hartman/
@@ -18,8 +17,9 @@ author:
     site: https://www.math.uh.edu/~ncharon/index.html
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
-venue: 'ICCV 2023, Paris'
-paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html
+venue: 'International Journal of Computer Vision'
+paperurl: https://arxiv.org/abs/2311.04382
+code: https://github.com/emmanuel-hartman/BaRe-ESA
 ---
 ## [Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
 {: style="text-align: center;"}
@@ -28,20 +28,11 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
   <div class="publication-links">
     <!-- PDF Link. -->
     <span class="link-block">
-      <a class="external-link button is-normal is-rounded is-dark" href="https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html">
+      <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2311.04382">
         <span class="icon">
             <i class="fas fa-file-pdf"></i>
         </span>
         <span>Paper</span>
-      </a>
-    </span>
-    <!-- Video Link. -->
-    <span class="link-block">
-      <a class="external-link button is-normal is-rounded is-dark" href="https://www.youtube.com/watch?v=5bLGru_OOJQ">
-        <span class="icon">
-            <i class="fab fa-youtube"></i>
-        </span>
-        <span>Video</span>
       </a>
     </span>
     <!-- Code Link. -->
@@ -52,7 +43,6 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
         </span>
         <span>Code</span>
         </a>
-        (experiments coming soon!)
     </span>
   </div>
 </div>
@@ -61,19 +51,16 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
 <br />
 {: style="text-align: center;"}
 
-We present Basis Restricted Elastic Shape Analysis (BaRe-ESA), a novel Riemannian framework for human body scan representation, interpolation and extrapolation. BaRe-ESA operates directly on unregistered meshes, i.e., without the need to establish prior point to point correspondences or to assume a consistent mesh structure. Our method relies on a latent space representation, which is equipped with a Riemannian (non-Euclidean) metric associated to an invariant higher-order metric on the space of surfaces. Experimental results on the FAUST and DFAUST datasets show that BaRe-ESA brings significant improvements with respect to previous solutions in terms of shape registration, interpolation and extrapolation. The efficiency and strength of our model is further demonstrated in applications such as motion transfer and random generation of body shape and pose. 
+This paper introduces a new mathematical and numerical framework for surface analysis derived from the general setting of elastic Riemannian metrics on shape spaces. Traditionally, those metrics are defined over the infinite dimensional manifold of immersed surfaces and satisfy specific invariance properties enabling the comparison of surfaces modulo shape preserving transformations such as reparametrizations. The specificity of the approach we develop is to restrict the space of allowable transformations to predefined finite dimensional bases of deformation fields. These are estimated in a data-driven way so as to emulate specific types of surface transformations observed in a training set. The use of such bases allows to simplify the representation of the corresponding shape space to a finite dimensional latent space. However, in sharp contrast with methods involving e.g. mesh autoencoders, the latent space is here equipped with a non-Euclidean Riemannian metric precisely inherited from the family of aforementioned elastic metrics. We demonstrate how this basis restricted model can be then effectively implemented to perform a variety of tasks on surface meshes which, importantly, does not assume these to be pre-registered (i.e. with given point correspondences) or to even have a consistent mesh structure. We specifically validate our approach on human body shape and pose data as well as human face scans, and show how it generally outperforms state-of-the-art methods on problems such as shape registration, interpolation, motion transfer or random pose generation. 
 {: style="text-align: justify;"}
 
+
+TLDR: This paper is an extension of our previous <a href="https://daidedou.github.io/publication/unregistered">ICCV paper</a>. We demonstrate that the previous approach can be adapted to hands and faces with little modification, and similar performances against state-of-the-art methods.
 
 # Model
 {: style="text-align: center;"}
 
-<figure class="align-center">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/overview.png" alt="">
-  <figcaption>Overwiew of our method. We seek to represent unparameterized human bodies, with different mesh connectivity, and possible noise or topological changes in a disentangled latent space. We define our latent space as the sum of pose and shape spaces. The paths in the latent space are not linear but curved, corresponding to geodesics in the paramaterized human body space. After retrieving the latent codes of the human bodies, we can use the space along with its Riemmanian metric to solve several problems in human body deformation: inter-extrapolation, motion transfer, shape generation.</figcaption>
-</figure> 
-
-Our **human shape space** is defined as : 
+Our **restricted shape space** is defined as : 
 
 $$\operatorname{Imm}=\left\{ q\in C^{\infty}(\mathcal{T},\mathbb R^3): Tq \text{ is inj.}\right\}$$
 
@@ -99,7 +86,7 @@ Using this framework, we define **interpolation** between two shapes $$q_0$$ and
 
 $$ \tilde E(\alpha)= \int_0^1 \overline{G}_{\alpha}(\partial_t\alpha,\partial_t\alpha) dt +\lambda \Gamma(F(\alpha)(0),q_0)+\lambda \Gamma(F(\alpha)(1),q_1), $$
 
-where $$\Gamma$$ is the varifold [*Charon et al. 2013*] discrepancy metric, and is equal to 0 when both $$\alpha(i)$$ and $q_i$ are reparameterization of each other. This allows to work with **unparameterized** human shapes.
+where $$\Gamma$$ is the varifold [*Charon et al. 2013*] discrepancy metric, and is equal to 0 when both $$\alpha(i)$$ and $q_i$ are reparameterization of each other. This allows to work with **unparameterized** shapes.
 
 We can also define **extrapolation** of the motion of $$q_0$$ with inital velocity $$h = q_1 - q_0$$ as the solution of the equation:
 
@@ -123,22 +110,24 @@ We solve this equation using a Gauss-Newton scheme (details in the paper).
 #  Results (registration)
 {: style="text-align: center;"}
 
-![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/registration.png){: .align-center}
+
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered_pami/COMA_results_reg.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered_pami/reg_cropped_mano.png){: .align-center}
+
 
 # Results (interpolation)
 {: style="text-align: center;"}
 
-![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/overlay.gif){: .align-center}
-![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/compare.gif){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered_pami/COMA_results_interp.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered_pami/interp_cropped_mano.png){: .align-center}
 
-# Applications
+# New applications
 {: style="text-align: center;"}
 
-![image-center]({{ site.url }}{{ site.baseurl }}/images/unregistered/motion_transfer.png){: .align-center}
 <figure class="align-center">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered/RandomShapes.png" alt="">
-  <figcaption>We can extend our framework to other applications. Motion transfer is done easily via shape code swapping. We can also generate random shapes, by training a generative model on initial velocities from the template shape tangent space (details in the paper).</figcaption>
-</figure> 
+  <img src="{{ site.url }}{{ site.baseurl }}/images/unregistered_pami/expression_transfer2.png" alt="">
+  <figcaption>We can extend our framework to other applications as motion transfer in the original paper. Expression transfer is done easily via shape code swapping.</figcaption>
+</figure>
 
 # Acknowledgements
 
@@ -146,15 +135,21 @@ This work was supported by ANR projects 16-IDEX-0004 (ULNE) and by ANR-19-CE23-0
 
 # Citation
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <pre><code>@article{hartman2022bareesa,
-  author    = {Hartman Emmanuel and Pierson Emery and Bauer Martin and Charon Nicolas and Daoudi Mohamed},
-  title     = {BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes},
-  journal   = {ICCV},
-  year      = {2023},
-}</code></pre>
-  </div>
-</section>
+If you consider our work useful, please cite:
+
+```BibTeX
+@article{hartman2025basis,
+  title={Basis restricted elastic shape analysis on the space of unregistered surfaces},
+  author={Hartman, Emmanuel and Pierson, Emery and Bauer, Martin and Daoudi, Mohamed and Charon, Nicolas},
+  journal={International Journal of Computer Vision},
+  volume={133},
+  number={4},
+  pages={1999--2024},
+  year={2025},
+  publisher={Springer}
+}
+```
+
+
 
 This webpage was inspired by [Nerfies](https://nerfies.github.io/).

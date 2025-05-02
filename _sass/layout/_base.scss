@@ -131,9 +131,26 @@ tt, code, kbd, samp, pre {
   font-family: $monospace;
 }
 
+code {
+  display: inline-block;
+  padding: 1rem;             /* space inside the element */
+  border-radius: 12px;       /* round corners */
+  background-color: #f0f0f0; /* light gray background for visibility */
+
+}
+
+
 pre {
   overflow-x: auto; /* add scrollbars to wide code blocks*/
 }
+
+.language-BibTeX {
+  text-wrap: balance;
+  hyphens: auto;
+  overflow-wrap: break-word;
+
+}
+
 
 a > code,
 figcaption > code,
