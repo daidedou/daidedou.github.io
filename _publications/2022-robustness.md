@@ -4,14 +4,14 @@ collection: publications
 permalink: /publication/robustness
 date: 2022-09-01
 author: 
-  - name: Emery Pierson
-    site: https://daidedou.github.io/
   - name: Thomas Besnier
     site: https://tbesnier.github.io/
-  - name: Mohamed Daoudi
-    site: https://sites.google.com/view/mohameddaoudi
   - name: Sylvain Arguillère 
     site: http://math.univ-lyon1.fr/~arguillere/
+  - name: Emery Pierson
+    site: https://daidedou.github.io/
+  - name: Mohamed Daoudi
+    site: https://sites.google.com/view/mohameddaoudi
 venue: 'Eurographics Workshop on 3D Object Retrieval (3DOR)'
 teaser: robustness_ellipses.png
 paperurl: https://diglib.eg.org/handle/10.2312/3dor20221180

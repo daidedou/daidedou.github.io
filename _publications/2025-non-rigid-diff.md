@@ -8,7 +8,7 @@ collection: publications
 permalink: /publication/nonrigiddiff
 category: preprint
 date: 2026-01-01
-teaser: nonrigiddiff/resume_approach.png
+teaser: nonrigiddiff/method_2.png
 author:
   - name: Emery Pierson
     site: https://daidedou.github.io/
