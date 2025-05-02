@@ -58,7 +58,9 @@ Deep functional maps have recently emerged as a powerful tool for solving non-ri
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/nonrigiddiff/resume_approach.png){: .align-center}
 
-Given a pair of shapes, and a trained **spectral functional map model**, we train a feature encoder, $$F_i = f_\theta(\mathcal{S}_i)$$. We use the features from the encoder in a Siamese way on the two input shapes. Given tentative features we first estimate the functional map $C$ à la deep functional maps way, with an input mask is distilled from the model.  We then evaluate a distillation loss (Eq (13) in the paper) to optimize the parameters of the feature extractor $$f_\theta$$ through back-propagation. Once the optimal parameters are computed, we take the associated functional map C and finally convert it to a point to point map through with the standard approach.
+Given a pair of shapes, and a trained **spectral functional map model**, we train a feature encoder, $$F_i = f_\theta(\mathcal{S}_i)$$. We use the features from the encoder in a Siamese way on the two input shapes. Given tentative features we first estimate the functional map $$C$$ à la deep functional maps way, with the difference that the regularization mask is distilled from the model.  We then evaluate a distillation loss (Eq (13) in the paper) to optimize the parameters of the feature extractor $$f_\theta$$ through back-propagation. Once the optimal parameters are computed, we take the associated functional map C and finally convert it to a point to point map through with the standard approach.
+
+Notably, our pipeline differs from previous deep functional maps approaches in that we _avoid axiomatic priors_, such as Laplacian Commutativity or Orthogonality, both when estimating the mask and applying the training loss. Instead, all of our regularization and objective terms, except for the basic properness term, are derived **solely from available training data**.
 
 
 #  Results 
