@@ -80,6 +80,8 @@ Pandas is able to outperform classical methods for partial shape interpolation l
 
 Pandas can be used to mix different pose and create new ones. Moreover, using PCA on the local features, one can analyze the **local** shape variability.
 
+# Acknowledgements
+
 **TODO**
 
 # Citation
@@ -87,7 +89,15 @@ Pandas can be used to mix different pose and create new ones. Moreover, using PC
 If you consider our work useful, please cite:
 
 ```BibTeX
-**TODO**
+@misc{besnier2025pandaslearnabledeformationmodeling,
+      title={PaNDaS: Learnable Deformation Modeling with Localized Control}, 
+      author={Thomas Besnier and Emery Pierson and Sylvain Arguillere and Maks Ovsjanikov and Mohamed Daoudi},
+      year={2025},
+      eprint={2412.02306},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.02306}, 
+}
 ```
 
 This webpage was inspired by [Nerfies](https://nerfies.github.io/).

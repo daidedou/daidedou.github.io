@@ -74,7 +74,7 @@ Our method shows the strongest **zero-shot** capabilities amongs learned methods
 
 # Acknowledgements
 
-**TODO**
+This work was performed using HPC resources from GENCI-IDRIS (Grant 2025-AD010613760R2). Parts of this work were supported by the ERC Consolidator Grant 101087347 (VEGA), as well as gifts from Ansys and Adobe Research, and the ERC Starting Grant SpatialSem (101076253). 
 
 # Citation
 
