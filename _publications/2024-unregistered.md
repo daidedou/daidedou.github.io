@@ -5,7 +5,7 @@ author_profile: false
 usemathjax: true
 collection: publications
 permalink: /publication/unregistered_pami
-date: 2024-09-01
+date: 2025-01-01
 author:
   - name: Emmanuel Hartmann
     site: https://emmanuel-hartman.github.io/
