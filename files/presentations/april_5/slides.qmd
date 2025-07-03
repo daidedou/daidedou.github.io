@@ -1,0 +1,144 @@
+---
+title: "Non rigid diffusion, last experiments"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+author: "Emery Pierson, Lei Li, Maks Ovsjanikov, Angela Dai"
+format:
+  revealjs
+css: styles.css
+---
+
+##  {.smaller}
+
+### Small recap
+
+Let an input shape $\mathcal{S}$, we wish to find the correspondance between this shape and a template shape $\mathcal{T}$. 
+
+We do it using functional map. A functional map is a linear map between the function space $\mathcal{S} \to \mathbb{R}$ and $\mathcal{T} \to \mathbb{R}$. 
+
+Let $\Phi_\mathcal{S} \in \mathbb{R}^{n \times n_S}$, $\Phi_\mathcal{T} \in \mathbb{R}^{n \times n_T}$, the Laplace eigenvectors of both shapes. The functional map can be represented as a matrix $C$ taking coefficient in $S$ basis to the ones in $T$ basis.
+
+Functional map work by matching features in the eigenbasis, but often fails because of underlying symmetry
+
+Suppose now we have a shape diffusion model (here it is in PCA coefficient space). Can we regularize those results with diffusion models?
+
+## Proposed approach
+
+![&nbsp; ](images/fig_explanation.png);
+
+## Full losses {.smaller}
+
+We add a new term to the loss we want to minimize. Given the transferred vertices $X_{\mathcal{S} \to \mathcal{T}}$, we compute the point correspondance in the spatial coordinates (+normals, to avoid erros when parts are gluing to each other). We then extract a functional map based on this correspondance, $C_{\text{spatial}}$, and minimize: 
+
+$$
+\mathcal{L}_{proper} = || C - C_{\text{spatial}}||^2
+$$
+
+We also force the PCA reconstruction to be close to the converted vertices.
+
+$$
+\mathcal{L}_{res} = ||\text{Rec}(X_{PCA}) - X_{S \to T} ||²
+$$
+
+Finally, we encourage the matrix to be orthogonal (~ area preserving map) via
+
+$$
+\mathcal{L}_{ortho}= || CC^T - I||^2
+$$
+
+The full loss optimized is:
+
+$$
+\mathcal{L}_{SDS} + \mathcal{L}_{proper} + \mathcal{L}_{res} + 0.1 * \mathcal{L}_{ortho}
+$$
+ 
+## Algorithm
+
+![](images/algorithm.png);
+
+## Some details
+
+- Number of steps : 3000
+- One match : 5-10 min running on geomerix
+
+## Quantitative evaluation
+
+- Ongoing for the moment
+- Errors goes from ~5 to ~1 on FAUST test set (spatial embeddings)
+
+![Geodesic plot](images/geodesic.png)
+
+## Planned
+
+- Try with no training
+- Evaluation on SHREC/SCAPE
+
+### Results : starting from ground truth 
+
+![Input shape](images/tr_reg_007.png){width=600}
+
+From left to right: Reconstruction from PCA coefficients, Transferred vertices, texture map
+
+![](images/fusion_gt.mp4)
+
+## 
+
+### Results: starting from output of fmap algorithm
+
+From left to right: Reconstruction from PCA coefficients, Transferred vertices, texture map
+
+![](images/fusion_normal.mp4)
+
+## {.scrollable .nostretch}
+
+### Results: different identity, easy pose
+
+![Input shape](images/tr_reg_010.png)
+
+From left to right: Reconstruction from PCA coefficients, Transferred vertices, texture map
+
+![](images/fusion_10.mp4)
+
+## {.scrollable .nostretch}
+
+### Results: different identity, hard pose {.scrollable}
+
+![Input shape](images/tr_reg_017.png)
+
+From left to right: Reconstruction from PCA coefficients, Transferred vertices, texture map
+
+![](images/fusion_17.mp4)
+
+## Next steps
+
+- Theoretical investigations 
+
+- Quantitative evaluation?
+
+- Different application?
+
+- Different dataset?
+
+## Transfer to template connectivity
+
+We transfer the coordinates by convert the matrix $C_{S \to T}$ to a point to point map $\Pi_{S \to T}$.
+
+
+$$
+F(X_S, C) = \Pi_{S \to T}^C X_S,
+$$ 
+where 
+$$
+\Pi_{S \to T}^C (p, q) = \frac{\exp(-\delta_{pq}*\alpha)}{\sum_q {\exp(-\delta_{pq}*\alpha)}},
+$$
+
+with $\delta_{pq} = ||\Phi_T(q) - C\Phi_S(p)||²$
+
+## Notes for next steps 
+
+<iframe src='https://mensuel.framapad.org/p/4x4opecpp6-a6u9?lang=fr?showChat=false&showLineNumbers=false&showControls=false&noColors=true&alwaysShowChat=false' width=600 height=400></iframe>

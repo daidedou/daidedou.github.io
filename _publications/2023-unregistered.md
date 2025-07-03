@@ -5,10 +5,10 @@ author_profile: false
 usemathjax: true
 collection: publications
 permalink: /publication/unregistered
-date: 2023-04-05
+date: 2023-10-05
 author:
   - name: Emmanuel Hartmann
-    site: https://github.com/emmanuel-hartman/
+    site: https://emmanuel-hartman.github.io/
   - name: Emery Pierson
     site: https://daidedou.github.io/
   - name: Martin Bauer
@@ -17,7 +17,8 @@ author:
     site: https://www.math.uh.edu/~ncharon/index.html
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
-venue: 'ICCV 2023, Paris'
+venue: International Conference on Computer Vision
+teaser: unregistered/overview.png
 paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html
 ---
 ## [Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
@@ -51,7 +52,6 @@ paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A
         </span>
         <span>Code</span>
         </a>
-        (experiments coming soon!)
     </span>
   </div>
 </div>
@@ -145,15 +145,14 @@ This work was supported by ANR projects 16-IDEX-0004 (ULNE) and by ANR-19-CE23-0
 
 # Citation
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <pre><code>@article{hartman2022bareesa,
-  author    = {Hartman Emmanuel and Pierson Emery and Bauer Martin and Charon Nicolas and Daoudi Mohamed},
-  title     = {BaRe-ESA: A Riemannian Framework for Unregistered Human Body Shapes},
-  journal   = {ICCV},
-  year      = {2023},
-}</code></pre>
-  </div>
-</section>
+```BibTeX
+@inproceedings{hartman2023bare,
+  title={Bare-esa: A riemannian framework for unregistered human body shapes},
+  author={Hartman, Emmanuel and Pierson, Emery and Bauer, Martin and Charon, Nicolas and Daoudi, Mohamed},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={14181--14191},
+  year={2023}
+}
+```
 
 This webpage was inspired by [Nerfies](https://nerfies.github.io/).

@@ -11,6 +11,7 @@ author:
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
 venue: 'Computer & Graphics, Special Section Shape Modeling International'
+teaser: projection_based/teaser.png
 video: https://drive.google.com/file/d/1QybWovjEJrqoPWGJIDaISGN7Z7G1xcOu/preview
 paperurl: projection_based/paper.pdf
 ---
