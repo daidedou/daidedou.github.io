@@ -32,23 +32,23 @@ bibliography: slides.bib
 
 ## Paper pattern
 
-- Pick an "unsolved" 2D images -> something task
+- Pick an "unsolved" "2D images -> something" task
 
 ## Paper pattern
 
-- Pick an "unsolved" 2D images -> something task
-- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -- quite hard
+- Pick an "unsolved" "2D images -> something" task
+- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -> actually quite hard
 
 ## Paper pattern
 
-- Pick an "unsolved" 2D images -> something task
-- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -- quite hard
+- Pick an "unsolved" "2D images -> something" task
+- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -> actually quite hard
 - Use "foundation" features (e.g. Dino) as input of your model solution
 
 ## Paper pattern
 
-- Pick an "unsolved" 2D images -> something task
-- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -- quite hard
+- Pick an "unsolved" "2D images -> something" task
+- Generate/collect/build a dataset of ground truth (can be synthetic, doesn't have to be too big) -> actually quite hard
 - Use "foundation" features (e.g. Dino) as input of your model solution
 
 Even if your dataset is far from real data or is small scale, your solution will generalize a lot
