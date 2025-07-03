@@ -1,0 +1,150 @@
+---
+title: "CVPR 2025"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+format:
+  revealjs:
+    auto-stretch: true
+css: styles.css
+bibliography: slides.bib
+---
+
+## The conference 
+
+- Nashville : better than expected
+- 2 days of workshops/tutorials/seminars
+- 3 days of posters/orals/keynotes
+- Many people
+- Trends: Foundation/Multimodal/Video models, diffusion models, Mamba
+- Downsides: political context, posters on sunday
+
+## Workshops
+
+- Equivariant Vision: From Theory to Practice ([video](https://www.youtube.com/watch?v=wME-8fEBb-w&t=11538s); recommended talk: Vincent Sitzmann at 3:12:00)
+- Shape analysis
+- Computer vision in sports ([video](https://www.youtube.com/watch?v=loVhCUW-xHk); recommended talk: Roland Memisevic at 10:51)
+- Also: Meta Keynote ([video](https://youtu.be/NWf9-ccdm-g): "cycle" of training a "Frontier" LLM)
+
+## Paper pattern
+
+- Pick an "unsolved" 2D images -> something task
+
+## Paper pattern
+
+- Pick an "unsolved" 2D images -> something task
+- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -- quite hard
+
+## Paper pattern
+
+- Pick an "unsolved" 2D images -> something task
+- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -- quite hard
+- Use "foundation" features (e.g. Dino) as input of your model solution
+
+## Paper pattern
+
+- Pick an "unsolved" 2D images -> something task
+- Generate/collect/build a dataset of ground truth (doesn't have to be too big) -- quite hard
+- Use "foundation" features (e.g. Dino) as input of your model solution
+
+Even if your dataset is far from real data or is small scale, your solution will generalize a lot
+
+## Exemples
+
+::: columns
+::: {.column width="50%"}
+
+- Facial analysis [@buchner2025electromyography]
+:::
+
+::: {.column width="50%"}
+![&nbsp; ](images/facial.png)
+:::
+:::
+
+## Exemples
+
+::: columns
+::: {.column width="50%"}
+
+- Facial analysis [@buchner2025electromyography]
+- 3D hair reconstruction [@rosu2025difflocks]
+:::
+
+::: {.column width="50%"}
+![&nbsp; ](images/hair.png)
+:::
+:::
+
+## Exemples
+
+::: columns
+::: {.column width="50%"}
+
+- Facial analysis [@buchner2025electromyography]
+- 3D hair reconstruction [@rosu2025difflocks]
+- 2D -> 3D point cloud (best paper) [@wang2025vggt]
+:::
+
+::: {.column width="50%"}
+![&nbsp; ](images/vggt.png)
+:::
+:::
+
+## Exemples
+
+::: columns
+::: {.column width="50%"}
+
+- Facial analysis [@buchner2025electromyography]
+- 3D hair reconstruction [@rosu2025difflocks]
+- 2D -> 3D point cloud (best paper) [@wang2025vggt]
+- 2D -> 3D object primitives [@zhao2025di]
+:::
+
+::: {.column width="50%"}
+![&nbsp; ](images/prims.png)
+:::
+:::
+
+## Exemples
+
+::: columns
+::: {.column width="50%"}
+
+- Facial analysis [@buchner2025electromyography]
+- 3D hair reconstruction [@rosu2025difflocks]
+- 2D -> 3D point cloud (best paper) [@wang2025vggt]
+- 2D -> 3D object primitives [@zhao2025di]
+- Removing reflections from images [@kee2025removing]
+
+:::
+
+::: {.column width="50%"}
+![&nbsp; ](images/reflections.png)
+:::
+:::
+
+## Exemples
+
+::: columns
+::: {.column width="50%"}
+
+- Facial analysis [@buchner2025electromyography]
+- 3D hair reconstruction [@rosu2025difflocks]
+- 2D -> 3D point cloud (best paper) [@wang2025vggt]
+- 2D -> 3D object primitives [@zhao2025di]
+- Removing reflections from images [@kee2025removing]
+
+
+And probably much more!
+:::
+
+::: {.column width="50%"}
+![&nbsp; ](images/reflections.png)
+:::
+:::
