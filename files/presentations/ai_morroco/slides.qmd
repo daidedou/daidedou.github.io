@@ -1,0 +1,225 @@
+---
+title: "Geometric deep learning: from theory to practice"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+format:
+  revealjs:
+    auto-stretch: true
+css: styles.css
+bibliography: slides.bib
+---
+
+## Outline
+
+- What means Geometric Deep Learning ?
+- First example: geometric deep learning on point clouds (pointnet)
+- Second example: geometric deep learning on surface meshes
+- Geometric deep learning in the large-scale era
+
+## What means geometric deep learning ? 
+
+Geometric deep learning is the field of research that tries to apply the <u>success of deep learning</u> to <u>non-euclidean data</u>
+
+## The deep learning era
+
+Deep learning have proven success over numerous modalities
+
+![Timeline of deep learning architectures until 2017 - (Jure Leskovec, Stanford University)](images/deep_era.png){.r-stretch}
+
+## {.smaller}
+### Deep learning: The Multi-Layer Perceptron (MLP) {.smaller}
+
+
+![&nbsp; ](images/mlp_diagram.png)
+
+
+**Multi-Layer Perceptron (MLP)** Deep neural network consisting of $L$ layers  
+
+**Linear layer** $\mathbf{g}^{(k)} = \xi \left( \mathbf{W}^{(k)} \mathbf{g}^{(k-1)} \right)$
+
+**Activation**, e.g. $\xi(x) = \max \{ x, 0 \}$ rectified linear unit (ReLU)
+
+**Parameters** weights of all layers $\mathbf{W}^{(1)}, \ldots, \mathbf{W}^{(L)}$ (including biases)
+
+## {.smaller}
+
+### Neural Networks expressivity {.smaller}
+
+::: columns
+::: {.column width="40%"}
+
+- Applying MLPs directly on the input data is usually too inefficient!
+
+  - An RGB image of size $512 \times 512$  leads to input size:  
+    $f_{\text{in}} = 512 \times 512 \times 3 \approx 10^6$ nodes.  
+
+  - If $f_{\text{out}} = f_{\text{in}}$ then a *single-layer*  
+    MLP would have $\approx 10^{12}$ trainable parameters!
+
+- Need to exploit *structure in the data*!
+
+:::
+
+
+::: {.column width="60%"}
+![&nbsp; ](images/mlp_expressivity.png)
+:::
+:::
+
+## How to exploit the structure of data ?
+
+::: columns
+::: {.column width="30%"}
+
+- Images: Convolutional Neural Networks
+:::
+
+
+::: {.column width="70%"}
+![Le-Net 5 architecture, 1999](images/le-ne.jpeg)
+:::
+:::
+
+## How to exploit the structure of data ?
+
+::: columns
+::: {.column width="30%"}
+
+- Images: Convolutional Neural Networks
+- Language and time-series: Recurrent Neural Networks
+:::
+
+
+::: {.column width="70%"}
+![Recurrent Neural Networks, blent.ai](images/rnns.png)
+:::
+:::
+
+## How to exploit the structure of data ?
+
+::: columns
+::: {.column width="30%"}
+
+- Images: Convolutional Neural Networks
+- Language: RNN/LSTMs
+- Audio/Time-series: Mix
+:::
+
+
+::: {.column width="70%"}
+![Left: audio signal and spectrogram (Don Johnson). Right: Deep Speech 2 architecture](images/audio.png)
+:::
+:::
+
+## What means geometric deep learning ? 
+
+Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
+
+**Success of deep learning :** Applying the original MLP idea, but adapt the linear and non-linear to the underlying structure of data
+
+## Non-euclidean data
+
+**Euclidean data** The representation space of data is $\mathbb{R}^n$. 
+
+**Non-euclidean data** The representation space is non-flat. It can mean that:
+- A group (rotation, translation, ...) acts on the data 
+- The data lives in a non-euclidean space
+
+## Non-euclidean data is everywhere
+
+![&nbsp; ](images/non_euclidean.png)
+
+## The challenge of non-euclidean data: the case of 3D shapes 
+
+## What means geometric deep learning ? 
+
+Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
+
+**Success of deep learning :** Applying the original MLP idea, but adapt the linear and non-linear to the underlying structure of data
+
+**Non-euclidean data :** Usual operators do not exploit the structure of data 
+
+## Why geometry matters
+
+- Euclidean data: images (grids), audio (1D signals), text (sequences)
+- Non-Euclidean data: point clouds, graphs, surfaces/meshes, manifolds
+- Inductive biases: invariance, equivariance, and locality
+- Goals: preserve structure while enabling learning that generalizes
+
+## Core ideas
+
+- Invariance: output unchanged under transformations (e.g., permutation of points)
+- Equivariance: outputs transform predictably with inputs (e.g., rotations)
+- Locality and message passing on graphs/meshes
+- Global vs. local pooling and hierarchical representations
+
+## Point clouds: PointNet [@Qi2017PointNet]
+
+- Challenge: sets of points are unordered; networks must be permutation invariant
+- Solution: apply shared MLP to each point, aggregate with symmetric function (max/avg)
+- Spatial transformer networks (T-Net) for alignment
+- Effective for classification and segmentation on sets
+
+### PointNet schema (textual)
+
+1. Shared MLP: \(\phi(\mathbf{x}_i)\) for each point \(\mathbf{x}_i\)
+2. Symmetric aggregation: \(\mathbf{h}=\operatorname{MAX}_i\, \phi(\mathbf{x}_i)\)
+3. Task head: \(f(\mathbf{h})\) for class/segmentation logits
+
+## From point clouds to graphs/meshes
+
+- Meshes: vertices, edges, faces; natural neighborhood structure
+- Graph neural networks (GNNs) implement message passing [@Gilmer2017MPNN]
+- Captures local geometry and topology beyond raw coordinates
+
+### Message passing (concept)
+
+For node \(i\) with neighbors \(\mathcal{N}(i)\):
+
+\[\mathbf{m}_i^{(t)} = \sum_{j\in\mathcal{N}(i)} M_t(\mathbf{h}_i^{(t)}, \mathbf{h}_j^{(t)}, \mathbf{e}_{ij})\]
+\[\mathbf{h}_i^{(t+1)} = U_t(\mathbf{h}_i^{(t)}, \mathbf{m}_i^{(t)})\]
+
+## Equivariance: respecting symmetries
+
+- Many 3D tasks require E(3) or SE(3) equivariance (rotations, translations)
+- Equivariant layers maintain orientation-aware features
+- Examples: Tensor Field Networks, SE(3)-Transformers [@Thomas2018TensorField]
+
+### Why equivariance?
+
+- Data efficiency: fewer samples needed to learn symmetries
+- Physical plausibility: predictions respect geometry
+- Better generalization to unseen poses/orientations
+
+## Applications
+
+- 3D vision: object recognition, segmentation, pose estimation
+- Graphics/vision: mesh processing, remeshing, correspondence
+- Science: molecular property prediction, protein structure, materials
+
+## Geometric deep learning at scale
+
+- Pretraining on large geometric corpora; self-supervised objectives
+- Hybrid models: tokenizing geometry for sequence models
+- Efficient neighborhoods: sparse ops, voxel/hash grids, KNN accelerations
+- Tooling: PyTorch Geometric, DGL, PyG Lightning templates
+
+## Practical tips
+
+- Normalize and center coordinates; consider alignment if labels are pose-invariant
+- Choose invariance vs. equivariance based on task needs
+- For point clouds: start with PointNet/PointNet++ baselines
+- For meshes/graphs: begin with simple GNNs; add edge features (distances, angles)
+- Monitor over-smoothing in deep GNNs; use residuals and normalization
+
+## References
+
+- Bronstein et al. (2017) Geometric Deep Learning [@Bronstein2017GDL]
+- Qi et al. (2017) PointNet [@Qi2017PointNet]
+- Gilmer et al. (2017) MPNNs [@Gilmer2017MPNN]
+- Thomas et al. (2018) TFN [@Thomas2018TensorField]
