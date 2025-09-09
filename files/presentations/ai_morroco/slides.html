@@ -376,12 +376,12 @@
 <h2></h2>
 <h3 class="smaller" id="neural-networks-expressivity">Neural Networks expressivity</h3>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
 <ul>
 <li><p>Applying MLPs directly on the input data is usually too inefficient!</p>
 <ul>
 <li><p>An RGB image of size <span class="math inline">\(512 \times 512\)</span> leads to input size:<br>
-<span class="math inline">\(f_{\text{in}} = 512 \times 512 \times 3 \approx 10^6\)</span> nodes.</p></li>
+<span class="math inline">\(f_{\text{in}} = 512^2 \times 3 \approx 10^6\)</span> nodes.</p></li>
 <li><p>If <span class="math inline">\(f_{\text{out}} = f_{\text{in}}\)</span> then a <em>single-layer</em><br>
 MLP would have <span class="math inline">\(\approx 10^{12}\)</span> trainable parameters!</p></li>
 </ul></li>

@@ -64,12 +64,12 @@ Deep learning have proven success over numerous modalities
 ### Neural Networks expressivity {.smaller}
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 
 - Applying MLPs directly on the input data is usually too inefficient!
 
-  - An RGB image of size $512 \times 512$  leads to input size:  
-    $f_{\text{in}} = 512 \times 512 \times 3 \approx 10^6$ nodes.  
+  - An RGB image of size $512 \times 512$ leads to input size:  
+    $f_{\text{in}} = 512^2 \times 3 \approx 10^6$ nodes.  
 
   - If $f_{\text{out}} = f_{\text{in}}$ then a *single-layer*  
     MLP would have $\approx 10^{12}$ trainable parameters!
