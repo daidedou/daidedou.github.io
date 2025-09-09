@@ -399,7 +399,7 @@ Disadvantages
 
 ## Parameterization: extreme cases
 
-![Le-Net 5 architecture, 1999](images/ellipses.png)
+![Robustness to parameterizations](images/ellipses.png)
 
 PointNet is not robust to extreme cases of reparameterizations (Besnier et al. 2022)
 
@@ -453,7 +453,7 @@ The pooling is done using mesh downsampling like in CNNs. The features are extra
 
 ## Parameterization invariance
 
-![Le-Net 5 architecture, 1999](images/ellipses.png)
+![Robustness to parameterizations](images/ellipses.png)
 
 SpiralNet is not robust to reparameterizations (Besnier et al. 2022)
 
@@ -530,7 +530,7 @@ Problem: Need to define the patch integration (costly)
 Advantages
 
 - Takes in account structure of data (surface)
-- Parameter and implementation efficient
+- PLe-Net 5 architecture, 1999arameter and implementation efficient
 - Robust++ to reparameterization
 
 Disadvantages 
