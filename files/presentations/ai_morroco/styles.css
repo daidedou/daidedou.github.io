@@ -54,3 +54,14 @@ figcaption {
     margin: auto;
     text-align: center;
   }
+
+/* Reduce vertical space in unordered and ordered lists */
+ul, ol, li {
+  margin: 0;           /* Remove default margin */
+  padding-left: 1.2em; /* Keep some indentation */
+}
+
+ul li, ol li {
+  margin-bottom: 0em; /* Adjust spacing between items */
+  line-height: 0.9;      /* Control line height */
+}
