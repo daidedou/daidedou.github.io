@@ -79,7 +79,7 @@ Deep learning have proven success over numerous modalities
 :::
 
 
-::: {.column width="60%"}
+::: {.column width="50%"}
 ![&nbsp; ](images/mlp_expressivity.png)
 :::
 :::
@@ -104,7 +104,7 @@ Deep learning have proven success over numerous modalities
 ::: {.column width="40%"}
 
 - Images: Convolutional Neural Networks
-- Language and time-series: Recurrent Neural Networks
+- Language: Recurrent Neural Networks
 :::
 
 
@@ -119,7 +119,7 @@ Deep learning have proven success over numerous modalities
 ::: {.column width="40%"}
 
 - Images: Convolutional Neural Networks
-- Language: RNN/LSTMs
+- Language: Recurrent Neural Networks
 - Audio/Time-series: Mix
 :::
 
@@ -567,6 +567,7 @@ In the specific case of non-rigid shapes, it is used successfully for:
 - Tasks specific losses (e.g. Chamfer distance, varifolds, ...)
 - Alternative shape representations (SDFs, ...)
 - Tasks specific representations (e.g. functional maps)
+- Modern architectures (Transformers!!!!)
 
 ## The large scale era
 
@@ -577,7 +578,6 @@ In the specific case of non-rigid shapes, it is used successfully for:
 - Generation from text or images
 - Detailed understanding
 - Multimodality
-
 
 ## Multi view strikes back!
 
