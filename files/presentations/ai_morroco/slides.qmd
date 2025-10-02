@@ -1,0 +1,620 @@
+---
+title: "Geometric deep learning: from theory to practice"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+format:
+  revealjs:
+    reference-location: block
+    # make in-text citations link to the generated reference text
+    link-citations: true
+     # (nice UX) show the full ref on hover
+    citations-hover: true
+
+css: styles.css
+bibliography: slides.bib
+---
+
+## Slides QRcode
+
+![&nbsp;](images/qrcode.png)
+
+## Outline
+
+- What means Geometric Deep Learning ?
+- Detailed example: geometric deep learning on point clouds (pointnet)
+- Geometric deep learning on surfaces for non-rigid shapes
+- (Geometric deep learning in the large-scale era)
+
+## What means geometric deep learning ? 
+
+Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**
+
+## The deep learning era
+
+Deep learning have proven success over numerous modalities
+
+![Timeline of deep learning architectures until 2017 - (Jure Leskovec, Stanford University)](images/deep_era.png){.r-stretch}
+
+## The deep learning era : huge datasets
+
+![Training datasets sizes over time. Left: language; right: vision.](images/w_1440.png)
+
+## {.smaller}
+### Deep learning: The Multi-Layer Perceptron (MLP) {.smaller}
+
+
+![&nbsp; ](images/mlp_diagram.png)
+
+
+**Multi-Layer Perceptron (MLP)** Deep neural network consisting of $L$ layers  
+
+**Linear layer** $\mathbf{g}^{(k)} = \xi \left( \mathbf{W}^{(k)} \mathbf{g}^{(k-1)} \right)$
+
+**Activation**, e.g. $\xi(x) = \max \{ x, 0 \}$ rectified linear unit (ReLU)
+
+**Parameters** weights of all layers $\mathbf{W}^{(1)}, \ldots, \mathbf{W}^{(L)}$ (including biases)
+
+## {.smaller}
+
+### Neural Networks expressivity {.smaller}
+
+::: columns
+::: {.column width="50%"}
+
+- Applying MLPs directly on the input data is usually too inefficient!
+
+  - An RGB image of size $512 \times 512$ leads to input size:  
+    $f_{\text{in}} = 512^2 \times 3 \approx 10^6$ nodes.  
+
+  - If $f_{\text{out}} = f_{\text{in}}$ then a *single-layer*  
+    MLP would have $\approx 10^{12}$ trainable parameters!
+
+- Need to exploit *structure in the data*!
+
+:::
+
+
+::: {.column width="50%"}
+![&nbsp; ](images/mlp_expressivity.png)
+:::
+:::
+
+## How to exploit the structure of data ?
+
+::: columns
+::: {.column width="40%"}
+
+- Images: Convolutional Neural Networks
+:::
+
+
+::: {.column width="60%"}
+![Le-Net 5 architecture, 1999](images/le-ne.jpeg)
+:::
+:::
+
+## How to exploit the structure of data ?
+
+::: columns
+::: {.column width="40%"}
+
+- Images: Convolutional Neural Networks
+- Language: Recurrent Neural Networks
+:::
+
+
+::: {.column width="60%"}
+![Recurrent Neural Networks, blent.ai](images/rnns.png)
+:::
+:::
+
+## How to exploit the structure of data ?
+
+::: columns
+::: {.column width="40%"}
+
+- Images: Convolutional Neural Networks
+- Language: Recurrent Neural Networks
+- Audio/Time-series: Mix
+:::
+
+
+::: {.column width="60%"}
+![Left: audio signal and spectrogram (Don Johnson). Right: Deep Speech 2 architecture](images/audio.png)
+:::
+:::
+
+## What means geometric deep learning ? 
+
+Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
+
+**Success of deep learning :** Have a large scale dataset. Applying the original MLP idea, but adapt the linear and non-linear to the underlying structure of data. 
+
+## Non-euclidean data
+
+**Euclidean data** The representation space of data is $\mathbb{R}^n$. 
+
+**Non-euclidean data** The representation space is non-flat. It can mean that:
+
+- A group (rotation, translation, ...) acts on the data even if it leaves in an euclidean space
+- The data lives in a non-euclidean space
+- Sometimes both
+
+## Non-euclidean data is everywhere
+
+![&nbsp; ](images/non_euclidean.png)
+
+## Example of 3D shapes tasks
+
+![&nbsp;](images/tasks.png)
+
+## The challenge of non-euclidean data: the case of 3D shapes 
+
+![Different representations of 3D shapes. Image from Silvia Sellan.](images/sgi-shape-representations.jpg)
+
+## The challenge of non-euclidean data: the case of 3D shapes
+
+![Comparison of dataset sizes](images/dataset_size.png)
+
+## The challenge of non-euclidean data: the case of 3D shapes
+
+![Left: different transformations of a human shape. Right: Different discretization of the same human shape.](images/humans_challenge.png)
+
+## The challenge of non-euclidean data: the case of 3D shapes
+
+![Left: linear and geodesic paths in the shape space. Right: the human shape space is non linear.](images/non_linear.png)
+
+The human shape space can be represented by the manifold of immersions of a human template, equipped with a well-designed Riemannian metric.
+
+## The challenge of non-euclidean data: the case of 3D shapes
+
+By making computation on those manifolds, we can beat complex deep learning architectures!
+
+![Comparison of Bare-ESA interpolation against deep learning baselines.](images/compare.gif)
+
+## What means geometric deep learning ? 
+
+Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
+
+**Success of deep learning :** Have a **large scale dataset**. Applying the original MLP idea, but adapt the linear and non-linear to the **underlying structure of data**. 
+
+**Non-euclidean data :** The geometry of the data space is important! Plus, the datasets size are smaller (in medical imaging, some datasets have only ... a few hundreds shapes or less)
+
+
+## What about taking images? {.smaller}
+
+Advantages
+
+- Efficiency & simplicity
+- Can use (pre-trained) CNNs!
+- Can be used to optimize 3D shapes via differentiable rendering.
+
+Limitations
+
+- Are cumbersome for local analysis (e.g., segmentation)
+- Are not adapted to deformable shapes
+- Not great for topologically complex shapes
+
+
+![&nbsp; ](images/multiview.png)
+
+
+## What about projecting to euclidean space?
+
+
+Voxelize a surface into a $\mathbb{R}^{d*d*d}$ grid.
+
+![&nbsp; ](images/volumetric.png)
+
+## What about projecting to euclidean space?
+
+::: columns
+::: {.column width="40%"}
+
+- Loss of information
+:::
+
+
+::: {.column width="60%"}
+![&nbsp; ](images/loss_infop.png)
+:::
+:::
+
+
+
+## What about projecting to euclidean space?
+
+::: columns
+::: {.column width="40%"}
+
+- Loss of information
+- Computationnally expensive
+:::
+
+
+::: {.column width="60%"}
+![&nbsp; ](images/loss_infop.png)
+:::
+:::
+
+## What about projecting to euclidean space?
+
+::: columns
+::: {.column width="40%"}
+
+- Loss of information
+- Computationnally expensive
+- Bad performance
+:::
+
+
+::: {.column width="60%"}
+![&nbsp; ](images/volum_nul.png)
+:::
+:::
+
+## Geometric deep learning on point clouds
+
+![&nbsp; ](images/point_clouds_everywhre.png)
+
+## Point clouds
+
+![&nbsp; ](images/pointcloud.png)
+
+## Point clouds tasks
+
+![&nbsp; ](images/pointcloud_tasks.png)
+
+## Naive approach #1
+
+![&nbsp; ](images/naive_1.png)
+
+A simple network (shared MLP).
+
+- Input: a 3-dimensional vector (3D coordinates)
+- Output: C-dimensional prediction (class label). Apply the same network to
+each point of the point cloud.
+
+## Naive approach #1
+
+![&nbsp; ](images/naive_1.png)
+
+Processing each point independently! We will learn a function from 3D coordinates to a label. No communication between points = “shape awareness”.
+
+## Naive approach #2
+
+![&nbsp; ](images/naive_2.png)
+
+Reshape input to a matrix X of size (3*N). Fully connected layers (MLP) from X to a C-dimensional vector.
+
+## Naive approach #2
+
+![&nbsp; ](images/naive_2.png)
+
+1. Points tied to their ‘index’ = order in the point cloud (weights for 1st point
+not same as, e.g., 3rd point).
+2. Cannot handle variable input sizes.
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet1.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet2.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet3.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet4.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet5.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet6.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet7.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet8.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet9.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet10.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet11.png)
+
+## PointNet
+
+![&nbsp; ](images/pointnet/pointnet12.png)
+
+## Improving PointNet
+
+![&nbsp; ](images/pointnet/pointnet13.png)
+
+## PointNet++ architecture 
+
+![&nbsp; ](images/pointnet/pointnetplus.png)
+
+## And more...
+
+Many works have tried to tackle this problem, including :
+
+- KPConv (2018)
+- DGCNN (2018)
+- PointTransformer (2020)
+
+Current state-of-the-art: PointTransformer v3 (2024). However, research remains active in this area.
+
+## Applications to non-rigid shapes (faces)
+
+![Morphable model of faces](images/morphable.png)
+
+## Applications to non-rigid shapes (faces)
+
+![Simple model, Besnier et al. 2023](images/archi_thomas.png)
+
+## Applications to non-rigid shapes (faces)
+
+![Comparisons against FLAME morphable model](images/flame_thomas.png)
+
+## Applications to non-rigid shapes (faces)
+
+![Reconstruction of unregistered faces](images/robust_thomas.png)
+
+
+
+## Summary: PointNet and variants
+
+Advantages
+
+- Invariant to permutation 
+- Robust to parameterization
+- As expressive as MVCNNs, with less computation power 
+
+Disadvantages 
+
+- Ignores the structure of data!
+- Robust != invariant
+
+## Parameterization: extreme cases
+
+![Robustness to parameterizations](images/ellipses.png)
+
+PointNet is not robust to extreme cases of reparameterizations (Besnier et al. 2022)
+
+## Exploiting the structure of data
+
+![Le-Net 5 architecture, 1999](images/le-ne.jpeg)
+
+Convolutions exploits the structure of data! Can we apply them to 3D? 
+
+-> This field have been very active. We will cover only two solutions. 
+
+## Exploiting the structure of data
+
+Two cases:
+
+- We want to deform a template mesh -> no need for permutation invariance
+- We want to learn on arbitrary parameterizations -> need for permutation invariance
+
+## Spiral convolutions
+
+![&nbsp;](images/spirals.png)
+
+## Spiral convolutions {.smaller}
+
+
+Let $x$ be a mesh vertex, $R^d(x)$ be the d-ring, $R^d_j(x)$ denotes the jth element in the d-ring.
+The spiral patch operator is defined as:
+$$
+S(x) = \{x, R^1_1(x) R^1_2(x),..., R^h_{|Rh|}(x)\}
+$$
+The spiral convolution of a signal $f$, with a filter $g$ is defined by:
+$$
+(f \ast g) = \sum_{\ell=1}^{L} g_{\ell}\, f\!\left(S_{\ell}(x)\right)
+$$
+
+## Spiral convolutions: auto-encoder
+
+![&nbsp;](images/3dmmneural.png)
+
+The pooling is done using mesh downsampling like in CNNs. The features are extracted in a hierarchical way!
+
+## Spiral convolutions: efficiency
+
+![&nbsp;](images/spiral_res.png)
+
+
+## Spiral convolutions: efficiency
+
+![&nbsp;](images/spiral_eff.png)
+
+
+## Parameterization invariance
+
+![Robustness to parameterizations](images/ellipses.png)
+
+SpiralNet is not robust to reparameterizations (Besnier et al. 2022)
+
+## More mesh graph convolutions
+
+- MeshCNN
+- ChebNet
+- Geodesic CNNs
+- Gauge equivariant CNNs
+
+and more ...
+
+
+## Summary: SpiralNet (and mesh graph convolutions)
+
+Advantages
+
+- Takes in account structure of data (mesh graph)
+- Parameter and implementation efficient
+
+Disadvantages 
+
+- Not robust to reparameterizations
+- No generalization to new types of shapes
+
+## Naïve parameterization robust convolutions
+
+Idea: Define a parameterized convolutions and apply it to patches (Geodesic CNNs).
+
+![&nbsp;](images/gcnn.png)
+
+Problem: Need to define the patch integration (costly)
+
+## Naïve parameterization robust convolutions
+
+![&nbsp;](images/diffnet/rots.png)
+
+## Naïve parameterization robust convolutions
+
+![&nbsp;](images/diffnet/problem_0.png)
+
+## Naïve parameterization robust convolutions
+
+![&nbsp;](images/diffnet/problem.png)
+
+## DiffusionNet
+
+![&nbsp;](images/diffnet/diffusion.png)
+
+
+## DiffusionNet
+
+![&nbsp;](images/diffnet/diffusion_1.png)
+
+
+## DiffusionNet
+
+![&nbsp;](images/diffnet/diffusion_2.png)
+
+## DiffusionNet
+
+![&nbsp;](images/diffnet/gradient.png)
+
+## DiffusionNet
+
+![&nbsp;](images/diffnet/archi.png)
+
+## DiffusionNet
+
+![&nbsp;](images/diffnet/invariance.png)
+
+## DiffusionNet: summary
+
+Advantages
+
+- Takes in account structure of data (surface)
+- PLe-Net 5 architecture, 1999arameter and implementation efficient
+- Robust++ to reparameterization
+
+Disadvantages 
+
+- Preprocessing on large meshes
+- Not suitable for large scale data
+
+## Applications: local deformations of shapes
+
+![&nbsp;](images/pandas.png)
+
+## Applications: local deformations of shapes
+
+![&nbsp;](images/pandas_archi.png)
+
+## Applications: local deformations of shapes
+
+![&nbsp;](images/pandas_results.png)
+
+## Conclusion: geometric deep learning for what?
+
+Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
+
+In the specific case of non-rigid shapes, it is used successfully for:
+
+- Shape classification
+- Shape segmentation
+- Shape matching
+- Shape deformation
+
+## What we have ignored
+
+- Other types of non-euclidean data (graphs, proteins, ...)
+- Tasks specific losses (e.g. Chamfer distance, varifolds, ...)
+- Alternative shape representations (SDFs, ...)
+- Tasks specific representations (e.g. functional maps)
+- Modern architectures (Transformers!!!!)
+
+## The large scale era
+
+![&nbsp;](images/datasets.png)
+
+## Modern tasks
+
+- Generation from text or images
+- Detailed understanding
+- Multimodality
+
+## Multi view strikes back!
+
+![Overview of CAT3D](images/cat3d.png)
+
+## Multi view strikes back!
+
+![&nbsp;](images/cat3d_nerf.png)
+
+## Volumetric strikes back!
+
+![&nbsp;](images/trellis_archi.png)
+
+## Volumetric strikes back!
+
+![Overview of TRELLIS](images/trellis_gen.png)
+
+## Multimodality
+
+![Overview of Molmo](images/molmo.png)
+
+
+## Multimodality
+
+Transformers are able to learn (partly) the underlying structure of data with the attention mechanism. They can be applied in any context.
+
+![&nbsp;](images/pointllm.png)
+
+## Open questions 
+
+- Can we generalize generation results to non-rigid shapes ?
+- How to tokenize efficiently a point cloud or a surface?
+- Should we let transformers learn the structure of data or enforce prior knowledge?
+
+## Resources
+
+- [Geometry Processing and Geometric Deep Learning](https://jdigne.github.io/mva_geom/)
+- [Geometric Deep Learning AMMI](https://www.youtube.com/watch?v=5c_-KX1sRDQ&list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C)
+- [Equivariant Vision Workshop CVPR](https://equivision.github.io/)
+- [A gauge theory of neural networks](https://maurice-weiler.gitlab.io/cnn_book/EquivariantAndCoordinateIndependentCNNs.pdf)
