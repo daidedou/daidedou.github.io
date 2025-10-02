@@ -84,7 +84,12 @@ This work was performed using HPC resources from GENCI-IDRIS (Grant 2025-AD01061
 If you consider our work useful, please cite:
 
 ```BibTeX
-**TODO**
+@article{pierson2025diffumatch,
+  title={DiffuMatch: Category-Agnostic Spectral Diffusion Priors for Robust Non-rigid Shape Matching},
+  author={Pierson, Emery and Li, Lei and Dai, Angela and Ovsjanikov, Maks},
+  journal={arXiv preprint arXiv:2507.23715},
+  year={2025}
+}
 ```
 
 
