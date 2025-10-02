@@ -17,7 +17,7 @@ author:
     site: https://www.math.uh.edu/~ncharon/index.html
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
-venue: International Conference on Computer Vision
+venue: International Conference on Computer Vision (ICCV)
 teaser: unregistered/overview.png
 paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html
 ---

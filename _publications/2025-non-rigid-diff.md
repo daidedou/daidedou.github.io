@@ -6,9 +6,7 @@ author_profile: false
 usemathjax: true
 collection: publications
 permalink: /publication/nonrigiddiff
-category: preprint
-date: 2026-01-01
-teaser: nonrigiddiff/method_2.png
+date: 2025-08-01
 author:
   - name: Emery Pierson
     site: https://daidedou.github.io/
@@ -18,30 +16,35 @@ author:
     site: https://www.3dunderstanding.org/team.html
   - name: Maks Ovsjanikov
     site: http://www.lix.polytechnique.fr/~maks/
+
+teaser: nonrigiddiff/method_2.png
+venue: 'International Conference on Computer Vision (ICCV)'
+paperurl: https://arxiv.org/pdf/2507.23715
+code: https://github.com/daidedou/diffumatch
 ---
 ## Emery Pierson, [Lei Li](https://craigleili.github.io/), [Angela Dai](https://www.3dunderstanding.org/team.html), [Maks Ovsjanikov](http://www.lix.polytechnique.fr/~maks/)
 {: style="text-align: center;"}
 
 <div class="column has-text-centered">
-  <div class="publication-links">
-    <!-- PDF Link. -->
-    <span class="link-block">
-      <a class="external-link button is-normal is-rounded is-dark" href="https://daidedou.github.io">
-        <span class="icon">
-            <i class="fas fa-file-pdf"></i>
-        </span>
-        <span>Paper</span>
-      </a>
-    </span>
-    <!-- Code Link. -->
-    <span class="link-block">
-      <a class="button" href="https://daidedou.github.io">
-        <span class="icon">
-            <i class="fab fa-github"></i>
-        </span>
-        <span>Code</span>
-        </a>
-    </span>
+  <div class="publication-links" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+
+    <!-- Paper Link -->
+    <a class="external-link button is-dark is-rounded" href="https://arxiv.org/pdf/2507.23715" target="_blank" style="display: flex; align-items: center; gap: 0em;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="HF logo" style="height: 1.5em">
+      <span>Paper</span>
+    </a>
+
+    <!-- Code Link -->
+    <a class="button is-dark is-rounded" href="https://github.com/daidedou/diffumatch" target="_blank" style="display: flex; align-items: center; gap: 0em;">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/github-mark-white.svg" alt="Github logo" style="height: 1.5em">
+      <span>Code</span>
+    </a>
+    <!-- HF Demo Link -->
+    <a class="button is-warning is-rounded" href="https://huggingface.co/spaces/daidedou/diffumatch" target="_blank" style="display: flex; align-items: center; gap: 0em;">
+      <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="HF logo" style="height: 1.5em">
+      <span>Demo</span>
+    </a>
+
   </div>
 </div>
 {: style="text-align: center;"}
