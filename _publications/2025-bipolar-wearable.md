@@ -16,7 +16,7 @@ author:
     site: https://www.aliamad.com/
   - name: Mohamed Daoudi
     site: https://sites.google.com/view/mohameddaoudi
-venue: 'IEEE International Conference on Automatic Face and Gesture Recognition'
+venue: 'IEEE International Conference on Automatic Face and Gesture Recognition (FG)'
 teaser: wearable_teaser.png
 paperurl: https://arxiv.org/pdf/2504.13331
 ---
