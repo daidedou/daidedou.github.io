@@ -369,7 +369,7 @@ We just applied SDS as-is, but ignored completely that we are computing function
 ## Mask computation {.smaller}
 
 We search a mask such that : 
-$$ ||M_t \cdot C_{gt}|| \simeq 0 i.e. \sim \sim p (C_t; t) \propto \text{exp}(-||M_\t \cdot C_t||^2).$$
+$$ ||M_t \cdot C_{gt}|| \simeq 0$ i.e. $\sim \sim p (C_t; t) \propto \text{exp}(-||M_\t \cdot C_t||^2).$$
 
 Under this hypothesis, the score function derives as:
 

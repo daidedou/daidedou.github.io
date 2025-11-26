@@ -647,7 +647,7 @@ C = \underset{C}{\text{argmin}} ||Ca - b||² = \underset{C}{\text{argmin}} \text
 </section>
 <section id="mask-computation" class="slide level2 smaller">
 <h2>Mask computation</h2>
-<p>We search a mask such that : <span class="math display">\[ ||M_t \cdot C_{gt}|| \simeq 0 i.e. \sim \sim p (C_t; t) \propto \text{exp}(-||M_\t \cdot C_t||^2).\]</span></p>
+<p>We search a mask such that : <span class="math display">\[ ||M_t \cdot C_{gt}|| \simeq 0$ i.e. $\sim \sim p (C_t; t) \propto \text{exp}(-||M_\t \cdot C_t||^2).\]</span></p>
 <p>Under this hypothesis, the score function derives as:</p>
 <p><span class="math display">\[\nabla_x \text{log}p(x:\sigma) = -2 M_\sigma^2 \cdot C_\sigma .\]</span> Using the denoiser, we get: <span class="math display">\[M_\sigma^2 \cdot C_\sigma = ( C_\sigma - D(C_\sigma; \sigma))/2\sigma^2,\]</span> which reduces as the following formula for computing <span class="math inline">\(M_\sigma\)</span> (by taking the mean over the noise distribution): <span class="math display">\[M_\sigma^2 = \mathbb{E}_{n_\sigma \sim \mathcal{N}(0, \sigma^2 I)}\left[(C_\sigma - D(C_\sigma; \sigma))/(2\sigma^2  C_\sigma) \right].\]</span></p>
 </section>
