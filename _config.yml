@@ -25,8 +25,8 @@ author:
   avatar           : "photo_2023-04-05_17-57-42.jpg"
   name             : "Emery Pierson"
   pronouns         : # example: "she/her"  
-  bio              : "PhD in computer science. Actually in Paris."
-  location         : "Viroflay"
+  bio              : "PhD in computer science. Currently in Paris."
+  location         : "Saclay"
   employer         : "Lix, Polytechnique"
   uri              : # URL
   email            : "emery.pierson@courrier.dev" 

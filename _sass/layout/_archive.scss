@@ -45,13 +45,26 @@
 }
 
 .archive__item-title {
-  margin-bottom: 0.25em;
+  margin-bottom: 0em;
+  margin-top: 0;
   font-family: $sans-serif-narrow;
 
-  font-size: 1.25rem;
+  font-size: 1rem;
+  @include breakpoint(max-width $medium) {
+    font-size: 0.9rem;
+  }
   a + a {
     opacity: 0.5;
   }
+}
+
+.archive__item-title a {
+  text-decoration: none;
+  color: rgb(72, 129, 233);  // darker blue
+}
+
+.archive__item-title a:hover {
+  text-decoration: underline;
 }
 
 /* remove border*/
@@ -79,6 +92,8 @@
   overflow: hidden;
   img {
     width: 100%;
+    max-height: 120px;
+    object-fit: contain;
   }
 }
 
@@ -249,5 +264,14 @@
         width: span(7 of 12);
       }
     }
+  }
+}
+
+.archive__meta {
+  margin-top: 0em;
+  font-size: 0.95rem;
+
+  @include breakpoint($small) {
+    font-size: 0.8rem;
   }
 }

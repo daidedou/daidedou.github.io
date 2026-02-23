@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am actually a Postdoc at the LIX laboratory at Ecole Polytechnique. I work with Pr. Maks Ovsjanikov, working on generative modeling for non-rigid deformable shapes.
+I am currently a Postdoc at the LIX laboratory at Ecole Polytechnique. I a working with Pr. Maks Ovsjanikov on generative modeling for non-rigid deformable shapes.
 
 Before, I worked with Pr. Mohamed Daoudi and Pr. Ali Amad on objective assessment of depressive patients (CALYPSO project, September-December 2023), and even before (April-July 2023), made a short Postdoc in University of Vienna under the supervision of Martin Bauer, working on Riemannian analysis of non-rigid deformable shapes. 
 
