@@ -49,6 +49,9 @@
     {% endif %}
     <br/>
     Links: 
+        {% if post.website %}
+        <a href=" {{ post.website }} ">Website</a>,
+        {% endif %}
         <a href={% if post.paperurl contains "://" %}
                     "{{ post.paperurl }}"
                 {% else %}
@@ -59,6 +62,9 @@
         {% endif %}
         {% if post.video %},
         <a href=" {{ post.video }} ">Video</a>
+        {% endif %}
+        {% if post.demo %},
+        <a href=" {{ post.video }} ">Demo</a>
         {% endif %}
     </p>
     </div>

@@ -21,6 +21,7 @@ teaser: nonrigiddiff/method_2.png
 venue: 'International Conference on Computer Vision (ICCV)'
 paperurl: https://arxiv.org/pdf/2507.23715
 code: https://github.com/daidedou/diffumatch
+demo: https://huggingface.co/spaces/daidedou/diffumatch
 ---
 ## Emery Pierson, [Lei Li](https://craigleili.github.io/), [Angela Dai](https://www.3dunderstanding.org/team.html), [Maks Ovsjanikov](http://www.lix.polytechnique.fr/~maks/)
 {: style="text-align: center;"}
