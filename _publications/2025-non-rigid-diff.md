@@ -1,7 +1,6 @@
 ---
 title: "DiffuMatch: Category-Agnostic Spectral Diffusion Priors for Robust Non-rigid Shape Matching"
 classes: wide
-category: preprint
 author_profile: false
 usemathjax: true
 collection: publications
