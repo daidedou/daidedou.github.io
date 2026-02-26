@@ -15,7 +15,7 @@
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     <div style="display: flex; gap: 1rem; align-items: center; margin:0">
-      <div class="archive__item-teaser" style="flex: 0 0 240px;">
+      <div class="archive__item-teaser pub-teaser">
         <img src=
           {% if teaser contains "://" %}
             "{{ teaser }}"
