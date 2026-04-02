@@ -15,7 +15,7 @@
   }
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover {
       text-decoration: underline;
@@ -273,17 +273,5 @@
 
   @include breakpoint($small) {
     font-size: 0.8rem;
-  }
-}
-
-/* Desktop layout */
-.pub-teaser {
-  flex: 0 0 240px;
-}
-
-/* Hide teaser on small screens */
-@media (max-width: 768px) {
-  .pub-teaser {
-    display: none;
   }
 }

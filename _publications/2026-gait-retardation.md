@@ -17,7 +17,7 @@ author:
     site: https://pro.univ-lille.fr/fabien-dhondt
 category: preprint
 teaser: gait_analysis_teaser.png
-paperurl: https://arxiv.org/abs/2602.15634
+paperurl: https://arxiv.org/abs/2601.19526
 ---
 
 Predicting the status of Major Depressive Disorder (MDD) from objective, non-invasive methods is an active research field. Yet, extracting automatically objective, interpretable features for a detailed analysis of the patient state remains largely unexplored.
