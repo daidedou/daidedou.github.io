@@ -2,7 +2,7 @@
 mtllib prompt_84.mtl
 
 o geometry_0_0
-usemtl material_0
+usemtl Material_0
 v 0.49929568 -0.03855149 -0.49902388
 v 0.49686593 -0.03881486 -0.49840143
 v 0.49995664 -0.03806751 -0.49593511

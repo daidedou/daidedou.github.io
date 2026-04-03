@@ -89,6 +89,48 @@
     });
   }
 
+  async function loadFirstWorkingImage(urls) {
+    let lastError = null;
+
+    for (const url of urls) {
+      try {
+        return await loadHtmlImage(url);
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    throw lastError || new Error('No texture URL could be loaded');
+  }
+
+  function resolveRelativeUrl(baseUrl, relativePath) {
+    return new URL(relativePath, baseUrl).toString();
+  }
+
+  function parseMtlText(mtlText) {
+    const result = {
+      materialName: '',
+      textureFile: '',
+    };
+
+    mtlText.split(/\r?\n/).forEach((line) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) {
+        return;
+      }
+
+      if (!result.materialName && trimmed.startsWith('newmtl ')) {
+        result.materialName = trimmed.slice(7).trim();
+      }
+
+      if (!result.textureFile && trimmed.startsWith('map_Kd ')) {
+        result.textureFile = trimmed.slice(7).trim();
+      }
+    });
+
+    return result;
+  }
+
   function createDiffuseTexture(vtkTexture, image, samplerDef) {
     const texture = vtkTexture.newInstance();
     texture.setImage(image);
@@ -179,6 +221,7 @@
     const vtkPolyDataNormals = vtk.Filters.Core.vtkPolyDataNormals;
 
     const textureCache = new Map();
+    const mtlCache = new Map();
 
     function getTextureImage(url) {
       if (!textureCache.has(url)) {
@@ -186,6 +229,45 @@
       }
 
       return textureCache.get(url);
+    }
+
+    function getTextureCandidates(textureUrl, mtlUrl, textureFile) {
+      const candidates = [];
+
+      if (textureUrl) {
+        candidates.push(textureUrl);
+      }
+
+      if (mtlUrl && textureFile) {
+        candidates.push(resolveRelativeUrl(mtlUrl, textureFile));
+      }
+
+      if (mtlUrl) {
+        candidates.push(resolveRelativeUrl(mtlUrl, 'Material_0_basecolor.png'));
+        candidates.push(resolveRelativeUrl(mtlUrl, 'material_0_basecolor.png'));
+      }
+
+      return [...new Set(candidates.filter(Boolean))];
+    }
+
+    function getMtlMetadata(url) {
+      if (!url) {
+        return Promise.resolve({
+          materialName: '',
+          textureFile: '',
+        });
+      }
+
+      if (!mtlCache.has(url)) {
+        mtlCache.set(
+          url,
+          fetch(url)
+            .then((response) => response.text())
+            .then((text) => parseMtlText(text))
+        );
+      }
+
+      return mtlCache.get(url);
     }
 
     function applyNormalColors(polyData, mapper) {
@@ -208,7 +290,7 @@
         colors[i + 2] = Math.round((normals[i + 2] * 0.5 + 0.5) * 255);
       }
 
-      const colorArray = vtkDataArray.newInstance({
+          const colorArray = vtkDataArray.newInstance({
         name: 'NormalColors',
         numberOfComponents: 3,
         values: colors,
@@ -316,6 +398,7 @@
       const textureUrl = container.dataset.textureUrl || '';
       const materialName = container.dataset.materialName || '';
       const shading = container.dataset.shading || 'phong';
+      const computeNormals = container.dataset.computeNormals !== 'false';
       const shell = createViewerShell(container);
       applyLighting(shell.renderer, config.vtkLighting);
       addSceneLights(shell.renderer, vtkLight, config.vtkLighting);
@@ -329,30 +412,58 @@
 
       Promise.all(loadPromises)
         .then(async () => {
+          const mtlMetadata = await getMtlMetadata(mtlUrl);
           const polyData = objReader.getOutputData();
-          const pointData =
+          let renderData = polyData;
+          let pointData =
             polyData && polyData.getPointData ? polyData.getPointData() : null;
+          const hasNormals =
+            pointData && pointData.getNormals && pointData.getNormals();
 
           setActiveTextureCoords(pointData);
-          shell.mapper.setInputData(polyData);
+
+          if (computeNormals && vtkPolyDataNormals && !hasNormals) {
+            const normalsFilter = vtkPolyDataNormals.newInstance({
+              splitting: false,
+              featureAngle: 180,
+            });
+            normalsFilter.setInputData(polyData);
+            normalsFilter.update();
+            renderData = normalsFilter.getOutputData();
+            pointData =
+              renderData && renderData.getPointData ? renderData.getPointData() : null;
+            setActiveTextureCoords(pointData);
+          }
+
+          shell.mapper.setInputData(renderData);
 
           if (
             mtlReader &&
             mtlReader.applyMaterialToActor &&
-            materialName
+            (materialName || mtlMetadata.materialName)
           ) {
-            mtlReader.applyMaterialToActor(materialName, shell.actor);
+            mtlReader.applyMaterialToActor(
+              materialName || mtlMetadata.materialName,
+              shell.actor
+            );
           }
 
           let diffuseTexture = null;
-          if (textureUrl) {
-            const textureImage = await getTextureImage(textureUrl);
+          const textureCandidates = getTextureCandidates(
+            textureUrl,
+            mtlUrl,
+            mtlMetadata.textureFile
+          );
+
+          if (textureCandidates.length) {
+            const textureImage = await loadFirstWorkingImage(textureCandidates);
             diffuseTexture = createDiffuseTexture(vtkTexture, textureImage, {
               wrapS: GL_REPEAT,
               wrapT: GL_REPEAT,
             });
           }
 
+          shell.mapper.setScalarVisibility(false);
           configureProperty(shell.actor.getProperty(), diffuseTexture, shading);
           applyBackfaceProperty(shell.actor, vtkProperty, diffuseTexture, shading);
           finalizeViewer(shell, container);

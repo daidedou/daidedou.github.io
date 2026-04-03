@@ -1,5 +1,5 @@
 ---
-title: " PaNDaS: Learnable Deformation Modeling with Localized Control"
+title: "Beyond Prompts: Unconditional 3D Inversion for Out-of-Distribution Shapes"
 collection: publications
 classes: wide
 author_profile: false
@@ -228,7 +228,7 @@ We demonstrate the utility of this finding in a pose retargeting applications on
             data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_84/prompt_84.obj"
             data-mtl-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_84/prompt_84.mtl"
             data-texture-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_84/Material_0_basecolor.png"
-            data-material-name="material_0"
+            data-material-name="Material_0"
             data-shading="phong">
             <div class="bp-vtk-status">Loading textured OBJ...</div>
           </div>
