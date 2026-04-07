@@ -147,7 +147,7 @@ We demonstrate the utility of this finding in a pose retargeting applications on
 # Application: inversion based character retargeting 
 {: style="text-align: center;"}
 
-We demonstrate the efficiency of the unconditional inversion with a practical application: inversion based character retargeting. Given an out of distribution shape with a certain pose, we retarget the specific pose to a new character, showing superior performances against baselines ([Interactive examples]({{ site.url }}{{ site.baseurl }}/files/beyondprompts_viewer.html))).
+We demonstrate the efficiency of the unconditional inversion with a practical application: inversion based character retargeting. Given an out of distribution shape with a certain pose, we retarget the specific pose to a new character, showing superior performances against baselines ([Interactive examples]({{ site.url }}{{ site.baseurl }}/files/beyondprompts_viewer.html)).
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/beyond_prompts/big_compare.svg){: .align-center}
 
