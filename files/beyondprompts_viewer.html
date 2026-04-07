@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beyond Prompts Viewer</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bp-accent-gold: rgb(245, 176, 39);
+        --bp-character: #1447E6;
+        --bp-prompt: #BB4D1A;
+      }
+
+      body {
+        margin: 0;
+        padding: 32px 20px 48px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: #ffffff;
+        color: #0f172a;
+      }
+
+      .viewer-shell {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .viewer-title {
+        margin: 0 0 0.5rem;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .viewer-subtitle {
+        margin: 0 0 2rem;
+        color: #475569;
+        font-size: 1rem;
+      }
+
+      .bp-application-stack {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .bp-viewer-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .bp-row-title {
+        margin: 0 0 0.85rem;
+        text-align: center;
+        font-size: 1.45rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        color: var(--bp-accent-gold);
+      }
+
+      .bp-header-row {
+        margin-bottom: 0.65rem;
+      }
+
+      .bp-header-cell {
+        text-align: center;
+        font-size: 1.18rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: #1e293b;
+      }
+
+      .bp-vtk-viewer {
+        position: relative;
+        width: 100%;
+        height: 340px;
+        overflow: hidden;
+        background: transparent;
+      }
+
+      .bp-vtk-status {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.96));
+        color: #475569;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .bp-viewer-caption {
+        margin-top: 0.6rem;
+        text-align: center;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: #334155;
+      }
+
+      .bp-caption-label,
+      .bp-caption-character {
+        color: var(--bp-accent-gold);
+      }
+
+      .bp-caption-prompt {
+        color: var(--bp-character);
+      }
+
+      .bp-caption-edit {
+        color: var(--bp-prompt);
+      }
+
+      @media (max-width: 780px) {
+        .bp-viewer-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="viewer-shell">
+      <h1 class="viewer-title">Beyond Prompts Viewer</h1>
+      <p class="viewer-subtitle">Standalone VTK comparison viewer for Maria and Chicken examples.</p>
+
+      <div class="bp-application-stack">
+        <section>
+          <div class="bp-viewer-row bp-header-row">
+            <div class="bp-header-cell"><span class="bp-caption-character">Character</span> + <span class="bp-caption-prompt">prompt.</span></div>
+            <div class="bp-header-cell"><span class="bp-caption-edit">Edit 1</span></div>
+            <div class="bp-header-cell"><span class="bp-caption-edit">Edit 1</span></div>
+          </div>
+
+          <div class="bp-viewer-row">
+            <div>
+              <div
+                class="bp-vtk-viewer bp-vtk-plain-obj-viewer"
+                data-camera-view="front"
+                data-obj-url="./beyond_prompts/prompt_maria/maria.obj"
+                data-shading="gouraud"
+                data-solid-color="245, 176, 39"
+                data-compute-normals="true">
+                <div class="bp-vtk-status">Loading mesh...</div>
+              </div>
+              <div class="bp-viewer-caption"><span class="bp-caption-character">Maria</span>, <span class="bp-caption-prompt">holding a sword.</span></div>
+            </div>
+
+            <div>
+              <div
+                class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
+                data-camera-view="front"
+                data-obj-url="./beyond_prompts/prompt_maria/prompt_43_test/prompt_43_test.obj"
+                data-mtl-url="./beyond_prompts/prompt_maria/prompt_43_test/prompt_43_test.mtl"
+                data-texture-url="./beyond_prompts/prompt_maria/prompt_43_test/Material_0_basecolor.png"
+                data-material-name="Material_0"
+                data-shading="phong">
+                <div class="bp-vtk-status">Loading textured OBJ...</div>
+              </div>
+              <div class="bp-viewer-caption"><span class="bp-caption-edit">Wizard</span>, <span class="bp-caption-prompt">holding a sword.</span></div>
+            </div>
+
+            <div>
+              <div
+                class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
+                data-camera-view="front"
+                data-obj-url="./beyond_prompts/prompt_maria/prompt_47_test/prompt_47_test.obj"
+                data-mtl-url="./beyond_prompts/prompt_maria/prompt_47_test/prompt_47_test.mtl"
+                data-texture-url="./beyond_prompts/prompt_maria/prompt_47_test/Material_0_basecolor.png"
+                data-material-name="Material_0"
+                data-shading="phong">
+                <div class="bp-vtk-status">Loading textured OBJ...</div>
+              </div>
+              <div class="bp-viewer-caption"><span class="bp-caption-edit">Mickey</span>, <span class="bp-caption-prompt">holding a sword.</span></div>
+            </div>
+          </div>
+          <div class="bp-viewer-row">
+            <div>
+              <div
+                class="bp-vtk-viewer bp-vtk-plain-obj-viewer"
+                data-camera-view="front"
+                data-obj-url="./beyond_prompts/prompt_chicken/chicken.obj"
+                data-shading="gouraud"
+                data-solid-color="245, 176, 39"
+                data-compute-normals="true">
+                <div class="bp-vtk-status">Loading mesh...</div>
+              </div>
+              <div class="bp-viewer-caption"><span class="bp-caption-label">A chicken</span>, <span class="bp-caption-prompt"> storming forward.</span></div>
+            </div>
+
+            <div>
+              <div
+                class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
+                data-camera-view="front"
+                data-obj-url="./beyond_prompts/prompt_chicken/prompt_84/prompt_84.obj"
+                data-mtl-url="./beyond_prompts/prompt_chicken/prompt_84/prompt_84.mtl"
+                data-texture-url="./beyond_prompts/prompt_chicken/prompt_84/Material_0_basecolor.png"
+                data-material-name="Material_0"
+                data-lighting-mode="ambient-only"
+                data-shading="phong">
+                <div class="bp-vtk-status">Loading textured OBJ...</div>
+              </div>
+              <div class="bp-viewer-caption"><span class="bp-caption-edit">A turkey</span>, <span class="bp-caption-prompt">storming forward.</span></div>
+            </div>
+
+            <div>
+              <div
+                class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
+                data-camera-view="front"
+                data-obj-url="./beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.obj"
+                data-mtl-url="./beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.mtl"
+                data-texture-url="./beyond_prompts/prompt_chicken/prompt_86_test/Material_0_basecolor.png"
+                data-material-name="Material_0"
+                data-lighting-mode="ambient-only"
+                data-ambient-brightness="6.5"
+                data-shading="phong">
+                <div class="bp-vtk-status">Loading textured OBJ...</div>
+              </div>
+              <div class="bp-viewer-caption"><span class="bp-caption-edit">A seagull</span>, <span class="bp-caption-prompt">storming forward.</span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/vtk.js@35.5.2/vtk.js"></script>
+    <script src="../assets/js/beyond-prompts-viewers.js"></script>
+    <script>
+      window.initBeyondPromptsViewers({
+        rerenderDurationMs: 2500,
+        vtkLighting: {
+          ambient: [0.6, 0.6, 0.6],
+          useLightFollowCamera: true,
+          sceneLights: [
+            {
+              position: [1.5, 1.2, 3.6],
+              focalPoint: [0, 0, 0],
+              intensity: 0.75,
+              coneAngle: 80,
+              color: [1, 1, 1]
+            },
+            {
+              position: [0, 3.2, 1.8],
+              focalPoint: [0, 0, 0],
+              intensity: 0.95,
+              coneAngle: 90,
+              color: [1, 1, 1]
+            },
+            {
+              position: [0, -3.2, 1.0],
+              focalPoint: [0, 0, 0],
+              intensity: 0.7,
+              coneAngle: 95,
+              color: [1, 1, 1]
+            },
+            {
+              position: [-5.2, 1.0, 0],
+              focalPoint: [0, 0, 0],
+              intensity: 1.1,
+              coneAngle: 80,
+              color: [1, 1, 1]
+            },
+            {
+              position: [5.2, 1.0, 0],
+              focalPoint: [0, 0, 0],
+              intensity: 1.1,
+              coneAngle: 80,
+              color: [1, 1, 1]
+            },
+            {
+              position: [0, 1.2, -5.5],
+              focalPoint: [0, 0, 0],
+              intensity: 2.1,
+              coneAngle: 70,
+              color: [1, 1, 1]
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>

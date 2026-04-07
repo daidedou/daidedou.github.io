@@ -97,6 +97,17 @@
   }
 }
 
+.pub-teaser {
+  flex: 0 1 180px;
+  width: 180px;
+}
+
+@include breakpoint(max-width $small) {
+  .pub-teaser {
+    display: none;
+  }
+}
+
 .archive__item:hover {
   .archive__item-teaser {
     box-shadow: 0 0 10px rgba(#000, 0.25);

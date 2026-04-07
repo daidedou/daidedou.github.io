@@ -31,6 +31,40 @@
     }
   }
 
+  function getViewerLightingConfig(config, container, fallbackOverrides) {
+    const mode = container.dataset.lightingMode || 'default';
+    const ambientBoost = Number(container.dataset.ambientBrightness || '');
+
+    if (mode === 'ambient-only') {
+      const ambient =
+        config.ambientOnlyLighting && config.ambientOnlyLighting.ambient
+          ? config.ambientOnlyLighting.ambient.slice()
+          : [0.45, 0.45, 0.45];
+
+      if (!Number.isNaN(ambientBoost) && ambientBoost > 0) {
+        ambient[0] = ambientBoost;
+        ambient[1] = ambientBoost;
+        ambient[2] = ambientBoost;
+      }
+
+      return createMergedLightingConfig(config.vtkLighting, {
+        ambient,
+        useLightFollowCamera:
+          config.ambientOnlyLighting &&
+          typeof config.ambientOnlyLighting.useLightFollowCamera === 'boolean'
+            ? config.ambientOnlyLighting.useLightFollowCamera
+            : false,
+        sceneLights: [],
+      });
+    }
+
+    if (fallbackOverrides) {
+      return createMergedLightingConfig(config.vtkLighting, fallbackOverrides);
+    }
+
+    return config.vtkLighting;
+  }
+
   function createMergedLightingConfig(baseLighting, overrides) {
     const merged = Object.assign({}, baseLighting || {}, overrides || {});
     if (overrides && Object.prototype.hasOwnProperty.call(overrides, 'sceneLights')) {
@@ -94,7 +128,7 @@
 
     for (const url of urls) {
       try {
-        return await loadHtmlImage(url);
+        return await loadHtmlImage(resolveAssetUrl(url));
       } catch (error) {
         lastError = error;
       }
@@ -104,7 +138,11 @@
   }
 
   function resolveRelativeUrl(baseUrl, relativePath) {
-    return new URL(relativePath, baseUrl).toString();
+    return new URL(relativePath, resolveAssetUrl(baseUrl)).toString();
+  }
+
+  function resolveAssetUrl(url) {
+    return new URL(url, window.location.href).toString();
   }
 
   function parseMtlText(mtlText) {
@@ -170,18 +208,31 @@
     }
   }
 
-  function configureProperty(property, diffuseTexture, shading) {
+  function configureProperty(property, shading, materialMode) {
     if (!property) {
       return;
     }
 
     property.setDiffuseColor(1, 1, 1);
-    property.setDiffuse(1.0);
-    property.setAmbient(0.05);
+    if (materialMode === 'ambient-only') {
+      if (property.setLighting) {
+        property.setLighting(false);
+      }
+      property.setDiffuse(1.0);
+      property.setAmbient(1.0);
+    } else {
+      if (property.setLighting) {
+        property.setLighting(true);
+      }
+      property.setDiffuse(1.0);
+      property.setAmbient(0.05);
+    }
     property.setSpecular(0.0);
     property.setOpacity(1.0);
 
-    if (shading === 'gouraud' && property.setInterpolationToGouraud) {
+    if (shading === 'flat' && property.setInterpolationToFlat) {
+      property.setInterpolationToFlat();
+    } else if (shading === 'gouraud' && property.setInterpolationToGouraud) {
       property.setInterpolationToGouraud();
     } else if (shading === 'phong' && property.setInterpolationToPhong) {
       property.setInterpolationToPhong();
@@ -193,24 +244,22 @@
     if (property.setFrontfaceCulling) {
       property.setFrontfaceCulling(false);
     }
-    if (diffuseTexture && property.setDiffuseTexture) {
-      property.setDiffuseTexture(diffuseTexture);
-    }
   }
 
-  function applyBackfaceProperty(actor, vtkProperty, diffuseTexture, shading) {
+  function applyBackfaceProperty(actor, vtkProperty, shading, materialMode) {
     if (!actor || !actor.setBackfaceProperty) {
       return;
     }
 
     const backfaceProperty = vtkProperty.newInstance();
-    configureProperty(backfaceProperty, diffuseTexture, shading);
+    configureProperty(backfaceProperty, shading, materialMode);
     actor.setBackfaceProperty(backfaceProperty);
   }
 
   window.initBeyondPromptsViewers = function initBeyondPromptsViewers(config) {
     const vtkFullScreenRenderWindow = vtk.Rendering.Misc.vtkFullScreenRenderWindow;
     const vtkDataArray = vtk.Common.Core.vtkDataArray;
+    const vtkHDRReader = vtk.IO.Image && vtk.IO.Image.vtkHDRReader;
     const vtkOBJReader = vtk.IO.Misc.vtkOBJReader;
     const vtkMTLReader = vtk.IO.Misc.vtkMTLReader;
     const vtkMapper = vtk.Rendering.Core.vtkMapper;
@@ -222,6 +271,7 @@
 
     const textureCache = new Map();
     const mtlCache = new Map();
+    let environmentTexturePromise = null;
 
     function getTextureImage(url) {
       if (!textureCache.has(url)) {
@@ -261,13 +311,40 @@
       if (!mtlCache.has(url)) {
         mtlCache.set(
           url,
-          fetch(url)
+          fetch(resolveAssetUrl(url))
             .then((response) => response.text())
             .then((text) => parseMtlText(text))
         );
       }
 
       return mtlCache.get(url);
+    }
+
+    function getEnvironmentTexture() {
+      if (!config.environmentLighting || !config.environmentLighting.url || !vtkHDRReader) {
+        return Promise.resolve(null);
+      }
+
+      if (!environmentTexturePromise) {
+        environmentTexturePromise = (async () => {
+          const hdrReader = vtkHDRReader.newInstance();
+          await hdrReader.setUrl(config.environmentLighting.url);
+          await hdrReader.loadData();
+
+          const texture = vtkTexture.newInstance();
+          if (texture.setInputData) {
+            texture.setInputData(hdrReader.getOutputData());
+          }
+          texture.setInterpolate(true);
+          texture.setRepeat(true);
+          return texture;
+        })().catch((error) => {
+          console.error('Unable to load VTK environment texture', error);
+          return null;
+        });
+      }
+
+      return environmentTexturePromise;
     }
 
     function applyNormalColors(polyData, mapper) {
@@ -345,12 +422,46 @@
       }
     }
 
+    async function applyEnvironmentLighting(renderer) {
+      const environmentTexture = await getEnvironmentTexture();
+      if (!environmentTexture) {
+        return;
+      }
+
+      if (renderer.setEnvironmentTexture) {
+        renderer.setEnvironmentTexture(environmentTexture);
+      }
+      if (
+        config.environmentLighting &&
+        typeof config.environmentLighting.diffuseStrength === 'number' &&
+        renderer.setEnvironmentTextureDiffuseStrength
+      ) {
+        renderer.setEnvironmentTextureDiffuseStrength(
+          config.environmentLighting.diffuseStrength
+        );
+      }
+      if (
+        config.environmentLighting &&
+        typeof config.environmentLighting.specularStrength === 'number' &&
+        renderer.setEnvironmentTextureSpecularStrength
+      ) {
+        renderer.setEnvironmentTextureSpecularStrength(
+          config.environmentLighting.specularStrength
+        );
+      }
+    }
+
     function createPlainObjViewer(container) {
       const objUrl = container.dataset.objUrl;
       const shading = container.dataset.shading || 'gouraud';
       const computeNormals = container.dataset.computeNormals === 'true';
+      const materialMode = container.dataset.lightingMode || 'default';
+      const solidColor = (container.dataset.solidColor || '')
+        .split(',')
+        .map((value) => Number(value.trim()))
+        .filter((value) => !Number.isNaN(value));
       const shell = createViewerShell(container);
-      const plainLighting = createMergedLightingConfig(config.vtkLighting, {
+      const plainLighting = getViewerLightingConfig(config, container, {
         ambient: [0.35, 0.35, 0.35],
         sceneLights: [],
       });
@@ -361,7 +472,8 @@
       objReader
         .setUrl(objUrl)
         .then(() => objReader.loadData())
-        .then(() => {
+        .then(async () => {
+          await applyEnvironmentLighting(shell.renderer);
           const polyData = objReader.getOutputData();
 
           if (computeNormals && vtkPolyDataNormals) {
@@ -380,8 +492,14 @@
             shell.mapper.setInputData(polyData);
           }
 
-          configureProperty(shell.actor.getProperty(), null, shading);
-          applyBackfaceProperty(shell.actor, vtkProperty, null, shading);
+          configureProperty(shell.actor.getProperty(), shading, materialMode);
+          if (solidColor.length === 3) {
+            shell.mapper.setScalarVisibility(false);
+            shell.actor
+              .getProperty()
+              .setDiffuseColor(solidColor[0] / 255, solidColor[1] / 255, solidColor[2] / 255);
+          }
+          applyBackfaceProperty(shell.actor, vtkProperty, shading, materialMode);
           finalizeViewer(shell, container);
         })
         .catch((error) => {
@@ -396,22 +514,23 @@
       const objUrl = container.dataset.objUrl;
       const mtlUrl = container.dataset.mtlUrl || '';
       const textureUrl = container.dataset.textureUrl || '';
-      const materialName = container.dataset.materialName || '';
       const shading = container.dataset.shading || 'phong';
       const computeNormals = container.dataset.computeNormals !== 'false';
+      const materialMode = container.dataset.lightingMode || 'default';
       const shell = createViewerShell(container);
-      applyLighting(shell.renderer, config.vtkLighting);
-      addSceneLights(shell.renderer, vtkLight, config.vtkLighting);
+      const viewerLighting = getViewerLightingConfig(config, container);
+      applyLighting(shell.renderer, viewerLighting);
+      addSceneLights(shell.renderer, vtkLight, viewerLighting);
 
-      const mtlReader = mtlUrl ? vtkMTLReader.newInstance() : null;
       const objReader = vtkOBJReader.newInstance();
       const loadPromises = [objReader.setUrl(objUrl).then(() => objReader.loadData())];
-      if (mtlReader) {
-        loadPromises.push(mtlReader.setUrl(mtlUrl).then(() => mtlReader.loadData()));
+      if (mtlUrl) {
+        loadPromises.push(getMtlMetadata(mtlUrl));
       }
 
       Promise.all(loadPromises)
         .then(async () => {
+          await applyEnvironmentLighting(shell.renderer);
           const mtlMetadata = await getMtlMetadata(mtlUrl);
           const polyData = objReader.getOutputData();
           let renderData = polyData;
@@ -437,17 +556,6 @@
 
           shell.mapper.setInputData(renderData);
 
-          if (
-            mtlReader &&
-            mtlReader.applyMaterialToActor &&
-            (materialName || mtlMetadata.materialName)
-          ) {
-            mtlReader.applyMaterialToActor(
-              materialName || mtlMetadata.materialName,
-              shell.actor
-            );
-          }
-
           let diffuseTexture = null;
           const textureCandidates = getTextureCandidates(
             textureUrl,
@@ -464,8 +572,17 @@
           }
 
           shell.mapper.setScalarVisibility(false);
-          configureProperty(shell.actor.getProperty(), diffuseTexture, shading);
-          applyBackfaceProperty(shell.actor, vtkProperty, diffuseTexture, shading);
+          if (shell.actor.removeAllTextures) {
+            shell.actor.removeAllTextures();
+          }
+          if (diffuseTexture && shell.actor.addTexture) {
+            shell.actor.addTexture(diffuseTexture);
+          }
+          if (diffuseTexture && shell.actor.getProperty().setDiffuseTexture) {
+            shell.actor.getProperty().setDiffuseTexture(diffuseTexture);
+          }
+          configureProperty(shell.actor.getProperty(), shading, materialMode);
+          applyBackfaceProperty(shell.actor, vtkProperty, shading, materialMode);
           finalizeViewer(shell, container);
         })
         .catch((error) => {

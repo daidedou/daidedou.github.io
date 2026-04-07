@@ -7,7 +7,7 @@ usemathjax: true
 collection: publications
 permalink: /publication/beyondprompts
 date: 2026-04-01
-teaser: images/beyond_prompts/rabbit_teaser.png
+teaser: beyond_prompts/rabbit_teaser.png
 author:
   - name: Victoria Yue Chen
     site: 
@@ -71,245 +71,87 @@ We demonstrate the utility of this finding in a pose retargeting applications on
 {: style="text-align: justify;"}
 **Sink trap examples**. Sink trap examples. Given various description of a character (dancing girl, surgeon, labrador, astronaut, scary wolf) in different poses, we generate multiple assets using TRELLIS. However, we observe a mode collapse where there is high similarity between the results, despite different prompt describing different actions.
 
-![image-center]({{ site.url }}{{ site.baseurl }}/images/beyond_prompts/flux_vs_trellis_v4.png){: .align-center}
+<style>
+  .bp-geometry-row {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 1rem;
+    align-items: start;
+    margin: 1.5rem 0;
+  }
+
+  .bp-geometry-main img,
+  .bp-geometry-triptych img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .bp-geometry-triptych {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .bp-geometry-card {
+    min-width: 0;
+  }
+
+  .bp-geometry-caption {
+    margin-top: 0.45rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 900px) {
+    .bp-geometry-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bp-geometry-triptych {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="bp-geometry-row">
+  <div class="bp-geometry-main">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/beyond_prompts/flux_vs_trellis_v4.png" alt="Flux versus Trellis comparison">
+  </div>
+
+  <div class="bp-geometry-triptych">
+    <div class="bp-geometry-card">
+      <img src="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/accuracy.svg" alt="Target result">
+      <div class="bp-geometry-caption">Target</div>
+    </div>
+    <div class="bp-geometry-card">
+      <img src="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/accuracy1.svg" alt="Inversion result">
+      <div class="bp-geometry-caption">Inversion with condition</div>
+    </div>
+    <div class="bp-geometry-card">
+      <img src="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/accuracy3.svg" alt="Inversion with empty prompt result">
+      <div class="bp-geometry-caption">Inversion with empty prompt</div>
+    </div>
+  </div>
+</div>
 
 {: style="text-align: justify;"}
-**Geometric expressivity**. The velocity norm of Flux remains stable across different prompt types, whereas TRELLIS exhibits large variations when inputted various language prompt. This property is not true when dealing with unconditional prompts.
+**Geometric expressivity**. The velocity norm of Flux remains stable across different prompt types (left), whereas TRELLIS exhibits large variations when inputted various language prompt. This property is not true when dealing with empty prompts (unconditional distribution). We can invert perfectly with the unconditional distribution, whereas it fails using the conditional distribution.
 
 
 
 # Application: inversion based character retargeting 
 {: style="text-align: center;"}
 
-<style>
-  .bp-application-grid {
-    margin: 2rem 0;
-  }
+We demonstrate the efficiency of the unconditional inversion with a practical application: inversion based character retargeting. Given an out of distribution shape with a certain pose, we retarget the specific pose to a new character, showing superior performances against baselines ([Interactive examples]({{ site.url }}{{ site.baseurl }}/files/beyondprompts_viewer.html))).
 
-  .bp-application-grid,
-  .bp-application-stack {
-    display: grid;
-    gap: 1.5rem;
-  }
+![image-center]({{ site.url }}{{ site.baseurl }}/images/beyond_prompts/big_compare.svg){: .align-center}
 
-  .bp-application-stack {
-    margin: 2rem 0;
-  }
 
-  .bp-viewer-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .bp-header-row {
-    margin-bottom: 0.65rem;
-  }
-
-  .bp-header-cell {
-    text-align: center;
-    font-size: 1.18rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    color: #1e293b;
-  }
-
-  .bp-viewer-card {
-    padding: 0;
-  }
-
-  .bp-vtk-viewer {
-    position: relative;
-    width: 100%;
-    height: 340px;
-    overflow: hidden;
-    background: #ffffff;
-  }
-
-  .bp-vtk-status {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.96));
-    color: #475569;
-    font-size: 0.92rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-
-  .bp-viewer-caption {
-    margin-top: 0.6rem;
-    text-align: center;
-    font-size: 0.92rem;
-    color: #334155;
-    font-weight: 600;
-  }
-
-  @media (max-width: 780px) {
-    .bp-viewer-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<div class="bp-application-grid">
-  <div class="bp-application-stack">
-    <div>
-      <div class="bp-viewer-row bp-header-row">
-        <div class="bp-header-cell">Character + prompt</div>
-        <div class="bp-header-cell">Edit 1</div>
-        <div class="bp-header-cell">Edit 2</div>
-      </div>
-
-      <div class="bp-viewer-row">
-        <div class="bp-viewer-card">
-          <div
-            class="bp-vtk-viewer bp-vtk-plain-obj-viewer"
-            data-camera-view="front"
-            data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/frame_000.obj"
-            data-shading="normal"
-            data-compute-normals="true">
-            <div class="bp-vtk-status">Loading mesh...</div>
-          </div>
-          <div class="bp-viewer-caption">frame_000.obj normal shading</div>
-        </div>
-
-        <div class="bp-viewer-card">
-          <div
-            class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
-            data-camera-view="front"
-            data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/prompt_43_test/prompt_43_test.obj"
-            data-mtl-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/prompt_43_test/prompt_43_test.mtl"
-            data-texture-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/prompt_43_test/Material_0_basecolor.png"
-            data-material-name="Material_0"
-            data-shading="phong">
-            <div class="bp-vtk-status">Loading textured OBJ...</div>
-          </div>
-          <div class="bp-viewer-caption">prompt_43_test VTK texture</div>
-        </div>
-
-        <div class="bp-viewer-card">
-          <div
-            class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
-            data-camera-view="front"
-            data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/prompt_47_test/prompt_47_test.obj"
-            data-mtl-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/prompt_47_test/prompt_47_test.mtl"
-            data-texture-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_maria/prompt_47_test/Material_0_basecolor.png"
-            data-material-name="Material_0"
-            data-shading="phong">
-            <div class="bp-vtk-status">Loading textured OBJ...</div>
-          </div>
-          <div class="bp-viewer-caption">prompt_47_test VTK texture</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-
-      <div class="bp-viewer-row">
-        <div class="bp-viewer-card">
-          <div
-            class="bp-vtk-viewer bp-vtk-plain-obj-viewer"
-            data-camera-view="front"
-            data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/frame_007.obj"
-            data-shading="normal"
-            data-compute-normals="true">
-            <div class="bp-vtk-status">Loading mesh...</div>
-          </div>
-          <div class="bp-viewer-caption">frame_007.obj normal shading</div>
-        </div>
-
-        <div class="bp-viewer-card">
-          <div
-            class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
-            data-camera-view="front"
-            data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_84/prompt_84.obj"
-            data-mtl-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_84/prompt_84.mtl"
-            data-texture-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_84/Material_0_basecolor.png"
-            data-material-name="Material_0"
-            data-shading="phong">
-            <div class="bp-vtk-status">Loading textured OBJ...</div>
-          </div>
-          <div class="bp-viewer-caption">prompt_84 VTK texture</div>
-        </div>
-
-        <div class="bp-viewer-card">
-          <div
-            class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
-            data-camera-view="front"
-            data-obj-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.obj"
-            data-mtl-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.mtl"
-            data-texture-url="{{ site.url }}{{ site.baseurl }}/files/beyond_prompts/prompt_chicken/prompt_86_test/Material_0_basecolor.png"
-            data-material-name="Material_0"
-            data-shading="phong">
-            <div class="bp-vtk-status">Loading textured OBJ...</div>
-          </div>
-          <div class="bp-viewer-caption">prompt_86_test VTK texture</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="https://unpkg.com/vtk.js@35.5.2/vtk.js"></script>
-<script src="{{ site.url }}{{ site.baseurl }}/assets/js/beyond-prompts-viewers.js"></script>
-<script>
-  window.initBeyondPromptsViewers({
-    rerenderDurationMs: 2500,
-    vtkLighting: {
-      ambient: [0.6, 0.6, 0.6],
-      useLightFollowCamera: true,
-      sceneLights: [
-        {
-          position: [1.5, 1.2, 3.6],
-          focalPoint: [0, 0, 0],
-          intensity: 0.75,
-          coneAngle: 80,
-          color: [1, 1, 1]
-        },
-        {
-          position: [0, 3.2, 1.8],
-          focalPoint: [0, 0, 0],
-          intensity: 0.95,
-          coneAngle: 90,
-          color: [1, 1, 1]
-        },
-        {
-          position: [0, -3.2, 1.0],
-          focalPoint: [0, 0, 0],
-          intensity: 0.7,
-          coneAngle: 95,
-          color: [1, 1, 1]
-        },
-        {
-          position: [-5.2, 1.0, 0],
-          focalPoint: [0, 0, 0],
-          intensity: 1.1,
-          coneAngle: 80,
-          color: [1, 1, 1]
-        },
-        {
-          position: [5.2, 1.0, 0],
-          focalPoint: [0, 0, 0],
-          intensity: 1.1,
-          coneAngle: 80,
-          color: [1, 1, 1]
-        },
-        {
-          position: [0, 1.2, -5.5],
-          focalPoint: [0, 0, 0],
-          intensity: 2.1,
-          coneAngle: 70,
-          color: [1, 1, 1]
-        }
-      ]
-    }
-  });
-</script>
-
-This application block shows two VTK.js comparison rows, one for `prompt_maria` and one for `prompt_chicken`, combining normal-shaded source meshes with textured VTK edit views.
 
 
 # Acknowledgements
