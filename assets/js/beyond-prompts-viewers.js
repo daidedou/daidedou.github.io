@@ -58,6 +58,29 @@
       });
     }
 
+    if (mode === 'reduced') {
+      const ambient =
+        config.reducedLighting && config.reducedLighting.ambient
+          ? config.reducedLighting.ambient.slice()
+          : [0.7, 0.7, 0.7];
+
+      if (!Number.isNaN(ambientBoost) && ambientBoost > 0) {
+        ambient[0] = ambientBoost;
+        ambient[1] = ambientBoost;
+        ambient[2] = ambientBoost;
+      }
+
+      return createMergedLightingConfig(config.vtkLighting, {
+        ambient,
+        useLightFollowCamera:
+          config.reducedLighting &&
+          typeof config.reducedLighting.useLightFollowCamera === 'boolean'
+            ? config.reducedLighting.useLightFollowCamera
+            : false,
+        sceneLights: [],
+      });
+    }
+
     if (fallbackOverrides) {
       return createMergedLightingConfig(config.vtkLighting, fallbackOverrides);
     }
@@ -254,6 +277,14 @@
     const backfaceProperty = vtkProperty.newInstance();
     configureProperty(backfaceProperty, shading, materialMode);
     actor.setBackfaceProperty(backfaceProperty);
+  }
+
+  function resetViewerContainer(container, loadingText) {
+    container.innerHTML = '';
+    const status = document.createElement('div');
+    status.className = 'bp-vtk-status';
+    status.textContent = loadingText;
+    container.appendChild(status);
   }
 
   window.initBeyondPromptsViewers = function initBeyondPromptsViewers(config) {
@@ -593,6 +624,58 @@
         });
     }
 
+    function renderViewer(container) {
+      if (container.classList.contains('bp-vtk-plain-obj-viewer')) {
+        resetViewerContainer(container, 'Loading mesh...');
+        createPlainObjViewer(container);
+      } else if (container.classList.contains('bp-vtk-textured-obj-viewer')) {
+        resetViewerContainer(container, 'Loading textured OBJ...');
+        createTexturedObjViewer(container);
+      }
+    }
+
+    function initVariantSelectors() {
+      document.querySelectorAll('.bp-variant-select').forEach((select) => {
+        if (select.dataset.bpBound === 'true') {
+          return;
+        }
+
+        const applySelection = () => {
+          const targetId = select.dataset.targetId;
+          const target = targetId ? document.getElementById(targetId) : null;
+          const option = select.options[select.selectedIndex];
+
+          if (!target || !option) {
+            return;
+          }
+
+          if (option.dataset.objUrl) {
+            target.dataset.objUrl = option.dataset.objUrl;
+          }
+          if (option.dataset.mtlUrl) {
+            target.dataset.mtlUrl = option.dataset.mtlUrl;
+          }
+          if (option.dataset.textureUrl) {
+            target.dataset.textureUrl = option.dataset.textureUrl;
+          }
+          if (option.dataset.materialName) {
+            target.dataset.materialName = option.dataset.materialName;
+          }
+          if (option.dataset.lightingMode) {
+            target.dataset.lightingMode = option.dataset.lightingMode;
+          }
+          if (option.dataset.ambientBrightness) {
+            target.dataset.ambientBrightness = option.dataset.ambientBrightness;
+          }
+
+          renderViewer(target);
+        };
+
+        select.addEventListener('change', applySelection);
+        select.dataset.bpBound = 'true';
+      });
+    }
+
     document.querySelectorAll('.bp-vtk-plain-obj-viewer').forEach((container) => {
       createPlainObjViewer(container);
     });
@@ -600,5 +683,7 @@
     document.querySelectorAll('.bp-vtk-textured-obj-viewer').forEach((container) => {
       createTexturedObjViewer(container);
     });
+
+    initVariantSelectors();
   };
 })();

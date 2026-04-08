@@ -77,6 +77,10 @@
         background: transparent;
       }
 
+      .bp-vtk-viewer--with-overlay {
+        position: relative;
+      }
+
       .bp-vtk-status {
         position: absolute;
         inset: 0;
@@ -96,6 +100,23 @@
         font-size: 0.92rem;
         font-weight: 600;
         color: #334155;
+      }
+
+      .bp-viewer-controls {
+        position: absolute;
+        top: 0.8rem;
+        right: 5.2rem;
+        z-index: 10;
+      }
+
+      .bp-variant-select {
+        max-width: 100%;
+        padding: 0.3rem 0.65rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 0.4rem;
+        background: rgba(255, 255, 255, 0.92);
+        color: #334155;
+        font: inherit;
       }
 
       .bp-caption-label,
@@ -121,7 +142,9 @@
   <body>
     <main class="viewer-shell">
       <h1 class="viewer-title">Beyond Prompts Viewer</h1>
-      <p class="viewer-subtitle">Standalone VTK comparison viewer for Maria and Chicken examples.</p>
+      <p class="viewer-subtitle">Interactive exaamples of Beyond Prompts results compared to baselines. 
+        The original TRELLIS pipeline only affects texture and does not change the geometry. 
+        Because inversion is failing, Voxhammer fails to provide meaningful geometric edits, and sometimes fail to reconstruct the geometry properly.</p>
 
       <div class="bp-application-stack">
         <section>
@@ -187,8 +210,39 @@
               <div class="bp-viewer-caption"><span class="bp-caption-label">A chicken</span>, <span class="bp-caption-prompt"> storming forward.</span></div>
             </div>
 
-            <div>
+            <div class="bp-vtk-viewer--with-overlay">
+              <div class="bp-viewer-controls">
+                <select class="bp-variant-select" data-target-id="bp-chicken-edit-1">
+                  <option
+                    value="default"
+                    data-obj-url="./beyond_prompts/prompt_chicken/prompt_84/prompt_84.obj"
+                    data-mtl-url="./beyond_prompts/prompt_chicken/prompt_84/prompt_84.mtl"
+                    data-texture-url="./beyond_prompts/prompt_chicken/prompt_84/Material_0_basecolor.png"
+                    data-material-name="Material_0"
+                    data-lighting-mode="ambient-only"
+                    data-ambient-brightness="1.3"
+                    data-shading="phong"
+                    selected>Ours</option>
+                  <option
+                    value="trellis"
+                    data-obj-url="./beyond_prompts/prompt_chicken/trellis/prompt_84/prompt_84.obj"
+                    data-mtl-url="./beyond_prompts/prompt_chicken/trellis/prompt_84/prompt_84.mtl"
+                    data-texture-url="./beyond_prompts/prompt_chicken/trellis/prompt_84/Material_0_basecolor.png"
+                    data-material-name="Material_0"
+                    data-lighting-mode="ambient-only"
+                    data-ambient-brightness="1.1">TRELLIS</option>
+                  <option
+                    value="voxhammer"
+                    data-obj-url="./beyond_prompts/prompt_chicken/voxhammer/prompt_84/prompt_84.obj"
+                    data-mtl-url="./beyond_prompts/prompt_chicken/voxhammer/prompt_84/prompt_84.mtl"
+                    data-texture-url="./beyond_prompts/prompt_chicken/voxhammer/prompt_84/Material_0_basecolor.png"
+                    data-material-name="Material_0"
+                    data-lighting-mode="reduced"
+                    data-ambient-brightness="1.1">Voxhammer</option>
+                </select>
+              </div>
               <div
+                id="bp-chicken-edit-1"
                 class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
                 data-camera-view="front"
                 data-obj-url="./beyond_prompts/prompt_chicken/prompt_84/prompt_84.obj"
@@ -196,14 +250,45 @@
                 data-texture-url="./beyond_prompts/prompt_chicken/prompt_84/Material_0_basecolor.png"
                 data-material-name="Material_0"
                 data-lighting-mode="ambient-only"
+                data-ambient-brightness="1.3"
                 data-shading="phong">
                 <div class="bp-vtk-status">Loading textured OBJ...</div>
               </div>
               <div class="bp-viewer-caption"><span class="bp-caption-edit">A turkey</span>, <span class="bp-caption-prompt">storming forward.</span></div>
             </div>
 
-            <div>
+            <div class="bp-vtk-viewer--with-overlay">
+              <div class="bp-viewer-controls">
+                <select class="bp-variant-select" data-target-id="bp-chicken-edit-2">
+                  <option
+                    value="default"
+                    data-obj-url="./beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.obj"
+                    data-mtl-url="./beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.mtl"
+                    data-texture-url="./beyond_prompts/prompt_chicken/prompt_86_test/Material_0_basecolor.png"
+                    data-material-name="Material_0"
+                    data-lighting-mode="ambient-only"
+                    data-ambient-brightness="1.3"
+                    selected>Ours</option>
+                  <option
+                    value="trellis"
+                    data-obj-url="./beyond_prompts/prompt_chicken/trellis/prompt_86/prompt_86.obj"
+                    data-mtl-url="./beyond_prompts/prompt_chicken/trellis/prompt_86/prompt_86.mtl"
+                    data-texture-url="./beyond_prompts/prompt_chicken/trellis/prompt_86/Material_0_basecolor.png"
+                    data-material-name="Material_0"
+                    data-lighting-mode="ambient-only"
+                    data-ambient-brightness="1.1">TRELLIS</option>
+                  <option
+                    value="voxhammer"
+                    data-obj-url="./beyond_prompts/prompt_chicken/voxhammer/prompt_86/prompt_86.obj"
+                    data-mtl-url="./beyond_prompts/prompt_chicken/voxhammer/prompt_86/prompt_86.mtl"
+                    data-texture-url="./beyond_prompts/prompt_chicken/voxhammer/prompt_86/Material_0_basecolor.png"
+                    data-material-name="Material_0"
+                    data-lighting-mode="reduced"
+                    data-ambient-brightness="0.1">Voxhammer</option>
+                </select>
+              </div>
               <div
+                id="bp-chicken-edit-2"
                 class="bp-vtk-viewer bp-vtk-textured-obj-viewer"
                 data-camera-view="front"
                 data-obj-url="./beyond_prompts/prompt_chicken/prompt_86_test/prompt_86_test.obj"
@@ -211,7 +296,7 @@
                 data-texture-url="./beyond_prompts/prompt_chicken/prompt_86_test/Material_0_basecolor.png"
                 data-material-name="Material_0"
                 data-lighting-mode="ambient-only"
-                data-ambient-brightness="6.5"
+                data-ambient-brightness="1.3"
                 data-shading="phong">
                 <div class="bp-vtk-status">Loading textured OBJ...</div>
               </div>

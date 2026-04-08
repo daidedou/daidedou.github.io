@@ -120,7 +120,7 @@ We demonstrate the efficiency of the unconditional inversion with a practical ap
 
 # Acknowledgements
 
-Parts of this work were supported by the ERC Consolidator Grant ``VEGA’' (No. 101087347), as well as gifts from Ansys Inc., and Adobe Research.
+Parts of this work were supported by the ERC Consolidator Grant VEGA (No. 101087347), as well as gifts from Ansys Inc., and Adobe Research.
 
 # Citation
 
