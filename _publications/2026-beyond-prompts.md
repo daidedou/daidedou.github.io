@@ -21,6 +21,8 @@ category: preprint
 paperurl: https://daidedou.github.io
 ---
 
+<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/css/beyond-prompts.css">
+
 ## Victoria Yue Chen, Emery Pierson, [Léopold Maillard](https://www.lix.polytechnique.fr/~maillard/), [Maks Ovsjanikov](https://www.lix.polytechnique.fr/~maks/)
 {: style="text-align: center;"}
 
@@ -63,6 +65,15 @@ We demonstrate the utility of this finding in a pose retargeting applications on
 
 {: style="text-align: justify;"}
 
+<div class="bp-video-embed">
+  <iframe 
+    src="https://drive.google.com/file/d/1w5WQpPGpmt4_jOnn6VLnm5A8p7Dw7NAo/preview"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
 # Expressivity of Language and Geometry
 {: style="text-align: center;"}
 
@@ -70,53 +81,6 @@ We demonstrate the utility of this finding in a pose retargeting applications on
 
 {: style="text-align: justify;"}
 **Sink trap examples**. Sink trap examples. Given various description of a character (dancing girl, surgeon, labrador, astronaut, scary wolf) in different poses, we generate multiple assets using TRELLIS. However, we observe a mode collapse where there is high similarity between the results, despite different prompt describing different actions.
-
-<style>
-  .bp-geometry-row {
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: 1rem;
-    align-items: start;
-    margin: 1.5rem 0;
-  }
-
-  .bp-geometry-main img,
-  .bp-geometry-triptych img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .bp-geometry-triptych {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
-
-  .bp-geometry-card {
-    min-width: 0;
-  }
-
-  .bp-geometry-caption {
-    margin-top: 0.45rem;
-    text-align: center;
-    font-size: 0.9rem;
-    line-height: 1.25;
-    overflow-wrap: anywhere;
-  }
-
-  @media (max-width: 900px) {
-    .bp-geometry-row {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .bp-geometry-triptych {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
 
 <div class="bp-geometry-row">
   <div class="bp-geometry-main">
