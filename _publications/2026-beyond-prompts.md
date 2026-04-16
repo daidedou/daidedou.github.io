@@ -56,12 +56,15 @@ paperurl: https://daidedou.github.io
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/images/beyond_prompts/rabbit_teaser.png){: .align-center}
 
-<p style="font-size:1.2em;"><strong>TL;DR</strong></p>
-
-We study text-driven inversion of 3D generative models.  
-We found the existence of *sink traps*: the model can become insensitive to prompts during generation (generating only one shape).  
-Despite this propertly, the models retain strong geometric expressiveness in the unconditional distribution. 
-We demonstrate the utility of this finding in a pose retargeting applications on various out-of-distribution shapes.
+<div class="bp-tldr">
+  <p class="bp-tldr-title">TL;DR</p>
+  <p>
+    We study text-driven inversion of 3D generative models.
+    We find the existence of <em>sink traps</em>: the model can become insensitive to prompts during generation, effectively collapsing to a single shape.
+    Despite this property, the models retain strong geometric expressiveness in the unconditional distribution.
+    We demonstrate this finding by proposing a novel pose-retargeting editing pipeline using our unconditional 3D inversion on out-of-distribution shapes.
+  </p>
+</div>
 
 {: style="text-align: justify;"}
 
