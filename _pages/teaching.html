@@ -1,12 +1,49 @@
 ---
 layout: archive
-title: "Teaching"
+title: "Teaching and Talks"
 permalink: /teaching/
 author_profile: true
+usemathjax: true
 ---
 
 {% include base_path %}
 
+<h2 class="teaching-talks__subtitle">Teaching</h2>
+
 {% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+  <div class="list__item teaching-talks__item">
+    <details class="teaching-talks__details">
+      <summary class="teaching-talks__summary">
+        <span class="teaching-talks__title">{{ post.title }}</span>
+        <span class="teaching-talks__meta">
+          {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}
+        </span>
+      </summary>
+      <div class="teaching-talks__content">
+        {{ post.content | markdownify }}
+      </div>
+    </details>
+  </div>
+{% endfor %}
+
+<h2 class="teaching-talks__subtitle">Talks</h2>
+
+{% for post in site.talks reversed %}
+  {% unless post.hidden %}
+    <div class="list__item teaching-talks__item">
+      <details class="teaching-talks__details">
+        <summary class="teaching-talks__summary">
+          <span class="teaching-talks__title">{{ post.title }}</span>
+          <span class="teaching-talks__meta">
+            {{ post.date | default: "1900-01-01" | date: "%Y" }}, {{ post.venue }}{% if post.event %}, {{ post.event }}{% endif %}
+          </span>
+        </summary>
+        {% if post.content != "" %}
+          <div class="teaching-talks__content">
+            {{ post.content | markdownify }}
+          </div>
+        {% endif %}
+      </details>
+    </div>
+  {% endunless %}
 {% endfor %}
