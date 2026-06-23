@@ -1,7 +1,7 @@
 ---
 title: " PaNDaS: Learnable Deformation Modeling with Localized Control"
 collection: publications
-category: preprint
+venue: 'IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)'
 classes: wide
 author_profile: false
 usemathjax: true

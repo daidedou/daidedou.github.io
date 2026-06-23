@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Short CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,6 +8,8 @@ redirect_from:
 ---
 
 {% include base_path %}
+
+This page serves as a really basic resume. A more detailed one is available [here](https://daidedou.github.io/files/Emery_Pierson_Resume.pdf) 
 
 Education
 ======
@@ -20,7 +22,7 @@ Pr. Juan Carlos Alvarez Paiva, Université de Lille, 2023
 
 Work experience
 ======
-* Jan 2024 - Dec 2025: Postdoc
+* Jan 2024 - July 2026: Postdoc
   * Lix, Polytechnique
   * Generative models for non-rigid shapes
   * Supervisor: Maks Ovsjanikov
@@ -48,7 +50,7 @@ Work experience
 * Jan 2018 - Jul 2018: Internship
   * Daimler AG
   * Augmented Reality Conformance Testing
-=======
+  
 * Jul 2017 - Dec 2017: Internship
   * Central Commission of Nuclear Energy and Alternative Energies (CEA)
   * High resolution and hyperspectral images registration
@@ -86,6 +88,9 @@ Commitments
 * [3DOR 2023](https://sites.google.com/view/3dor2023/organizers): Program commitee member
 * [3DOR 2025](https://3dor.cs.ucl.ac.uk/organizers_1): Program commitee member
 * Reviewer
-  * Computer and Graphics
-  * ECCV Workshops
+  * Computer and Graphics (since 2023)
+  * ECCV Workshops (2024)
+  * Transaction on Graphics (since 2025)
+  * CVPR (2026)
+  * ICML (2026)
 

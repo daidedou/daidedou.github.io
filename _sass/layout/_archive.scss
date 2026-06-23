@@ -45,13 +45,26 @@
 }
 
 .archive__item-title {
-  margin-bottom: 0.25em;
+  margin-bottom: 0em;
+  margin-top: 0;
   font-family: $sans-serif-narrow;
 
-  font-size: 1.25rem;
+  font-size: 1rem;
+  @include breakpoint(max-width $medium) {
+    font-size: 0.9rem;
+  }
   a + a {
     opacity: 0.5;
   }
+}
+
+.archive__item-title a {
+  text-decoration: none;
+  color: rgb(72, 129, 233);  // darker blue
+}
+
+.archive__item-title a:hover {
+  text-decoration: underline;
 }
 
 /* remove border*/
@@ -79,6 +92,19 @@
   overflow: hidden;
   img {
     width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+  }
+}
+
+.pub-teaser {
+  flex: 0 1 180px;
+  width: 180px;
+}
+
+@include breakpoint(max-width $small) {
+  .pub-teaser {
+    display: none;
   }
 }
 
@@ -89,6 +115,63 @@
 
   .archive__item-title {
     text-decoration: underline;
+  }
+}
+
+.teaching-talks__subtitle {
+  margin: 1.5em 0 0.75em;
+  padding-bottom: 0.25em;
+  color: var(--global-text-color);
+  font-family: $sans-serif;
+  font-size: $type-size-4;
+}
+
+.teaching-talks__item {
+  margin: 0.75em 0 1em;
+}
+
+.teaching-talks__details,
+.teaching-talks__talk {
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.teaching-talks__summary {
+  cursor: pointer;
+  color: var(--global-text-color);
+}
+
+.teaching-talks__summary::marker {
+  color: var(--global-text-color-light);
+  font-size: 0.85em;
+}
+
+.teaching-talks__summary::-webkit-details-marker {
+  color: var(--global-text-color-light);
+  font-size: 0.85em;
+}
+
+.teaching-talks__title {
+  margin: 0;
+  font-family: $sans-serif-narrow;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--global-text-color);
+}
+
+.teaching-talks__meta {
+  display: block;
+  margin: 0.15em 0 0;
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+}
+
+.teaching-talks__content {
+  margin: 0.75em 0 0 1.1em;
+
+  p {
+    margin-bottom: 0;
   }
 }
 
@@ -249,5 +332,14 @@
         width: span(7 of 12);
       }
     }
+  }
+}
+
+.archive__meta {
+  margin-top: 0em;
+  font-size: 0.95rem;
+
+  @include breakpoint($small) {
+    font-size: 0.8rem;
   }
 }

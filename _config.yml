@@ -13,7 +13,7 @@ title                    : "Emery Pierson"
 title_separator          : "-"
 name                     : &name "Emery Pierson"
 description              : &description "Short description"
-url                      : https://daidedou.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://daidedou.sorpi.fr # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "daidedou/daidedou.github.io"
 
@@ -25,15 +25,15 @@ author:
   avatar           : "photo_2023-04-05_17-57-42.jpg"
   name             : "Emery Pierson"
   pronouns         : # example: "she/her"  
-  bio              : "PhD in computer science. Actually in Paris."
-  location         : "Viroflay"
+  bio              : "PhD in computer science. Currently in Paris."
+  location         : "Saclay"
   employer         : "Lix, Polytechnique"
   uri              : # URL
   email            : "emery.pierson@courrier.dev" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : # URL "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.fr/citations?user=yjwG8S0AAAAJ&hl=fr"
   impactstory      : # URL
   orcid            : "https://orcid.org/0009-0006-5243-2974"
   semantic         : # URL
@@ -50,7 +50,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : # "bsky.app" # Replace this with you Bluesky username
+  bluesky          : "daidedou.bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -223,9 +223,9 @@ collections:
   # portfolio:
   #   output: true
   #   permalink: /:collection/:path/
-  # talks:
-  #   output: true
-  #   permalink: /:collection/:path/
+  talks:
+    output: true
+    permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -276,13 +276,13 @@ defaults:
   #     share: true
   #     comment: true
   # _talks
-  # - scope:
-  #     path: ""
-  #     type: talks
-  #   values:
-  #     layout: talk
-  #     author_profile: true
-  #     share: true
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+      author_profile: true
+      share: true
 
 
 # Sass/SCSS

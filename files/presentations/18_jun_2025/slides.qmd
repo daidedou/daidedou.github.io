@@ -1,0 +1,80 @@
+---
+title: "CVPR 2026 impressions"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 2em;
+      }
+      </style>
+format:
+  revealjs:
+    auto-stretch: true
+css: styles.css
+bibliography: slides.bib
+---
+
+## Conferences before
+
+![&nbsp;](images/empty.jpeg)
+
+
+## Conferences before
+
+![&nbsp;](images/aumcjt.jpg)
+
+## Solution:
+### Workshop on bitter lessons!
+
+- Three sessions with three speakers talking about the bitter lesson (and more broadly the AI "explosion") + panel discussions
+
+- Jon Barron: "3D = bitter lessonned?"
+
+- Vincent Sitzmann: "3D (and more broadly mid-level vision) is useless"
+
+- Bharath Hahirahan: "Mid level vision is useful"
+
+
+## Is 3D useful?
+
+Two contradictory signals:
+
+- Workshop on bitter lessons: avoid 3D when you don't need it *explicitely*
+
+- Last 3 best papers:
+    - Dust3r (unofficial)
+    - VGGT 
+    - D4RT
+
+- Small scale experiments on transfer learning for VGG-$\Omega$ (+ numerous papers on improving video generation using explicit 3D).
+
+## Random takes {.smaller}
+
+- 3D for vision might be dead, but vision for 3D is definitely alive [@Li2026ART; @Liu2026DeepFeature; @Xiao2026Universal3D].
+
+- "3D is dead" &ne; "Geometry is dead" [@Chiang2026COTFM; @Luo2026FlowMatching]
+
+- 2026: LLMs still don't improve the quality of orals or posters
+
+- TRELLIS structured latent space enables numerous applications (tokenization[@dutt2026lost], editing[@Hu2026Easy3E], morphing[@Sun2026MorphAny3D], improving trellis[@Xia2026Pointsto] (again), ...)
+
+- *Weak* signal that DinoV3 is not that better that DinoV2
+
+
+## BrickNet: Graph-Backed Generative Brick Assembly
+
+![&nbsp;](images/bricknet.png)
+
+## BrickNet: Graph-Backed Generative Brick Assembly
+
+![&nbsp;](images/bricknet2.png)
+
+## Can You Learn to See Without Images? Procedural Warm-Up for Vision Transformers
+
+![&nbsp;](images/procedural.png)
+
+## Can You Learn to See Without Images? Procedural Warm-Up for Vision Transformers
+
+![&nbsp;](images/procedural.png)
+
+![&nbsp;](images/procedural2.png)

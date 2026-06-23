@@ -15,7 +15,7 @@
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     <div style="display: flex; gap: 1rem; align-items: center; margin:0">
-      <div class="archive__item-teaser" style="flex: 1;">
+      <div class="archive__item-teaser pub-teaser">
         <img src=
           {% if teaser contains "://" %}
             "{{ teaser }}"
@@ -26,7 +26,6 @@
       </div>
     
     <div style="flex: 3;">
-    <p>
     <h3 class="archive__item-title" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}" class="big-text">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
@@ -34,13 +33,16 @@
         <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h3>
-    {% for auth in post.author %}
-      {% if auth.site %}
+
+    <p class="archive__meta">
+    {% for auth in post.author -%}
+      {%- if auth.site -%}
         <a href="{{ auth.site }}" class="my-link">{{ auth.name }}</a>
-      {% else %}
+      {%- else -%}
         {{ auth.name }}
-      {% endif %}
-    {% endfor %}
+      {%- endif -%}
+      {%- unless forloop.last -%}, {% endunless -%}
+    {%- endfor %}
     <br/>
     {% if post.venue %}
     <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}
@@ -48,18 +50,35 @@
     <i> Preprint </i>
     {% endif %}
     <br/>
-    Links: 
-        <a href={% if post.paperurl contains "://" %}
-                    "{{ post.paperurl }}"
-                {% else %}
-                    "{{ post.paperurl | prepend: "/files/" | prepend: base_path }}"
-                {% endif %}>Paper</a> 
-        {% if post.code %},
-        <a href=" {{ post.code }} ">Code</a>
-        {% endif %}
-        {% if post.video %},
-        <a href=" {{ post.video }} ">Video</a>
-        {% endif %}
+    Links:&nbsp; 
+        {%- assign links = "" | split: "" -%}
+
+        {%- if post.website -%}
+          {%- capture website_link -%}<a href="{{ post.website }}">Website</a>{%- endcapture -%}
+          {%- assign links = links | push: website_link -%}
+        {%- endif -%}
+
+        {%- capture paper_link -%}
+        <a href="{% if post.paperurl contains '://' -%}{{ post.paperurl }}{%- else -%}{{ post.paperurl | prepend: '/files/' | prepend: base_path }}{%- endif -%}">Paper</a>
+        {%- endcapture -%}
+        {%- assign links = links | push: paper_link -%}
+
+        {%- if post.code -%}
+          {%- capture code_link -%}<a href="{{ post.code }}">Code</a>{%- endcapture -%}
+          {%- assign links = links | push: code_link -%}
+        {%- endif -%}
+
+        {%- if post.video -%}
+          {%- capture video_link -%}<a href="{{ post.video }}">Video</a>{%- endcapture -%}
+          {%- assign links = links | push: video_link -%}
+        {%- endif -%}
+
+        {%- if post.demo -%}
+          {%- capture demo_link -%}<a href="{{ post.demo }}">Demo</a>{%- endcapture -%}
+          {%- assign links = links | push: demo_link -%}
+        {%- endif -%}
+
+        {{ links | join: ", " }}
     </p>
     </div>
   </div>

@@ -20,6 +20,7 @@ author:
 venue: International Conference on Computer Vision (ICCV)
 teaser: unregistered/overview.png
 paperurl: https://openaccess.thecvf.com/content/ICCV2023/html/Hartman_BaRe-ESA_A_Riemannian_Framework_for_Unregistered_Human_Body_Shapes_ICCV_2023_paper.html
+code: https://github.com/emmanuel-hartman/BaRe-ESA
 ---
 ## [Emmanuel Hartman](https://github.com/emmanuel-hartman/), Emery Pierson, [Martin Bauer](https://www.math.fsu.edu/~bauer/), [Nicolas Charon](https://www.math.uh.edu/~ncharon/index.html), [Mohamed Daoudi](https://sites.google.com/view/mohameddaoudi)
 {: style="text-align: center;"}
