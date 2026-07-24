@@ -48,6 +48,8 @@ jobs:
       - name: Compile CV with XeLaTeX
         uses: xu-cheng/latex-action@v4
         with:
+          os: debian
+          extra_system_packages: fonts-lato
           root_file: cv.tex
           working_directory: cv
           latexmk_use_xelatex: true
