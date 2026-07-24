@@ -1,95 +1,74 @@
 ---
 layout: archive
-title: "Short CV"
+title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+I am a computer science researcher working at the intersection of geometry,
+machine learning, and 3D vision. My work focuses on geometric deep learning,
+non-rigid shape analysis, and generative models for complex 3D data.
 
-This page serves as a short resume. [Download the full CV as a PDF]({{ '/files/cv.pdf' | relative_url }}).
+## Latest degree
 
-Education
-======
-* Ph.D: 3D and 4D Human body surface comparison and deformation, supervised by Pr. Mohamed Daoudi and
-Pr. Juan Carlos Alvarez Paiva, Université de Lille, 2023
-* Paris-Saclay University, Master degree "Maths, Vision, Learning", 2019
-* CentraleSupélec, Cursus Ingénieur Supélec, Applied Maths Option, 2019
-* Université Paris-Sud, Bachelor's degree, Basic and Applied Mathematics, 2015
+**PhD in Computer Science and Applied Mathematics — University of Lille, 2023**
 
+My doctoral research focused on the comparison, retrieval, deformation, and
+representation of 3D and 4D human-body surfaces.
 
-Work experience
-======
-* Jan 2024 - July 2026: Postdoc
-  * Lix, Polytechnique
-  * Generative models for non-rigid shapes
-  * Supervisor: Maks Ovsjanikov
+## Latest professional experience
 
-* Sep 2024 - Dec 2024: Research Engineer
-  * CHU Lille
-  * Clinique et AnaLYses PSychiatriques Objectives (CALYPSO)
-  * Supervisor: Ali Amad
+**Postdoctoral Researcher — LIX, École Polytechnique · Jan 2024–Dec 2026**
 
-* April 2023 - July 2024: Postdoc
-  * Vienna University
-  * Riemannian shape analysis of unparameterized non-rigid shapes
-  * Supervisor: Martin Bauer
+I develop generative models for non-rigid 3D shapes from raw scans with little
+or no preprocessing, with an emphasis on robust geometric representations and
+data-driven shape analysis.
 
-* April 2022: Visiting Scholar
-  * Florida State University
-  * Riemannian shape analysis of unparameterized human body scans
-  * Supervisor: Martin Bauer
+## Full curriculum vitae
 
-* April 2019 - Dec 2019: Internship
-  * A-Volute (Now Steelseries)
-  * Multi-task Learning: Application to Music Source Separation
-  * Supervisor: Nathan Souviraa Labastie
+The complete CV, including publications, teaching, academic service, invited
+talks, and technical skills, is available below.
 
-* Jan 2018 - Jul 2018: Internship
-  * Daimler AG
-  * Augmented Reality Conformance Testing
-  
-* Jul 2017 - Dec 2017: Internship
-  * Central Commission of Nuclear Energy and Alternative Energies (CEA)
-  * High resolution and hyperspectral images registration
+<a href="{{ '/files/cv.pdf' | relative_url }}" class="btn btn--primary">
+  Download the CV as PDF
+</a>
 
-Skills
-======
-* Python
-  * Pytorch
-  * Scikit
-  * VTK
-  * OpenCV
-* HTML
-* CSS
+<!-- <object
+  data="{{ '/files/cv.pdf' | relative_url }}#page=1&view=FitH"
+  type="application/pdf"
+  width="100%"
+  height="800"
+  style="height: min(80vh, 800px); margin-top: 1.5rem; border: 1px solid #e5e7eb;"
+  aria-label="Emery Pierson curriculum vitae">
+  <p>
+    This browser cannot display the embedded PDF.
+    <a href="{{ '/files/cv.pdf' | relative_url }}">Open the CV in a new tab.</a>
+  </p>
+</object> -->
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-<!-- Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul> -->
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Commitments
-======
-* [3DOR 2023](https://sites.google.com/view/3dor2023/organizers): Program commitee member
-* [3DOR 2025](https://3dor.cs.ucl.ac.uk/organizers_1): Program commitee member
-* Reviewer
-  * Computer and Graphics (since 2023)
-  * ECCV Workshops (2024)
-  * Transaction on Graphics (since 2025)
-  * CVPR (2026)
-  * ICML (2026)
+<div class="cv-pdf">
+  <iframe
+    src="{{ '/files/cv.pdf' | relative_url }}#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+    title="Curriculum Vitae d’Emery Pierson"
+    loading="lazy">
+  </iframe>
+</div>
+
+<style>
+  .cv-pdf {
+    width: 100%;
+    height: min(80vh, 800px);
+    margin-top: 1.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+  }
+
+  .cv-pdf iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
