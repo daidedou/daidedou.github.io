@@ -1,0 +1,10 @@
+% MINIMAL — monochrome Swiss-inspired grid, sans serif.
+\setmainfont{TeX Gyre Heros}\setsansfont{TeX Gyre Heros}
+\definecolor{CVText}{HTML}{202020}\definecolor{CVHeading}{HTML}{000000}
+\definecolor{CVAccent}{HTML}{D9482B}\definecolor{CVMute}{HTML}{666666}
+\definecolor{CVSoft}{HTML}{F0F0F0}\definecolor{CVLink}{HTML}{B8321B}
+\input{themes/slate-base}
+\renewcommand{\NameFont}{\fontsize{32}{34}\selectfont\bfseries}
+\renewcommand{\HeaderEnd}{\par\vspace{4pt}\color{CVHeading}\rule{\linewidth}{1.2pt}}
+\renewcommand{\SectionPrefix}{\textcolor{CVMute}{\small 0\thesection}\hspace{3mm}}
+\renewcommand{\SectionRule}{}

@@ -1,0 +1,10 @@
+% COBALT — bold product-style hierarchy, sans serif, blue panels.
+\setmainfont{Roboto}\setsansfont{Roboto}
+\definecolor{CVText}{HTML}{25344A}\definecolor{CVHeading}{HTML}{062A5E}
+\definecolor{CVAccent}{HTML}{087EA4}\definecolor{CVMute}{HTML}{64748B}
+\definecolor{CVSoft}{HTML}{E6F6FA}\definecolor{CVLink}{HTML}{087EA4}
+\input{themes/slate-base}
+\renewcommand{\NameFont}{\fontsize{30}{32}\selectfont\bfseries}
+\renewcommand{\HeaderEnd}{\par\vspace{5pt}\color{CVSoft}\rule{\linewidth}{7pt}}
+\renewcommand{\SectionPrefix}{\colorbox{CVAccent}{\textcolor{white}{\strut\,\rule{2mm}{0pt}\,}}\hspace{2mm}}
+\renewcommand{\SectionRule}{}

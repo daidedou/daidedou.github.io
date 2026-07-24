@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-This page serves as a really basic resume. A more detailed one is available [here](https://daidedou.github.io/files/Emery_Pierson_Resume.pdf) 
+This page serves as a short resume. [Download the full CV as a PDF]({{ '/files/cv.pdf' | relative_url }}).
 
 Education
 ======
@@ -93,4 +93,3 @@ Commitments
   * Transaction on Graphics (since 2025)
   * CVPR (2026)
   * ICML (2026)
-

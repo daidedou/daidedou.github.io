@@ -1,0 +1,100 @@
+% Semantic components. Theme files provide the colours, fonts and spacing tokens.
+\hypersetup{colorlinks=true,urlcolor=CVLink,linkcolor=CVAccent,pdfauthor={Emery Pierson},pdftitle={Emery Pierson — Curriculum Vitae}}
+\urlstyle{same}
+\color{CVText}
+\fancyfoot[C]{\FooterStyle Emery Pierson \textcolor{CVMute}{·} \thepage/\pageref*{LastPage}}
+
+\titleformat{\section}
+  {\SectionFont\color{CVAccent}}{}{0pt}{\SectionPrefix}[\SectionRule]
+\titlespacing*{\section}{0pt}{\SectionBefore}{\SectionAfter}
+
+\newcommand{\CVHeader}[4]{%
+  \HeaderStart
+  {\NameFont\color{CVHeading}#1}\par
+  \vspace{2pt}{\TaglineFont\color{CVAccent}#2}\par
+  \vspace{\HeaderGap}
+  {\ContactFont
+    \href{mailto:#3}{\faEnvelope\enspace #3}\ContactSep
+    \faPhone\enspace #4}
+  \HeaderEnd\color{CVText}
+}
+
+\newcommand{\CVIntro}[1]{\vspace{8pt}{\IntroFont\color{CVText}#1}\par}
+
+\newcommand{\CVSection}[1]{\section{#1}}
+
+\newcommand{\CVEntry}[4]{%
+  \Needspace{4\baselineskip}
+  \EntryStart
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{.37\linewidth}@{}}
+    {\EntryTitleFont\color{CVHeading}\ifstrempty{#3}{#1}{#3}%
+      \ifstrempty{#3}{}{\hspace{.65em}{\MetaFont\mdseries\color{CVAccent}#1}}}
+      & {\MetaFont\color{CVMute}#4\ifstrempty{#2}{}{\hspace{.5em}\textcolor{CVSoft}{\textbullet}\hspace{.5em}#2}}
+  \end{tabularx}
+  \EntryEnd
+}
+
+\newcommand{\CVDetail}[2]{%
+  \begin{minipage}{\linewidth}
+  \vspace{\DetailBefore}
+  \ifstrempty{#1}{}{{\DetailTitleFont\color{CVHeading}#1}\enspace}
+  {\BodyFont #2}
+  \vspace{\DetailAfter}
+  \end{minipage}
+}
+
+\newcommand{\CVBulletsStart}{\begin{itemize}[leftmargin=1.25em,label=\textcolor{CVAccent}{\small\bullet},itemsep=2pt,topsep=3pt]}
+\newcommand{\CVBulletsEnd}{\end{itemize}}
+\newcommand{\CVBullet}[1]{\item {\BodyFont #1}}
+
+\newcommand{\CVPublication}[3]{%
+  \Needspace{3\baselineskip}
+  \PubStart
+  {\PublicationTitleFont\color{CVHeading}#1}\par
+  {\PublicationAuthorsFont #2}\par
+  {\PublicationVenueFont\color{CVAccent}#3}\par
+  \PubEnd
+}
+
+\newcommand{\CVTalk}[4]{%
+  \Needspace{3\baselineskip}
+  \EntryStart
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{.20\linewidth}@{}}
+    {\EntryTitleFont\color{CVHeading}#1%
+      \ifstrempty{#2}{}{\hspace{.65em}{\MetaFont\mdseries\color{CVAccent}#2}}}
+      & {\MetaFont\color{CVMute}#3}
+  \end{tabularx}
+  \vspace{1pt}{\BodyFont\itshape\color{CVText}#4}\par
+  \vspace{4pt}
+}
+
+% A compact, intentionally distinct block for recurring peer-review service.
+\newcommand{\CVReviewStart}{%
+  \Needspace{6\baselineskip}
+  \vspace{5pt}{\normalsize\bfseries\scshape\color{CVHeading}Peer Review}\par
+  \vspace{2pt}
+  \begin{itemize}[leftmargin=1.15em,label=\textcolor{CVAccent}{\raisebox{.15ex}{\scriptsize\textbullet}},itemsep=1pt,topsep=0pt,parsep=0pt]
+}
+\newcommand{\CVReview}[3]{%
+  \item {\BodyFont #1\ifstrempty{#2}{}{, \textcolor{CVMute}{#2}}%
+    \ifstrempty{#3}{}{ --- \textit{#3}}}
+}
+\newcommand{\CVReviewEnd}{\end{itemize}\vspace{4pt}}
+
+\newcommand{\CVTag}[1]{{\TagFont\colorbox{CVSoft}{\strut\,#1\,}}}
+\newcommand{\CVSkillRow}[2]{%
+  \Needspace{2\baselineskip}
+  \noindent
+  \begin{minipage}[t]{.19\linewidth}\vspace{0pt}%
+    {\SkillLabelFont\color{CVHeading}#1}%
+  \end{minipage}%
+  \begin{minipage}[t]{.81\linewidth}\vspace{0pt}%
+    {\BodyFont #2}%
+  \end{minipage}\par\vspace{6pt}
+}
+\newcommand{\CVNote}[1]{{\MetaFont\color{CVMute}#1}\par}
+
+% Readable URL labels keep publications compact and accessible.
+\newcommand{\paper}[1]{\href{#1}{paper\,\faLink}}
+\newcommand{\code}[1]{\href{#1}{code\,\faGithub}}
+\newcommand{\site}[2]{\href{#2}{#1\,\faLink}}

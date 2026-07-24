@@ -54,6 +54,45 @@ When you are initially working on your website, it is very useful to be able to 
 
 If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
 
+## CV PDF generation
+
+The PDF CV is generated from the same structured content used by Jekyll:
+
+- publications are maintained in `_publications/*.md`;
+- teaching entries are maintained in `_teaching/*.md`;
+- all other, manually written CV sections are maintained in `cv/sections/`.
+
+The publication and teaching front matter is included by default. To keep an
+entry on the website but exclude it from the PDF, add:
+
+```yaml
+selected: false
+```
+
+Do not edit `cv/generated/academic.tex` manually. The Python dependencies are
+listed in `cv/requirements.txt`. Install them and generate the fragment from the
+repository root with:
+
+```bash
+python -m pip install -r cv/requirements.txt
+python cv/generate_cv_data.py
+python -m unittest discover -s cv -p 'test_*.py' -v
+```
+
+XeLaTeX is required because the CV theme uses system fonts. Compile the PDF
+locally with:
+
+```bash
+cd cv
+latexmk -xelatex -interaction=nonstopmode -halt-on-error cv.tex
+```
+
+This creates `cv/cv.pdf`. Both that file and the generated LaTeX fragment are
+ignored by Git. On every push to `master`, the GitHub Pages workflow generates
+and compiles the CV, copies it to `files/cv.pdf`, builds the Jekyll site, and
+includes the PDF in the deployed Pages artifact. The published CV is available
+at `/files/cv.pdf`.
+
 ## Using Docker
 
 Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.

@@ -1,0 +1,2 @@
+# YAML parser used for Jekyll front matter.
+PyYAML>=6,<7

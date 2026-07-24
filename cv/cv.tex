@@ -1,0 +1,21 @@
+% Modern, modular CV entry point, adapted from Emery_Pierson_Resume.
+\documentclass[10pt,a4paper]{article}
+
+% Change only this line to: slate, cobalt, verdant, minimal, editorial, or original.
+\providecommand{\cvtheme}{slate}
+
+\input{config/packages}
+\input{themes/\cvtheme}
+\input{config/commands}
+
+\begin{document}
+\input{sections/profile}
+\input{sections/research-experience}
+\input{sections/education}
+% Generated from the Jekyll publication and teaching collections.
+\input{generated/academic}
+\input{sections/industry-experience}
+\input{sections/service}
+\input{sections/talks}
+\input{sections/skills-interests}
+\end{document}

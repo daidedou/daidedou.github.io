@@ -1,0 +1,46 @@
+% ORIGINAL — minimal serif styling closely matching the historical main.tex.
+% Latin Modern is the Unicode successor to LaTeX's default Computer Modern.
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+
+\definecolor{CVText}{HTML}{000000}
+\definecolor{CVHeading}{HTML}{000000}
+\definecolor{CVAccent}{HTML}{000000}
+\definecolor{CVMute}{HTML}{333333}
+\definecolor{CVSoft}{HTML}{777777}
+\definecolor{CVLink}{HTML}{000000}
+
+\input{themes/slate-base}
+
+\renewcommand{\NameFont}{\fontsize{22}{24}\selectfont\bfseries}
+\renewcommand{\TaglineFont}{\normalsize}
+\renewcommand{\ContactFont}{\small}
+\renewcommand{\IntroFont}{\normalsize\itshape}
+\renewcommand{\SectionFont}{\large\scshape\mdseries}
+\renewcommand{\EntryTitleFont}{\normalsize\bfseries}
+\renewcommand{\RoleFont}{\small\itshape}
+\renewcommand{\MetaFont}{\small}
+\renewcommand{\BodyFont}{\small}
+\renewcommand{\DetailTitleFont}{\small\bfseries}
+\renewcommand{\PublicationTitleFont}{\small\bfseries}
+\renewcommand{\PublicationAuthorsFont}{\footnotesize}
+\renewcommand{\PublicationVenueFont}{\footnotesize}
+\renewcommand{\TagFont}{\footnotesize}
+\renewcommand{\SkillLabelFont}{\small\bfseries}
+\renewcommand{\FooterStyle}{\scriptsize\color{CVMute}}
+
+\renewcommand{\HeaderStart}{\raggedright}
+\renewcommand{\HeaderEnd}{\par}
+\renewcommand{\ContactSep}{\hspace{1em}\textbullet\hspace{1em}}
+\renewcommand{\SectionPrefix}{}
+\renewcommand{\SectionRule}{\vspace{1pt}\color{CVHeading}\titlerule[.4pt]}
+
+\renewcommand{\HeaderGap}{3pt}
+\renewcommand{\SectionBefore}{11pt}
+\renewcommand{\SectionAfter}{5pt}
+\renewcommand{\EntryStart}{\vspace{2pt}}
+\renewcommand{\EntryEnd}{\par}
+\renewcommand{\DetailBefore}{1pt}
+\renewcommand{\DetailAfter}{3pt}
+\renewcommand{\PubStart}{\vspace{2pt}}
+\renewcommand{\PubEnd}{\vspace{3pt}}

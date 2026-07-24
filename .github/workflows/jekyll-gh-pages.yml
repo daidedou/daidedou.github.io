@@ -33,6 +33,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: cv/requirements.txt
+      - name: Install CV generator dependencies
+        run: python -m pip install -r cv/requirements.txt
+      - name: Test CV generator
+        run: python -m unittest discover -s cv -p 'test_*.py' -v
+      - name: Generate academic CV content
+        run: python cv/generate_cv_data.py
+      - name: Compile CV with XeLaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: cv.tex
+          working_directory: cv
+          latexmk_use_xelatex: true
+          args: -interaction=nonstopmode -halt-on-error
+      - name: Copy CV into website files
+        run: cp cv/cv.pdf files/cv.pdf
       - name: Setup Ruby
         uses: ruby/setup-ruby@086ffb1a2090c870a3f881cc91ea83aa4243d408 # v1.195.0
         with:
@@ -47,6 +68,8 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Verify CV in the generated site
+        run: test -f _site/files/cv.pdf
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
