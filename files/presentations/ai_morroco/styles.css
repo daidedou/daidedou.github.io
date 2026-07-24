@@ -4,8 +4,8 @@
   --brand-accent: #3b82f6;
 }
 
-.reveal h1,
-.reveal h2,
+.reveal h1, 
+.reveal h2, 
 .reveal h3 {
   color: var(--brand-accent);
 }
@@ -64,4 +64,9 @@ ul, ol, li {
 ul li, ol li {
   margin-bottom: 0em; /* Adjust spacing between items */
   line-height: 0.9;      /* Control line height */
+}
+
+
+#title-slide .title {
+  font-size: 1.5em;
 }

@@ -1,0 +1,4244 @@
+Pandoc
+  Meta
+    { unMeta =
+        fromList
+          [ ( "bibliography" , MetaInlines [ Str "slides.bib" ] )
+          , ( "header-includes"
+            , MetaList
+                [ MetaBlocks
+                    [ RawBlock
+                        (Format "native")
+                        "<style>\n#title-slide .title {\n  font-size: 2em;\n}\n</style>\n"
+                    ]
+                ]
+            )
+          , ( "title"
+            , MetaInlines
+                [ Str "Geometric"
+                , Space
+                , Str "deep"
+                , Space
+                , Str "learning:"
+                , Space
+                , Str "from"
+                , Space
+                , Str "theory"
+                , Space
+                , Str "to"
+                , Space
+                , Str "practice"
+                ]
+            )
+          ]
+    }
+  [ Header
+      2
+      ( "slides-qrcode" , [] , [] )
+      [ Str "Slides" , Space , Str "QRcode" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/qrcode.png" , "" )
+          ]
+      ]
+  , Header 2 ( "outline" , [] , [] ) [ Str "Outline" ]
+  , BulletList
+      [ [ Plain
+            [ Str "What"
+            , Space
+            , Str "means"
+            , Space
+            , Str "Geometric"
+            , Space
+            , Str "Deep"
+            , Space
+            , Str "Learning"
+            , Space
+            , Str "?"
+            ]
+        ]
+      , [ Plain
+            [ Str "Detailed"
+            , Space
+            , Str "example:"
+            , Space
+            , Str "geometric"
+            , Space
+            , Str "deep"
+            , Space
+            , Str "learning"
+            , Space
+            , Str "on"
+            , Space
+            , Str "point"
+            , Space
+            , Str "clouds"
+            , Space
+            , Str "(pointnet)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Geometric"
+            , Space
+            , Str "deep"
+            , Space
+            , Str "learning"
+            , Space
+            , Str "on"
+            , Space
+            , Str "surfaces"
+            , Space
+            , Str "for"
+            , Space
+            , Str "non-rigid"
+            , Space
+            , Str "shapes"
+            ]
+        ]
+      , [ Plain
+            [ Str "(Geometric"
+            , Space
+            , Str "deep"
+            , Space
+            , Str "learning"
+            , Space
+            , Str "in"
+            , Space
+            , Str "the"
+            , Space
+            , Str "large-scale"
+            , Space
+            , Str "era)"
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "what-means-geometric-deep-learning" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "means"
+      , Space
+      , Str "geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "?"
+      ]
+  , Para
+      [ Str "Geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "field"
+      , Space
+      , Str "of"
+      , Space
+      , Str "research"
+      , Space
+      , Str "that"
+      , Space
+      , Str "tries"
+      , Space
+      , Str "to"
+      , Space
+      , Str "apply"
+      , Space
+      , Str "the"
+      , Space
+      , Strong
+          [ Str "success"
+          , Space
+          , Str "of"
+          , Space
+          , Str "deep"
+          , Space
+          , Str "learning"
+          ]
+      , Space
+      , Str "to"
+      , Space
+      , Strong [ Str "non-euclidean" , Space , Str "data" ]
+      ]
+  , Header
+      2
+      ( "the-deep-learning-era" , [] , [] )
+      [ Str "The"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "era"
+      ]
+  , Para
+      [ Str "Deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "have"
+      , Space
+      , Str "proven"
+      , Space
+      , Str "success"
+      , Space
+      , Str "over"
+      , Space
+      , Str "numerous"
+      , Space
+      , Str "modalities"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Timeline"
+             , Space
+             , Str "of"
+             , Space
+             , Str "deep"
+             , Space
+             , Str "learning"
+             , Space
+             , Str "architectures"
+             , Space
+             , Str "until"
+             , Space
+             , Str "2017"
+             , Space
+             , Str "-"
+             , Space
+             , Str "(Jure"
+             , Space
+             , Str "Leskovec,"
+             , Space
+             , Str "Stanford"
+             , Space
+             , Str "University)"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [ "r-stretch" ] , [] )
+              [ Str "Timeline"
+              , Space
+              , Str "of"
+              , Space
+              , Str "deep"
+              , Space
+              , Str "learning"
+              , Space
+              , Str "architectures"
+              , Space
+              , Str "until"
+              , Space
+              , Str "2017"
+              , Space
+              , Str "-"
+              , Space
+              , Str "(Jure"
+              , Space
+              , Str "Leskovec,"
+              , Space
+              , Str "Stanford"
+              , Space
+              , Str "University)"
+              ]
+              ( "images/deep_era.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "the-deep-learning-era-huge-datasets" , [] , [] )
+      [ Str "The"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "era"
+      , Space
+      , Str ":"
+      , Space
+      , Str "huge"
+      , Space
+      , Str "datasets"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Training"
+             , Space
+             , Str "datasets"
+             , Space
+             , Str "sizes"
+             , Space
+             , Str "over"
+             , Space
+             , Str "time."
+             , Space
+             , Str "Left:"
+             , Space
+             , Str "language;"
+             , Space
+             , Str "right:"
+             , Space
+             , Str "vision."
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Training"
+              , Space
+              , Str "datasets"
+              , Space
+              , Str "sizes"
+              , Space
+              , Str "over"
+              , Space
+              , Str "time."
+              , Space
+              , Str "Left:"
+              , Space
+              , Str "language;"
+              , Space
+              , Str "right:"
+              , Space
+              , Str "vision."
+              ]
+              ( "images/w_1440.png" , "" )
+          ]
+      ]
+  , Header 2 ( "section" , [ "smaller" ] , [] ) []
+  , Header
+      3
+      ( "deep-learning-the-multi-layer-perceptron-mlp"
+      , [ "r-fit-text" ]
+      , []
+      )
+      [ Str "Deep"
+      , Space
+      , Str "learning:"
+      , Space
+      , Str "The"
+      , Space
+      , Str "Multi-Layer"
+      , Space
+      , Str "Perceptron"
+      , Space
+      , Str "(MLP)"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/mlp_diagram.png" , "" )
+          ]
+      ]
+  , Para
+      [ Strong
+          [ Str "Multi-Layer"
+          , Space
+          , Str "Perceptron"
+          , Space
+          , Str "(MLP)"
+          ]
+      , Space
+      , Str "Deep"
+      , Space
+      , Str "neural"
+      , Space
+      , Str "network"
+      , Space
+      , Str "consisting"
+      , Space
+      , Str "of"
+      , Space
+      , Math InlineMath "L"
+      , Space
+      , Str "layers"
+      ]
+  , Para
+      [ Strong [ Str "Linear" , Space , Str "layer" ]
+      , Space
+      , Math
+          InlineMath
+          "\\mathbf{g}^{(k)} = \\xi \\left( \\mathbf{W}^{(k)} \\mathbf{g}^{(k-1)} \\right)"
+      ]
+  , Para
+      [ Strong [ Str "Activation" ]
+      , Str ","
+      , Space
+      , Str "e.g.\160"
+      , Math InlineMath "\\xi(x) = \\max \\{ x, 0 \\}"
+      , Space
+      , Str "rectified"
+      , Space
+      , Str "linear"
+      , Space
+      , Str "unit"
+      , Space
+      , Str "(ReLU)"
+      ]
+  , Para
+      [ Strong [ Str "Parameters" ]
+      , Space
+      , Str "weights"
+      , Space
+      , Str "of"
+      , Space
+      , Str "all"
+      , Space
+      , Str "layers"
+      , Space
+      , Math
+          InlineMath "\\mathbf{W}^{(1)}, \\ldots, \\mathbf{W}^{(L)}"
+      , Space
+      , Str "(including"
+      , Space
+      , Str "biases)"
+      ]
+  , Header 2 ( "section-1" , [ "smaller" ] , [] ) []
+  , Header
+      3
+      ( "neural-networks-expressivity" , [ "smaller" ] , [] )
+      [ Str "Neural"
+      , Space
+      , Str "Networks"
+      , Space
+      , Str "expressivity"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "50%" ) ] )
+          [ BulletList
+              [ [ Para
+                    [ Str "Applying"
+                    , Space
+                    , Str "MLPs"
+                    , Space
+                    , Str "directly"
+                    , Space
+                    , Str "on"
+                    , Space
+                    , Str "the"
+                    , Space
+                    , Str "input"
+                    , Space
+                    , Str "data"
+                    , Space
+                    , Str "is"
+                    , Space
+                    , Str "usually"
+                    , Space
+                    , Str "too"
+                    , Space
+                    , Str "inefficient!"
+                    ]
+                , BulletList
+                    [ [ Para
+                          [ Str "An"
+                          , Space
+                          , Str "RGB"
+                          , Space
+                          , Str "image"
+                          , Space
+                          , Str "of"
+                          , Space
+                          , Str "size"
+                          , Space
+                          , Math InlineMath "512 \\times 512"
+                          , Space
+                          , Str "leads"
+                          , Space
+                          , Str "to"
+                          , Space
+                          , Str "input"
+                          , Space
+                          , Str "size:"
+                          , LineBreak
+                          , Math
+                              InlineMath
+                              "f_{\\text{in}} = 512^2 \\times 3 \\approx 10^6"
+                          , Space
+                          , Str "nodes."
+                          ]
+                      ]
+                    , [ Para
+                          [ Str "If"
+                          , Space
+                          , Math
+                              InlineMath
+                              "f_{\\text{out}} = f_{\\text{in}}"
+                          , Space
+                          , Str "then"
+                          , Space
+                          , Str "a"
+                          , Space
+                          , Emph [ Str "single-layer" ]
+                          , LineBreak
+                          , Str "MLP"
+                          , Space
+                          , Str "would"
+                          , Space
+                          , Str "have"
+                          , Space
+                          , Math InlineMath "\\approx 10^{12}"
+                          , Space
+                          , Str "trainable"
+                          , Space
+                          , Str "parameters!"
+                          ]
+                      ]
+                    ]
+                ]
+              , [ Para
+                    [ Str "Need"
+                    , Space
+                    , Str "to"
+                    , Space
+                    , Str "exploit"
+                    , Space
+                    , Emph
+                        [ Str "structure"
+                        , Space
+                        , Str "in"
+                        , Space
+                        , Str "the"
+                        , Space
+                        , Str "data"
+                        ]
+                    , Str "!"
+                    ]
+                ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "50%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption Nothing [ Plain [ Str "\160" ] ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "\160" ]
+                      ( "images/mlp_expressivity.png" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "how-to-exploit-the-structure-of-data" , [] , [] )
+      [ Str "How"
+      , Space
+      , Str "to"
+      , Space
+      , Str "exploit"
+      , Space
+      , Str "the"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      , Space
+      , Str "?"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "40%" ) ] )
+          [ BulletList
+              [ [ Plain
+                    [ Str "Images:"
+                    , Space
+                    , Str "Convolutional"
+                    , Space
+                    , Str "Neural"
+                    , Space
+                    , Str "Networks"
+                    ]
+                ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "60%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption
+                 Nothing
+                 [ Plain
+                     [ Str "Le-Net"
+                     , Space
+                     , Str "5"
+                     , Space
+                     , Str "architecture,"
+                     , Space
+                     , Str "1999"
+                     ]
+                 ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "Le-Net"
+                      , Space
+                      , Str "5"
+                      , Space
+                      , Str "architecture,"
+                      , Space
+                      , Str "1999"
+                      ]
+                      ( "images/le-ne.jpeg" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "how-to-exploit-the-structure-of-data-1" , [] , [] )
+      [ Str "How"
+      , Space
+      , Str "to"
+      , Space
+      , Str "exploit"
+      , Space
+      , Str "the"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      , Space
+      , Str "?"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "40%" ) ] )
+          [ BulletList
+              [ [ Plain
+                    [ Str "Images:"
+                    , Space
+                    , Str "Convolutional"
+                    , Space
+                    , Str "Neural"
+                    , Space
+                    , Str "Networks"
+                    ]
+                ]
+              , [ Plain
+                    [ Str "Language:"
+                    , Space
+                    , Str "Recurrent"
+                    , Space
+                    , Str "Neural"
+                    , Space
+                    , Str "Networks"
+                    ]
+                ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "60%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption
+                 Nothing
+                 [ Plain
+                     [ Str "Recurrent"
+                     , Space
+                     , Str "Neural"
+                     , Space
+                     , Str "Networks,"
+                     , Space
+                     , Str "blent.ai"
+                     ]
+                 ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "Recurrent"
+                      , Space
+                      , Str "Neural"
+                      , Space
+                      , Str "Networks,"
+                      , Space
+                      , Str "blent.ai"
+                      ]
+                      ( "images/rnns.png" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "how-to-exploit-the-structure-of-data-2" , [] , [] )
+      [ Str "How"
+      , Space
+      , Str "to"
+      , Space
+      , Str "exploit"
+      , Space
+      , Str "the"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      , Space
+      , Str "?"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "40%" ) ] )
+          [ BulletList
+              [ [ Plain
+                    [ Str "Images:"
+                    , Space
+                    , Str "Convolutional"
+                    , Space
+                    , Str "Neural"
+                    , Space
+                    , Str "Networks"
+                    ]
+                ]
+              , [ Plain
+                    [ Str "Language:"
+                    , Space
+                    , Str "Recurrent"
+                    , Space
+                    , Str "Neural"
+                    , Space
+                    , Str "Networks"
+                    ]
+                ]
+              , [ Plain [ Str "Audio/Time-series:" , Space , Str "Mix" ]
+                ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "60%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption
+                 Nothing
+                 [ Plain
+                     [ Str "Left:"
+                     , Space
+                     , Str "audio"
+                     , Space
+                     , Str "signal"
+                     , Space
+                     , Str "and"
+                     , Space
+                     , Str "spectrogram"
+                     , Space
+                     , Str "(Don"
+                     , Space
+                     , Str "Johnson)."
+                     , Space
+                     , Str "Right:"
+                     , Space
+                     , Str "Deep"
+                     , Space
+                     , Str "Speech"
+                     , Space
+                     , Str "2"
+                     , Space
+                     , Str "architecture"
+                     ]
+                 ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "Left:"
+                      , Space
+                      , Str "audio"
+                      , Space
+                      , Str "signal"
+                      , Space
+                      , Str "and"
+                      , Space
+                      , Str "spectrogram"
+                      , Space
+                      , Str "(Don"
+                      , Space
+                      , Str "Johnson)."
+                      , Space
+                      , Str "Right:"
+                      , Space
+                      , Str "Deep"
+                      , Space
+                      , Str "Speech"
+                      , Space
+                      , Str "2"
+                      , Space
+                      , Str "architecture"
+                      ]
+                      ( "images/audio.png" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "what-means-geometric-deep-learning-1" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "means"
+      , Space
+      , Str "geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "?"
+      ]
+  , Para
+      [ Str "Geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "field"
+      , Space
+      , Str "of"
+      , Space
+      , Str "research"
+      , Space
+      , Str "that"
+      , Space
+      , Str "tries"
+      , Space
+      , Str "to"
+      , Space
+      , Str "apply"
+      , Space
+      , Str "the"
+      , Space
+      , Strong
+          [ Str "success"
+          , Space
+          , Str "of"
+          , Space
+          , Str "deep"
+          , Space
+          , Str "learning"
+          ]
+      , Space
+      , Str "to"
+      , Space
+      , Strong [ Str "non-euclidean" , Space , Str "data" ]
+      , Str "."
+      ]
+  , Para
+      [ Strong
+          [ Str "Success"
+          , Space
+          , Str "of"
+          , Space
+          , Str "deep"
+          , Space
+          , Str "learning"
+          , Space
+          , Str ":"
+          ]
+      , Space
+      , Str "Have"
+      , Space
+      , Str "a"
+      , Space
+      , Str "large"
+      , Space
+      , Str "scale"
+      , Space
+      , Str "dataset."
+      , Space
+      , Str "Applying"
+      , Space
+      , Str "the"
+      , Space
+      , Str "original"
+      , Space
+      , Str "MLP"
+      , Space
+      , Str "idea,"
+      , Space
+      , Str "but"
+      , Space
+      , Str "adapt"
+      , Space
+      , Str "the"
+      , Space
+      , Str "linear"
+      , Space
+      , Str "and"
+      , Space
+      , Str "non-linear"
+      , Space
+      , Str "to"
+      , Space
+      , Str "the"
+      , Space
+      , Str "underlying"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data."
+      ]
+  , Header
+      2
+      ( "non-euclidean-data" , [] , [] )
+      [ Str "Non-euclidean" , Space , Str "data" ]
+  , Para
+      [ Strong [ Str "Euclidean" , Space , Str "data" ]
+      , Space
+      , Str "The"
+      , Space
+      , Str "representation"
+      , Space
+      , Str "space"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      , Space
+      , Str "is"
+      , Space
+      , Math InlineMath "\\mathbb{R}^n"
+      , Str "."
+      ]
+  , Para
+      [ Strong [ Str "Non-euclidean" , Space , Str "data" ]
+      , Space
+      , Str "The"
+      , Space
+      , Str "representation"
+      , Space
+      , Str "space"
+      , Space
+      , Str "is"
+      , Space
+      , Str "non-flat."
+      , Space
+      , Str "It"
+      , Space
+      , Str "can"
+      , Space
+      , Str "mean"
+      , Space
+      , Str "that:"
+      ]
+  , BulletList
+      [ [ Plain
+            [ Str "A"
+            , Space
+            , Str "group"
+            , Space
+            , Str "(rotation,"
+            , Space
+            , Str "translation,"
+            , Space
+            , Str "\8230)"
+            , Space
+            , Str "acts"
+            , Space
+            , Str "on"
+            , Space
+            , Str "the"
+            , Space
+            , Str "data"
+            , Space
+            , Str "even"
+            , Space
+            , Str "if"
+            , Space
+            , Str "it"
+            , Space
+            , Str "leaves"
+            , Space
+            , Str "in"
+            , Space
+            , Str "an"
+            , Space
+            , Str "euclidean"
+            , Space
+            , Str "space"
+            ]
+        ]
+      , [ Plain
+            [ Str "The"
+            , Space
+            , Str "data"
+            , Space
+            , Str "lives"
+            , Space
+            , Str "in"
+            , Space
+            , Str "a"
+            , Space
+            , Str "non-euclidean"
+            , Space
+            , Str "space"
+            ]
+        ]
+      , [ Plain [ Str "Sometimes" , Space , Str "both" ] ]
+      ]
+  , Header
+      2
+      ( "non-euclidean-data-is-everywhere" , [] , [] )
+      [ Str "Non-euclidean"
+      , Space
+      , Str "data"
+      , Space
+      , Str "is"
+      , Space
+      , Str "everywhere"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/non_euclidean.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "example-of-3d-shapes-tasks" , [] , [] )
+      [ Str "Example"
+      , Space
+      , Str "of"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "shapes"
+      , Space
+      , Str "tasks"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/tasks.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "the-challenge-of-non-euclidean-data-the-case-of-3d-shapes"
+      , []
+      , []
+      )
+      [ Str "The"
+      , Space
+      , Str "challenge"
+      , Space
+      , Str "of"
+      , Space
+      , Str "non-euclidean"
+      , Space
+      , Str "data:"
+      , Space
+      , Str "the"
+      , Space
+      , Str "case"
+      , Space
+      , Str "of"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Different"
+             , Space
+             , Str "representations"
+             , Space
+             , Str "of"
+             , Space
+             , Str "3D"
+             , Space
+             , Str "shapes."
+             , Space
+             , Str "Image"
+             , Space
+             , Str "from"
+             , Space
+             , Str "Silvia"
+             , Space
+             , Str "Sellan."
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Different"
+              , Space
+              , Str "representations"
+              , Space
+              , Str "of"
+              , Space
+              , Str "3D"
+              , Space
+              , Str "shapes."
+              , Space
+              , Str "Image"
+              , Space
+              , Str "from"
+              , Space
+              , Str "Silvia"
+              , Space
+              , Str "Sellan."
+              ]
+              ( "images/sgi-shape-representations.jpg" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-1"
+      , []
+      , []
+      )
+      [ Str "The"
+      , Space
+      , Str "challenge"
+      , Space
+      , Str "of"
+      , Space
+      , Str "non-euclidean"
+      , Space
+      , Str "data:"
+      , Space
+      , Str "the"
+      , Space
+      , Str "case"
+      , Space
+      , Str "of"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Comparison"
+             , Space
+             , Str "of"
+             , Space
+             , Str "dataset"
+             , Space
+             , Str "sizes"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Comparison"
+              , Space
+              , Str "of"
+              , Space
+              , Str "dataset"
+              , Space
+              , Str "sizes"
+              ]
+              ( "images/dataset_size.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-2"
+      , []
+      , []
+      )
+      [ Str "The"
+      , Space
+      , Str "challenge"
+      , Space
+      , Str "of"
+      , Space
+      , Str "non-euclidean"
+      , Space
+      , Str "data:"
+      , Space
+      , Str "the"
+      , Space
+      , Str "case"
+      , Space
+      , Str "of"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Left:"
+             , Space
+             , Str "different"
+             , Space
+             , Str "transformations"
+             , Space
+             , Str "of"
+             , Space
+             , Str "a"
+             , Space
+             , Str "human"
+             , Space
+             , Str "shape."
+             , Space
+             , Str "Right:"
+             , Space
+             , Str "Different"
+             , Space
+             , Str "discretization"
+             , Space
+             , Str "of"
+             , Space
+             , Str "the"
+             , Space
+             , Str "same"
+             , Space
+             , Str "human"
+             , Space
+             , Str "shape."
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Left:"
+              , Space
+              , Str "different"
+              , Space
+              , Str "transformations"
+              , Space
+              , Str "of"
+              , Space
+              , Str "a"
+              , Space
+              , Str "human"
+              , Space
+              , Str "shape."
+              , Space
+              , Str "Right:"
+              , Space
+              , Str "Different"
+              , Space
+              , Str "discretization"
+              , Space
+              , Str "of"
+              , Space
+              , Str "the"
+              , Space
+              , Str "same"
+              , Space
+              , Str "human"
+              , Space
+              , Str "shape."
+              ]
+              ( "images/humans_challenge.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-3"
+      , []
+      , []
+      )
+      [ Str "The"
+      , Space
+      , Str "challenge"
+      , Space
+      , Str "of"
+      , Space
+      , Str "non-euclidean"
+      , Space
+      , Str "data:"
+      , Space
+      , Str "the"
+      , Space
+      , Str "case"
+      , Space
+      , Str "of"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Left:"
+             , Space
+             , Str "linear"
+             , Space
+             , Str "and"
+             , Space
+             , Str "geodesic"
+             , Space
+             , Str "paths"
+             , Space
+             , Str "in"
+             , Space
+             , Str "the"
+             , Space
+             , Str "shape"
+             , Space
+             , Str "space."
+             , Space
+             , Str "Right:"
+             , Space
+             , Str "the"
+             , Space
+             , Str "human"
+             , Space
+             , Str "shape"
+             , Space
+             , Str "space"
+             , Space
+             , Str "is"
+             , Space
+             , Str "non"
+             , Space
+             , Str "linear."
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Left:"
+              , Space
+              , Str "linear"
+              , Space
+              , Str "and"
+              , Space
+              , Str "geodesic"
+              , Space
+              , Str "paths"
+              , Space
+              , Str "in"
+              , Space
+              , Str "the"
+              , Space
+              , Str "shape"
+              , Space
+              , Str "space."
+              , Space
+              , Str "Right:"
+              , Space
+              , Str "the"
+              , Space
+              , Str "human"
+              , Space
+              , Str "shape"
+              , Space
+              , Str "space"
+              , Space
+              , Str "is"
+              , Space
+              , Str "non"
+              , Space
+              , Str "linear."
+              ]
+              ( "images/non_linear.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "The"
+      , Space
+      , Str "human"
+      , Space
+      , Str "shape"
+      , Space
+      , Str "space"
+      , Space
+      , Str "can"
+      , Space
+      , Str "be"
+      , Space
+      , Str "represented"
+      , Space
+      , Str "by"
+      , Space
+      , Str "the"
+      , Space
+      , Str "manifold"
+      , Space
+      , Str "of"
+      , Space
+      , Str "immersions"
+      , Space
+      , Str "of"
+      , Space
+      , Str "a"
+      , Space
+      , Str "human"
+      , Space
+      , Str "template,"
+      , Space
+      , Str "equipped"
+      , Space
+      , Str "with"
+      , Space
+      , Str "a"
+      , Space
+      , Str "well-designed"
+      , Space
+      , Str "Riemannian"
+      , Space
+      , Str "metric."
+      ]
+  , Header
+      2
+      ( "the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-4"
+      , []
+      , []
+      )
+      [ Str "The"
+      , Space
+      , Str "challenge"
+      , Space
+      , Str "of"
+      , Space
+      , Str "non-euclidean"
+      , Space
+      , Str "data:"
+      , Space
+      , Str "the"
+      , Space
+      , Str "case"
+      , Space
+      , Str "of"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "shapes"
+      ]
+  , Para
+      [ Str "By"
+      , Space
+      , Str "making"
+      , Space
+      , Str "computation"
+      , Space
+      , Str "on"
+      , Space
+      , Str "those"
+      , Space
+      , Str "manifolds,"
+      , Space
+      , Str "we"
+      , Space
+      , Str "can"
+      , Space
+      , Str "beat"
+      , Space
+      , Str "complex"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "architectures!"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Comparison"
+             , Space
+             , Str "of"
+             , Space
+             , Str "Bare-ESA"
+             , Space
+             , Str "interpolation"
+             , Space
+             , Str "against"
+             , Space
+             , Str "deep"
+             , Space
+             , Str "learning"
+             , Space
+             , Str "baselines."
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Comparison"
+              , Space
+              , Str "of"
+              , Space
+              , Str "Bare-ESA"
+              , Space
+              , Str "interpolation"
+              , Space
+              , Str "against"
+              , Space
+              , Str "deep"
+              , Space
+              , Str "learning"
+              , Space
+              , Str "baselines."
+              ]
+              ( "images/compare.gif" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "what-means-geometric-deep-learning-2" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "means"
+      , Space
+      , Str "geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "?"
+      ]
+  , Para
+      [ Str "Geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "field"
+      , Space
+      , Str "of"
+      , Space
+      , Str "research"
+      , Space
+      , Str "that"
+      , Space
+      , Str "tries"
+      , Space
+      , Str "to"
+      , Space
+      , Str "apply"
+      , Space
+      , Str "the"
+      , Space
+      , Strong
+          [ Str "success"
+          , Space
+          , Str "of"
+          , Space
+          , Str "deep"
+          , Space
+          , Str "learning"
+          ]
+      , Space
+      , Str "to"
+      , Space
+      , Strong [ Str "non-euclidean" , Space , Str "data" ]
+      , Str "."
+      ]
+  , Para
+      [ Strong
+          [ Str "Success"
+          , Space
+          , Str "of"
+          , Space
+          , Str "deep"
+          , Space
+          , Str "learning"
+          , Space
+          , Str ":"
+          ]
+      , Space
+      , Str "Have"
+      , Space
+      , Str "a"
+      , Space
+      , Strong
+          [ Str "large"
+          , Space
+          , Str "scale"
+          , Space
+          , Str "dataset"
+          ]
+      , Str "."
+      , Space
+      , Str "Applying"
+      , Space
+      , Str "the"
+      , Space
+      , Str "original"
+      , Space
+      , Str "MLP"
+      , Space
+      , Str "idea,"
+      , Space
+      , Str "but"
+      , Space
+      , Str "adapt"
+      , Space
+      , Str "the"
+      , Space
+      , Str "linear"
+      , Space
+      , Str "and"
+      , Space
+      , Str "non-linear"
+      , Space
+      , Str "to"
+      , Space
+      , Str "the"
+      , Space
+      , Strong
+          [ Str "underlying"
+          , Space
+          , Str "structure"
+          , Space
+          , Str "of"
+          , Space
+          , Str "data"
+          ]
+      , Str "."
+      ]
+  , Para
+      [ Strong
+          [ Str "Non-euclidean"
+          , Space
+          , Str "data"
+          , Space
+          , Str ":"
+          ]
+      , Space
+      , Str "The"
+      , Space
+      , Str "geometry"
+      , Space
+      , Str "of"
+      , Space
+      , Str "the"
+      , Space
+      , Str "data"
+      , Space
+      , Str "space"
+      , Space
+      , Str "is"
+      , Space
+      , Str "important!"
+      , Space
+      , Str "Plus,"
+      , Space
+      , Str "the"
+      , Space
+      , Str "datasets"
+      , Space
+      , Str "size"
+      , Space
+      , Str "are"
+      , Space
+      , Str "smaller"
+      , Space
+      , Str "(in"
+      , Space
+      , Str "medical"
+      , Space
+      , Str "imaging,"
+      , Space
+      , Str "some"
+      , Space
+      , Str "datasets"
+      , Space
+      , Str "have"
+      , Space
+      , Str "only"
+      , Space
+      , Str "\8230"
+      , Space
+      , Str "a"
+      , Space
+      , Str "few"
+      , Space
+      , Str "hundreds"
+      , Space
+      , Str "shapes"
+      , Space
+      , Str "or"
+      , Space
+      , Str "less)"
+      ]
+  , Header
+      2
+      ( "what-about-taking-images" , [ "smaller" ] , [] )
+      [ Str "What"
+      , Space
+      , Str "about"
+      , Space
+      , Str "taking"
+      , Space
+      , Str "images?"
+      ]
+  , Para [ Str "Advantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Efficiency"
+            , Space
+            , Str "&"
+            , Space
+            , Str "simplicity"
+            ]
+        ]
+      , [ Plain
+            [ Str "Can"
+            , Space
+            , Str "use"
+            , Space
+            , Str "(pre-trained)"
+            , Space
+            , Str "CNNs!"
+            ]
+        ]
+      , [ Plain
+            [ Str "Can"
+            , Space
+            , Str "be"
+            , Space
+            , Str "used"
+            , Space
+            , Str "to"
+            , Space
+            , Str "optimize"
+            , Space
+            , Str "3D"
+            , Space
+            , Str "shapes"
+            , Space
+            , Str "via"
+            , Space
+            , Str "differentiable"
+            , Space
+            , Str "rendering."
+            ]
+        ]
+      ]
+  , Para [ Str "Limitations" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Are"
+            , Space
+            , Str "cumbersome"
+            , Space
+            , Str "for"
+            , Space
+            , Str "local"
+            , Space
+            , Str "analysis"
+            , Space
+            , Str "(e.g.,"
+            , Space
+            , Str "segmentation)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Are"
+            , Space
+            , Str "not"
+            , Space
+            , Str "adapted"
+            , Space
+            , Str "to"
+            , Space
+            , Str "deformable"
+            , Space
+            , Str "shapes"
+            ]
+        ]
+      , [ Plain
+            [ Str "Not"
+            , Space
+            , Str "great"
+            , Space
+            , Str "for"
+            , Space
+            , Str "topologically"
+            , Space
+            , Str "complex"
+            , Space
+            , Str "shapes"
+            ]
+        ]
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/multiview.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "what-about-projecting-to-euclidean-space" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "about"
+      , Space
+      , Str "projecting"
+      , Space
+      , Str "to"
+      , Space
+      , Str "euclidean"
+      , Space
+      , Str "space?"
+      ]
+  , Para
+      [ Str "Voxelize"
+      , Space
+      , Str "a"
+      , Space
+      , Str "surface"
+      , Space
+      , Str "into"
+      , Space
+      , Str "a"
+      , Space
+      , Math InlineMath "\\mathbb{R}^{d*d*d}"
+      , Space
+      , Str "grid."
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/volumetric.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "what-about-projecting-to-euclidean-space-1" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "about"
+      , Space
+      , Str "projecting"
+      , Space
+      , Str "to"
+      , Space
+      , Str "euclidean"
+      , Space
+      , Str "space?"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "40%" ) ] )
+          [ BulletList
+              [ [ Plain
+                    [ Str "Loss"
+                    , Space
+                    , Str "of"
+                    , Space
+                    , Str "information"
+                    ]
+                ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "60%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption Nothing [ Plain [ Str "\160" ] ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "\160" ]
+                      ( "images/loss_infop.png" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "what-about-projecting-to-euclidean-space-2" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "about"
+      , Space
+      , Str "projecting"
+      , Space
+      , Str "to"
+      , Space
+      , Str "euclidean"
+      , Space
+      , Str "space?"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "40%" ) ] )
+          [ BulletList
+              [ [ Plain
+                    [ Str "Loss"
+                    , Space
+                    , Str "of"
+                    , Space
+                    , Str "information"
+                    ]
+                ]
+              , [ Plain
+                    [ Str "Computationnally" , Space , Str "expensive" ]
+                ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "60%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption Nothing [ Plain [ Str "\160" ] ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "\160" ]
+                      ( "images/loss_infop.png" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "what-about-projecting-to-euclidean-space-3" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "about"
+      , Space
+      , Str "projecting"
+      , Space
+      , Str "to"
+      , Space
+      , Str "euclidean"
+      , Space
+      , Str "space?"
+      ]
+  , Div
+      ( "" , [ "columns" ] , [] )
+      [ Div
+          ( "" , [ "column" ] , [ ( "width" , "40%" ) ] )
+          [ BulletList
+              [ [ Plain
+                    [ Str "Loss"
+                    , Space
+                    , Str "of"
+                    , Space
+                    , Str "information"
+                    ]
+                ]
+              , [ Plain
+                    [ Str "Computationnally" , Space , Str "expensive" ]
+                ]
+              , [ Plain [ Str "Bad" , Space , Str "performance" ] ]
+              ]
+          ]
+      , Div
+          ( "" , [ "column" ] , [ ( "width" , "60%" ) ] )
+          [ Figure
+              ( "" , [] , [] )
+              (Caption Nothing [ Plain [ Str "\160" ] ])
+              [ Plain
+                  [ Image
+                      ( "" , [] , [] )
+                      [ Str "\160" ]
+                      ( "images/volum_nul.png" , "" )
+                  ]
+              ]
+          ]
+      ]
+  , Header
+      2
+      ( "geometric-deep-learning-on-point-clouds" , [] , [] )
+      [ Str "Geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "on"
+      , Space
+      , Str "point"
+      , Space
+      , Str "clouds"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/point_clouds_everywhre.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "point-clouds" , [] , [] )
+      [ Str "Point" , Space , Str "clouds" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointcloud.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "point-clouds-tasks" , [] , [] )
+      [ Str "Point" , Space , Str "clouds" , Space , Str "tasks" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointcloud_tasks.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "naive-approach-1" , [] , [] )
+      [ Str "Naive" , Space , Str "approach" , Space , Str "#1" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/naive_1.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "A"
+      , Space
+      , Str "simple"
+      , Space
+      , Str "network"
+      , Space
+      , Str "(shared"
+      , Space
+      , Str "MLP)."
+      ]
+  , BulletList
+      [ [ Plain
+            [ Str "Input:"
+            , Space
+            , Str "a"
+            , Space
+            , Str "3-dimensional"
+            , Space
+            , Str "vector"
+            , Space
+            , Str "(3D"
+            , Space
+            , Str "coordinates)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Output:"
+            , Space
+            , Str "C-dimensional"
+            , Space
+            , Str "prediction"
+            , Space
+            , Str "(class"
+            , Space
+            , Str "label)."
+            , Space
+            , Str "Apply"
+            , Space
+            , Str "the"
+            , Space
+            , Str "same"
+            , Space
+            , Str "network"
+            , Space
+            , Str "to"
+            , SoftBreak
+            , Str "each"
+            , Space
+            , Str "point"
+            , Space
+            , Str "of"
+            , Space
+            , Str "the"
+            , Space
+            , Str "point"
+            , Space
+            , Str "cloud."
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "naive-approach-1-1" , [] , [] )
+      [ Str "Naive" , Space , Str "approach" , Space , Str "#1" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/naive_1.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "Processing"
+      , Space
+      , Str "each"
+      , Space
+      , Str "point"
+      , Space
+      , Str "independently!"
+      , Space
+      , Str "We"
+      , Space
+      , Str "will"
+      , Space
+      , Str "learn"
+      , Space
+      , Str "a"
+      , Space
+      , Str "function"
+      , Space
+      , Str "from"
+      , Space
+      , Str "3D"
+      , Space
+      , Str "coordinates"
+      , Space
+      , Str "to"
+      , Space
+      , Str "a"
+      , Space
+      , Str "label."
+      , Space
+      , Str "No"
+      , Space
+      , Str "communication"
+      , Space
+      , Str "between"
+      , Space
+      , Str "points"
+      , Space
+      , Str "="
+      , Space
+      , Quoted
+          DoubleQuote [ Str "shape" , Space , Str "awareness" ]
+      , Str "."
+      ]
+  , Header
+      2
+      ( "naive-approach-2" , [] , [] )
+      [ Str "Naive" , Space , Str "approach" , Space , Str "#2" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/naive_2.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "Reshape"
+      , Space
+      , Str "input"
+      , Space
+      , Str "to"
+      , Space
+      , Str "a"
+      , Space
+      , Str "matrix"
+      , Space
+      , Str "X"
+      , Space
+      , Str "of"
+      , Space
+      , Str "size"
+      , Space
+      , Str "(3*N)."
+      , Space
+      , Str "Fully"
+      , Space
+      , Str "connected"
+      , Space
+      , Str "layers"
+      , Space
+      , Str "(MLP)"
+      , Space
+      , Str "from"
+      , Space
+      , Str "X"
+      , Space
+      , Str "to"
+      , Space
+      , Str "a"
+      , Space
+      , Str "C-dimensional"
+      , Space
+      , Str "vector."
+      ]
+  , Header
+      2
+      ( "naive-approach-2-1" , [] , [] )
+      [ Str "Naive" , Space , Str "approach" , Space , Str "#2" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/naive_2.png" , "" )
+          ]
+      ]
+  , OrderedList
+      ( 1 , Decimal , Period )
+      [ [ Plain
+            [ Str "Points"
+            , Space
+            , Str "tied"
+            , Space
+            , Str "to"
+            , Space
+            , Str "their"
+            , Space
+            , Quoted SingleQuote [ Str "index" ]
+            , Space
+            , Str "="
+            , Space
+            , Str "order"
+            , Space
+            , Str "in"
+            , Space
+            , Str "the"
+            , Space
+            , Str "point"
+            , Space
+            , Str "cloud"
+            , Space
+            , Str "(weights"
+            , Space
+            , Str "for"
+            , Space
+            , Str "1st"
+            , Space
+            , Str "point"
+            , SoftBreak
+            , Str "not"
+            , Space
+            , Str "same"
+            , Space
+            , Str "as,"
+            , Space
+            , Str "e.g.,"
+            , Space
+            , Str "3rd"
+            , Space
+            , Str "point)."
+            ]
+        ]
+      , [ Plain
+            [ Str "Cannot"
+            , Space
+            , Str "handle"
+            , Space
+            , Str "variable"
+            , Space
+            , Str "input"
+            , Space
+            , Str "sizes."
+            ]
+        ]
+      ]
+  , Header 2 ( "pointnet" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet1.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-1" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet2.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-2" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet3.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-3" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet4.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-4" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet5.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-5" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet6.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-6" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet7.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-7" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet8.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-8" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet9.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-9" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet10.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-10" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet11.png" , "" )
+          ]
+      ]
+  , Header 2 ( "pointnet-11" , [] , [] ) [ Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet12.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "improving-pointnet" , [] , [] )
+      [ Str "Improving" , Space , Str "PointNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnet13.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "pointnet-architecture" , [] , [] )
+      [ Str "PointNet++" , Space , Str "architecture" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointnet/pointnetplus.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "and-more" , [] , [] )
+      [ Str "And" , Space , Str "more\8230" ]
+  , Para
+      [ Str "Many"
+      , Space
+      , Str "works"
+      , Space
+      , Str "have"
+      , Space
+      , Str "tried"
+      , Space
+      , Str "to"
+      , Space
+      , Str "tackle"
+      , Space
+      , Str "this"
+      , Space
+      , Str "problem,"
+      , Space
+      , Str "including"
+      , Space
+      , Str ":"
+      ]
+  , BulletList
+      [ [ Plain [ Str "KPConv" , Space , Str "(2018)" ] ]
+      , [ Plain [ Str "DGCNN" , Space , Str "(2018)" ] ]
+      , [ Plain [ Str "PointTransformer" , Space , Str "(2020)" ]
+        ]
+      ]
+  , Para
+      [ Str "Current"
+      , Space
+      , Str "state-of-the-art:"
+      , Space
+      , Str "PointTransformer"
+      , Space
+      , Str "v3"
+      , Space
+      , Str "(2024)."
+      , Space
+      , Str "However,"
+      , Space
+      , Str "research"
+      , Space
+      , Str "remains"
+      , Space
+      , Str "active"
+      , Space
+      , Str "in"
+      , Space
+      , Str "this"
+      , Space
+      , Str "area."
+      ]
+  , Header
+      2
+      ( "applications-to-non-rigid-shapes-faces" , [] , [] )
+      [ Str "Applications"
+      , Space
+      , Str "to"
+      , Space
+      , Str "non-rigid"
+      , Space
+      , Str "shapes"
+      , Space
+      , Str "(faces)"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Morphable"
+             , Space
+             , Str "model"
+             , Space
+             , Str "of"
+             , Space
+             , Str "faces"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Morphable"
+              , Space
+              , Str "model"
+              , Space
+              , Str "of"
+              , Space
+              , Str "faces"
+              ]
+              ( "images/morphable.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "applications-to-non-rigid-shapes-faces-1" , [] , [] )
+      [ Str "Applications"
+      , Space
+      , Str "to"
+      , Space
+      , Str "non-rigid"
+      , Space
+      , Str "shapes"
+      , Space
+      , Str "(faces)"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Simple"
+             , Space
+             , Str "model,"
+             , Space
+             , Str "Besnier"
+             , Space
+             , Str "et"
+             , Space
+             , Str "al.\160\&2023"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Simple"
+              , Space
+              , Str "model,"
+              , Space
+              , Str "Besnier"
+              , Space
+              , Str "et"
+              , Space
+              , Str "al.\160\&2023"
+              ]
+              ( "images/archi_thomas.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "applications-to-non-rigid-shapes-faces-2" , [] , [] )
+      [ Str "Applications"
+      , Space
+      , Str "to"
+      , Space
+      , Str "non-rigid"
+      , Space
+      , Str "shapes"
+      , Space
+      , Str "(faces)"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Comparisons"
+             , Space
+             , Str "against"
+             , Space
+             , Str "FLAME"
+             , Space
+             , Str "morphable"
+             , Space
+             , Str "model"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Comparisons"
+              , Space
+              , Str "against"
+              , Space
+              , Str "FLAME"
+              , Space
+              , Str "morphable"
+              , Space
+              , Str "model"
+              ]
+              ( "images/flame_thomas.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "applications-to-non-rigid-shapes-faces-3" , [] , [] )
+      [ Str "Applications"
+      , Space
+      , Str "to"
+      , Space
+      , Str "non-rigid"
+      , Space
+      , Str "shapes"
+      , Space
+      , Str "(faces)"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Reconstruction"
+             , Space
+             , Str "of"
+             , Space
+             , Str "unregistered"
+             , Space
+             , Str "faces"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Reconstruction"
+              , Space
+              , Str "of"
+              , Space
+              , Str "unregistered"
+              , Space
+              , Str "faces"
+              ]
+              ( "images/robust_thomas.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "summary-pointnet-and-variants" , [] , [] )
+      [ Str "Summary:"
+      , Space
+      , Str "PointNet"
+      , Space
+      , Str "and"
+      , Space
+      , Str "variants"
+      ]
+  , Para [ Str "Advantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Invariant"
+            , Space
+            , Str "to"
+            , Space
+            , Str "permutation"
+            ]
+        ]
+      , [ Plain
+            [ Str "Robust"
+            , Space
+            , Str "to"
+            , Space
+            , Str "parameterization"
+            ]
+        ]
+      , [ Plain
+            [ Str "As"
+            , Space
+            , Str "expressive"
+            , Space
+            , Str "as"
+            , Space
+            , Str "MVCNNs,"
+            , Space
+            , Str "with"
+            , Space
+            , Str "less"
+            , Space
+            , Str "computation"
+            , Space
+            , Str "power"
+            ]
+        ]
+      ]
+  , Para [ Str "Disadvantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Ignores"
+            , Space
+            , Str "the"
+            , Space
+            , Str "structure"
+            , Space
+            , Str "of"
+            , Space
+            , Str "data!"
+            ]
+        ]
+      , [ Plain
+            [ Str "Robust"
+            , Space
+            , Str "!="
+            , Space
+            , Str "invariant"
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "parameterization-extreme-cases" , [] , [] )
+      [ Str "Parameterization:"
+      , Space
+      , Str "extreme"
+      , Space
+      , Str "cases"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Robustness"
+             , Space
+             , Str "to"
+             , Space
+             , Str "parameterizations"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Robustness"
+              , Space
+              , Str "to"
+              , Space
+              , Str "parameterizations"
+              ]
+              ( "images/ellipses.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "PointNet"
+      , Space
+      , Str "is"
+      , Space
+      , Str "not"
+      , Space
+      , Str "robust"
+      , Space
+      , Str "to"
+      , Space
+      , Str "extreme"
+      , Space
+      , Str "cases"
+      , Space
+      , Str "of"
+      , Space
+      , Str "reparameterizations"
+      , Space
+      , Str "(Besnier"
+      , Space
+      , Str "et"
+      , Space
+      , Str "al.\160\&2022)"
+      ]
+  , Header
+      2
+      ( "exploiting-the-structure-of-data" , [] , [] )
+      [ Str "Exploiting"
+      , Space
+      , Str "the"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Le-Net"
+             , Space
+             , Str "5"
+             , Space
+             , Str "architecture,"
+             , Space
+             , Str "1999"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Le-Net"
+              , Space
+              , Str "5"
+              , Space
+              , Str "architecture,"
+              , Space
+              , Str "1999"
+              ]
+              ( "images/le-ne.jpeg" , "" )
+          ]
+      ]
+  , Para
+      [ Str "Convolutions"
+      , Space
+      , Str "exploits"
+      , Space
+      , Str "the"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data!"
+      , Space
+      , Str "Can"
+      , Space
+      , Str "we"
+      , Space
+      , Str "apply"
+      , Space
+      , Str "them"
+      , Space
+      , Str "to"
+      , Space
+      , Str "3D?"
+      ]
+  , Para
+      [ Str "->"
+      , Space
+      , Str "This"
+      , Space
+      , Str "field"
+      , Space
+      , Str "have"
+      , Space
+      , Str "been"
+      , Space
+      , Str "very"
+      , Space
+      , Str "active."
+      , Space
+      , Str "We"
+      , Space
+      , Str "will"
+      , Space
+      , Str "cover"
+      , Space
+      , Str "only"
+      , Space
+      , Str "two"
+      , Space
+      , Str "solutions."
+      ]
+  , Header
+      2
+      ( "exploiting-the-structure-of-data-1" , [] , [] )
+      [ Str "Exploiting"
+      , Space
+      , Str "the"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      ]
+  , Para [ Str "Two" , Space , Str "cases:" ]
+  , BulletList
+      [ [ Plain
+            [ Str "We"
+            , Space
+            , Str "want"
+            , Space
+            , Str "to"
+            , Space
+            , Str "deform"
+            , Space
+            , Str "a"
+            , Space
+            , Str "template"
+            , Space
+            , Str "mesh"
+            , Space
+            , Str "->"
+            , Space
+            , Str "no"
+            , Space
+            , Str "need"
+            , Space
+            , Str "for"
+            , Space
+            , Str "permutation"
+            , Space
+            , Str "invariance"
+            ]
+        ]
+      , [ Plain
+            [ Str "We"
+            , Space
+            , Str "want"
+            , Space
+            , Str "to"
+            , Space
+            , Str "learn"
+            , Space
+            , Str "on"
+            , Space
+            , Str "arbitrary"
+            , Space
+            , Str "parameterizations"
+            , Space
+            , Str "->"
+            , Space
+            , Str "need"
+            , Space
+            , Str "for"
+            , Space
+            , Str "permutation"
+            , Space
+            , Str "invariance"
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "spiral-convolutions" , [] , [] )
+      [ Str "Spiral" , Space , Str "convolutions" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/spirals.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "spiral-convolutions-1" , [ "smaller" ] , [] )
+      [ Str "Spiral" , Space , Str "convolutions" ]
+  , Para
+      [ Str "Let"
+      , Space
+      , Math InlineMath "x"
+      , Space
+      , Str "be"
+      , Space
+      , Str "a"
+      , Space
+      , Str "mesh"
+      , Space
+      , Str "vertex,"
+      , Space
+      , Math InlineMath "R^d(x)"
+      , Space
+      , Str "be"
+      , Space
+      , Str "the"
+      , Space
+      , Str "d-ring,"
+      , Space
+      , Math InlineMath "R^d_j(x)"
+      , Space
+      , Str "denotes"
+      , Space
+      , Str "the"
+      , Space
+      , Str "jth"
+      , Space
+      , Str "element"
+      , Space
+      , Str "in"
+      , Space
+      , Str "the"
+      , Space
+      , Str "d-ring."
+      , SoftBreak
+      , Str "The"
+      , Space
+      , Str "spiral"
+      , Space
+      , Str "patch"
+      , Space
+      , Str "operator"
+      , Space
+      , Str "is"
+      , Space
+      , Str "defined"
+      , Space
+      , Str "as:"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\nS(x) = \\{x, R^1_1(x) R^1_2(x),..., R^h_{|Rh|}(x)\\}\n"
+      , SoftBreak
+      , Str "The"
+      , Space
+      , Str "spiral"
+      , Space
+      , Str "convolution"
+      , Space
+      , Str "of"
+      , Space
+      , Str "a"
+      , Space
+      , Str "signal"
+      , Space
+      , Math InlineMath "f"
+      , Str ","
+      , Space
+      , Str "with"
+      , Space
+      , Str "a"
+      , Space
+      , Str "filter"
+      , Space
+      , Math InlineMath "g"
+      , Space
+      , Str "is"
+      , Space
+      , Str "defined"
+      , Space
+      , Str "by:"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\n(f \\ast g) = \\sum_{\\ell=1}^{L} g_{\\ell}\\, f\\!\\left(S_{\\ell}(x)\\right)\n"
+      ]
+  , Header
+      2
+      ( "spiral-convolutions-auto-encoder" , [] , [] )
+      [ Str "Spiral"
+      , Space
+      , Str "convolutions:"
+      , Space
+      , Str "auto-encoder"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/3dmmneural.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "The"
+      , Space
+      , Str "pooling"
+      , Space
+      , Str "is"
+      , Space
+      , Str "done"
+      , Space
+      , Str "using"
+      , Space
+      , Str "mesh"
+      , Space
+      , Str "downsampling"
+      , Space
+      , Str "like"
+      , Space
+      , Str "in"
+      , Space
+      , Str "CNNs."
+      , Space
+      , Str "The"
+      , Space
+      , Str "features"
+      , Space
+      , Str "are"
+      , Space
+      , Str "extracted"
+      , Space
+      , Str "in"
+      , Space
+      , Str "a"
+      , Space
+      , Str "hierarchical"
+      , Space
+      , Str "way!"
+      ]
+  , Header
+      2
+      ( "spiral-convolutions-efficiency" , [] , [] )
+      [ Str "Spiral"
+      , Space
+      , Str "convolutions:"
+      , Space
+      , Str "efficiency"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/spiral_res.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "spiral-convolutions-efficiency-1" , [] , [] )
+      [ Str "Spiral"
+      , Space
+      , Str "convolutions:"
+      , Space
+      , Str "efficiency"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/spiral_eff.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "parameterization-invariance" , [] , [] )
+      [ Str "Parameterization" , Space , Str "invariance" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Robustness"
+             , Space
+             , Str "to"
+             , Space
+             , Str "parameterizations"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Robustness"
+              , Space
+              , Str "to"
+              , Space
+              , Str "parameterizations"
+              ]
+              ( "images/ellipses.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "SpiralNet"
+      , Space
+      , Str "is"
+      , Space
+      , Str "not"
+      , Space
+      , Str "robust"
+      , Space
+      , Str "to"
+      , Space
+      , Str "reparameterizations"
+      , Space
+      , Str "(Besnier"
+      , Space
+      , Str "et"
+      , Space
+      , Str "al.\160\&2022)"
+      ]
+  , Header
+      2
+      ( "more-mesh-graph-convolutions" , [] , [] )
+      [ Str "More"
+      , Space
+      , Str "mesh"
+      , Space
+      , Str "graph"
+      , Space
+      , Str "convolutions"
+      ]
+  , BulletList
+      [ [ Plain [ Str "MeshCNN" ] ]
+      , [ Plain [ Str "ChebNet" ] ]
+      , [ Plain [ Str "Geodesic" , Space , Str "CNNs" ] ]
+      , [ Plain
+            [ Str "Gauge"
+            , Space
+            , Str "equivariant"
+            , Space
+            , Str "CNNs"
+            ]
+        ]
+      ]
+  , Para
+      [ Str "and" , Space , Str "more" , Space , Str "\8230" ]
+  , Header
+      2
+      ( "summary-spiralnet-and-mesh-graph-convolutions"
+      , []
+      , []
+      )
+      [ Str "Summary:"
+      , Space
+      , Str "SpiralNet"
+      , Space
+      , Str "(and"
+      , Space
+      , Str "mesh"
+      , Space
+      , Str "graph"
+      , Space
+      , Str "convolutions)"
+      ]
+  , Para [ Str "Advantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Takes"
+            , Space
+            , Str "in"
+            , Space
+            , Str "account"
+            , Space
+            , Str "structure"
+            , Space
+            , Str "of"
+            , Space
+            , Str "data"
+            , Space
+            , Str "(mesh"
+            , Space
+            , Str "graph)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Parameter"
+            , Space
+            , Str "and"
+            , Space
+            , Str "implementation"
+            , Space
+            , Str "efficient"
+            ]
+        ]
+      ]
+  , Para [ Str "Disadvantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Not"
+            , Space
+            , Str "robust"
+            , Space
+            , Str "to"
+            , Space
+            , Str "reparameterizations"
+            ]
+        ]
+      , [ Plain
+            [ Str "No"
+            , Space
+            , Str "generalization"
+            , Space
+            , Str "to"
+            , Space
+            , Str "new"
+            , Space
+            , Str "types"
+            , Space
+            , Str "of"
+            , Space
+            , Str "shapes"
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "na\239ve-parameterization-robust-convolutions"
+      , []
+      , []
+      )
+      [ Str "Na\239ve"
+      , Space
+      , Str "parameterization"
+      , Space
+      , Str "robust"
+      , Space
+      , Str "convolutions"
+      ]
+  , Para
+      [ Str "Idea:"
+      , Space
+      , Str "Define"
+      , Space
+      , Str "a"
+      , Space
+      , Str "parameterized"
+      , Space
+      , Str "convolutions"
+      , Space
+      , Str "and"
+      , Space
+      , Str "apply"
+      , Space
+      , Str "it"
+      , Space
+      , Str "to"
+      , Space
+      , Str "patches"
+      , Space
+      , Str "(Geodesic"
+      , Space
+      , Str "CNNs)."
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] ) [ Str "\160" ] ( "images/gcnn.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "Problem:"
+      , Space
+      , Str "Need"
+      , Space
+      , Str "to"
+      , Space
+      , Str "define"
+      , Space
+      , Str "the"
+      , Space
+      , Str "patch"
+      , Space
+      , Str "integration"
+      , Space
+      , Str "(costly)"
+      ]
+  , Header
+      2
+      ( "na\239ve-parameterization-robust-convolutions-1"
+      , []
+      , []
+      )
+      [ Str "Na\239ve"
+      , Space
+      , Str "parameterization"
+      , Space
+      , Str "robust"
+      , Space
+      , Str "convolutions"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/rots.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "na\239ve-parameterization-robust-convolutions-2"
+      , []
+      , []
+      )
+      [ Str "Na\239ve"
+      , Space
+      , Str "parameterization"
+      , Space
+      , Str "robust"
+      , Space
+      , Str "convolutions"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/problem_0.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "na\239ve-parameterization-robust-convolutions-3"
+      , []
+      , []
+      )
+      [ Str "Na\239ve"
+      , Space
+      , Str "parameterization"
+      , Space
+      , Str "robust"
+      , Space
+      , Str "convolutions"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/problem.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "diffusionnet" , [] , [] ) [ Str "DiffusionNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/diffusion.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "diffusionnet-1" , [] , [] ) [ Str "DiffusionNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/diffusion_1.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "diffusionnet-2" , [] , [] ) [ Str "DiffusionNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/diffusion_2.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "diffusionnet-3" , [] , [] ) [ Str "DiffusionNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/gradient.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "diffusionnet-4" , [] , [] ) [ Str "DiffusionNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/archi.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "diffusionnet-5" , [] , [] ) [ Str "DiffusionNet" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/diffnet/invariance.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "diffusionnet-summary" , [] , [] )
+      [ Str "DiffusionNet:" , Space , Str "summary" ]
+  , Para [ Str "Advantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Takes"
+            , Space
+            , Str "in"
+            , Space
+            , Str "account"
+            , Space
+            , Str "structure"
+            , Space
+            , Str "of"
+            , Space
+            , Str "data"
+            , Space
+            , Str "(surface)"
+            ]
+        ]
+      , [ Plain
+            [ Str "PLe-Net"
+            , Space
+            , Str "5"
+            , Space
+            , Str "architecture,"
+            , Space
+            , Str "1999arameter"
+            , Space
+            , Str "and"
+            , Space
+            , Str "implementation"
+            , Space
+            , Str "efficient"
+            ]
+        ]
+      , [ Plain
+            [ Str "Robust++"
+            , Space
+            , Str "to"
+            , Space
+            , Str "reparameterization"
+            ]
+        ]
+      ]
+  , Para [ Str "Disadvantages" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Preprocessing"
+            , Space
+            , Str "on"
+            , Space
+            , Str "large"
+            , Space
+            , Str "meshes"
+            ]
+        ]
+      , [ Plain
+            [ Str "Not"
+            , Space
+            , Str "suitable"
+            , Space
+            , Str "for"
+            , Space
+            , Str "large"
+            , Space
+            , Str "scale"
+            , Space
+            , Str "data"
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "applications-local-deformations-of-shapes" , [] , [] )
+      [ Str "Applications:"
+      , Space
+      , Str "local"
+      , Space
+      , Str "deformations"
+      , Space
+      , Str "of"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pandas.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "applications-local-deformations-of-shapes-1" , [] , [] )
+      [ Str "Applications:"
+      , Space
+      , Str "local"
+      , Space
+      , Str "deformations"
+      , Space
+      , Str "of"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pandas_archi.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "applications-local-deformations-of-shapes-2" , [] , [] )
+      [ Str "Applications:"
+      , Space
+      , Str "local"
+      , Space
+      , Str "deformations"
+      , Space
+      , Str "of"
+      , Space
+      , Str "shapes"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pandas_results.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "conclusion-geometric-deep-learning-for-what" , [] , [] )
+      [ Str "Conclusion:"
+      , Space
+      , Str "geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "for"
+      , Space
+      , Str "what?"
+      ]
+  , Para
+      [ Str "Geometric"
+      , Space
+      , Str "deep"
+      , Space
+      , Str "learning"
+      , Space
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "field"
+      , Space
+      , Str "of"
+      , Space
+      , Str "research"
+      , Space
+      , Str "that"
+      , Space
+      , Str "tries"
+      , Space
+      , Str "to"
+      , Space
+      , Str "apply"
+      , Space
+      , Str "the"
+      , Space
+      , Strong
+          [ Str "success"
+          , Space
+          , Str "of"
+          , Space
+          , Str "deep"
+          , Space
+          , Str "learning"
+          ]
+      , Space
+      , Str "to"
+      , Space
+      , Strong [ Str "non-euclidean" , Space , Str "data" ]
+      , Str "."
+      ]
+  , Para
+      [ Str "In"
+      , Space
+      , Str "the"
+      , Space
+      , Str "specific"
+      , Space
+      , Str "case"
+      , Space
+      , Str "of"
+      , Space
+      , Str "non-rigid"
+      , Space
+      , Str "shapes,"
+      , Space
+      , Str "it"
+      , Space
+      , Str "is"
+      , Space
+      , Str "used"
+      , Space
+      , Str "successfully"
+      , Space
+      , Str "for:"
+      ]
+  , BulletList
+      [ [ Plain [ Str "Shape" , Space , Str "classification" ] ]
+      , [ Plain [ Str "Shape" , Space , Str "segmentation" ] ]
+      , [ Plain [ Str "Shape" , Space , Str "matching" ] ]
+      , [ Plain [ Str "Shape" , Space , Str "deformation" ] ]
+      ]
+  , Header
+      2
+      ( "what-we-have-ignored" , [] , [] )
+      [ Str "What"
+      , Space
+      , Str "we"
+      , Space
+      , Str "have"
+      , Space
+      , Str "ignored"
+      ]
+  , BulletList
+      [ [ Plain
+            [ Str "Other"
+            , Space
+            , Str "types"
+            , Space
+            , Str "of"
+            , Space
+            , Str "non-euclidean"
+            , Space
+            , Str "data"
+            , Space
+            , Str "(graphs,"
+            , Space
+            , Str "proteins,"
+            , Space
+            , Str "\8230)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Tasks"
+            , Space
+            , Str "specific"
+            , Space
+            , Str "losses"
+            , Space
+            , Str "(e.g.\160Chamfer"
+            , Space
+            , Str "distance,"
+            , Space
+            , Str "varifolds,"
+            , Space
+            , Str "\8230)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Alternative"
+            , Space
+            , Str "shape"
+            , Space
+            , Str "representations"
+            , Space
+            , Str "(SDFs,"
+            , Space
+            , Str "\8230)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Tasks"
+            , Space
+            , Str "specific"
+            , Space
+            , Str "representations"
+            , Space
+            , Str "(e.g.\160functional"
+            , Space
+            , Str "maps)"
+            ]
+        ]
+      , [ Plain
+            [ Str "Modern"
+            , Space
+            , Str "architectures"
+            , Space
+            , Str "(Transformers!!!!)"
+            ]
+        ]
+      ]
+  , Header
+      2
+      ( "the-large-scale-era" , [] , [] )
+      [ Str "The"
+      , Space
+      , Str "large"
+      , Space
+      , Str "scale"
+      , Space
+      , Str "era"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/datasets.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "modern-tasks" , [] , [] )
+      [ Str "Modern" , Space , Str "tasks" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Generation"
+            , Space
+            , Str "from"
+            , Space
+            , Str "text"
+            , Space
+            , Str "or"
+            , Space
+            , Str "images"
+            ]
+        ]
+      , [ Plain [ Str "Detailed" , Space , Str "understanding" ] ]
+      , [ Plain [ Str "Multimodality" ] ]
+      ]
+  , Header
+      2
+      ( "multi-view-strikes-back" , [] , [] )
+      [ Str "Multi"
+      , Space
+      , Str "view"
+      , Space
+      , Str "strikes"
+      , Space
+      , Str "back!"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Overview" , Space , Str "of" , Space , Str "CAT3D" ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Overview"
+              , Space
+              , Str "of"
+              , Space
+              , Str "CAT3D"
+              ]
+              ( "images/cat3d.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "multi-view-strikes-back-1" , [] , [] )
+      [ Str "Multi"
+      , Space
+      , Str "view"
+      , Space
+      , Str "strikes"
+      , Space
+      , Str "back!"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/cat3d_nerf.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "volumetric-strikes-back" , [] , [] )
+      [ Str "Volumetric"
+      , Space
+      , Str "strikes"
+      , Space
+      , Str "back!"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/trellis_archi.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "volumetric-strikes-back-1" , [] , [] )
+      [ Str "Volumetric"
+      , Space
+      , Str "strikes"
+      , Space
+      , Str "back!"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Overview"
+             , Space
+             , Str "of"
+             , Space
+             , Str "TRELLIS"
+             ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Overview"
+              , Space
+              , Str "of"
+              , Space
+              , Str "TRELLIS"
+              ]
+              ( "images/trellis_gen.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "multimodality" , [] , [] ) [ Str "Multimodality" ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Plain
+             [ Str "Overview" , Space , Str "of" , Space , Str "Molmo" ]
+         ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "Overview"
+              , Space
+              , Str "of"
+              , Space
+              , Str "Molmo"
+              ]
+              ( "images/molmo.png" , "" )
+          ]
+      ]
+  , Header
+      2 ( "multimodality-1" , [] , [] ) [ Str "Multimodality" ]
+  , Para
+      [ Str "Transformers"
+      , Space
+      , Str "are"
+      , Space
+      , Str "able"
+      , Space
+      , Str "to"
+      , Space
+      , Str "learn"
+      , Space
+      , Str "(partly)"
+      , Space
+      , Str "the"
+      , Space
+      , Str "underlying"
+      , Space
+      , Str "structure"
+      , Space
+      , Str "of"
+      , Space
+      , Str "data"
+      , Space
+      , Str "with"
+      , Space
+      , Str "the"
+      , Space
+      , Str "attention"
+      , Space
+      , Str "mechanism."
+      , Space
+      , Str "They"
+      , Space
+      , Str "can"
+      , Space
+      , Str "be"
+      , Space
+      , Str "applied"
+      , Space
+      , Str "in"
+      , Space
+      , Str "any"
+      , Space
+      , Str "context."
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Plain [ Str "\160" ] ])
+      [ Plain
+          [ Image
+              ( "" , [] , [] )
+              [ Str "\160" ]
+              ( "images/pointllm.png" , "" )
+          ]
+      ]
+  , Header
+      2
+      ( "open-questions" , [] , [] )
+      [ Str "Open" , Space , Str "questions" ]
+  , BulletList
+      [ [ Plain
+            [ Str "Can"
+            , Space
+            , Str "we"
+            , Space
+            , Str "generalize"
+            , Space
+            , Str "generation"
+            , Space
+            , Str "results"
+            , Space
+            , Str "to"
+            , Space
+            , Str "non-rigid"
+            , Space
+            , Str "shapes"
+            , Space
+            , Str "?"
+            ]
+        ]
+      , [ Plain
+            [ Str "How"
+            , Space
+            , Str "to"
+            , Space
+            , Str "tokenize"
+            , Space
+            , Str "efficiently"
+            , Space
+            , Str "a"
+            , Space
+            , Str "point"
+            , Space
+            , Str "cloud"
+            , Space
+            , Str "or"
+            , Space
+            , Str "a"
+            , Space
+            , Str "surface?"
+            ]
+        ]
+      , [ Plain
+            [ Str "Should"
+            , Space
+            , Str "we"
+            , Space
+            , Str "let"
+            , Space
+            , Str "transformers"
+            , Space
+            , Str "learn"
+            , Space
+            , Str "the"
+            , Space
+            , Str "structure"
+            , Space
+            , Str "of"
+            , Space
+            , Str "data"
+            , Space
+            , Str "or"
+            , Space
+            , Str "enforce"
+            , Space
+            , Str "prior"
+            , Space
+            , Str "knowledge?"
+            ]
+        ]
+      ]
+  , Header 2 ( "resources" , [] , [] ) [ Str "Resources" ]
+  , BulletList
+      [ [ Plain
+            [ Link
+                ( "" , [] , [] )
+                [ Str "Geometry"
+                , Space
+                , Str "Processing"
+                , Space
+                , Str "and"
+                , Space
+                , Str "Geometric"
+                , Space
+                , Str "Deep"
+                , Space
+                , Str "Learning"
+                ]
+                ( "https://jdigne.github.io/mva_geom/" , "" )
+            ]
+        ]
+      , [ Plain
+            [ Link
+                ( "" , [] , [] )
+                [ Str "Geometric"
+                , Space
+                , Str "Deep"
+                , Space
+                , Str "Learning"
+                , Space
+                , Str "AMMI"
+                ]
+                ( "https://www.youtube.com/watch?v=5c_-KX1sRDQ&list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C"
+                , ""
+                )
+            ]
+        ]
+      , [ Plain
+            [ Link
+                ( "" , [] , [] )
+                [ Str "Equivariant"
+                , Space
+                , Str "Vision"
+                , Space
+                , Str "Workshop"
+                , Space
+                , Str "CVPR"
+                ]
+                ( "https://equivision.github.io/" , "" )
+            ]
+        ]
+      , [ Plain
+            [ Link
+                ( "" , [] , [] )
+                [ Str "A"
+                , Space
+                , Str "gauge"
+                , Space
+                , Str "theory"
+                , Space
+                , Str "of"
+                , Space
+                , Str "neural"
+                , Space
+                , Str "networks"
+                ]
+                ( "https://maurice-weiler.gitlab.io/cnn_book/EquivariantAndCoordinateIndependentCNNs.pdf"
+                , ""
+                )
+            ]
+        ]
+      ]
+  ]
