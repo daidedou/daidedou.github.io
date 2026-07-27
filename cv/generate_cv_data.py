@@ -21,11 +21,14 @@ except ImportError:
 
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = Path(__file__).resolve().parent / "generated" / "academic.tex"
+DEFAULT_SITE_URL = "https://daidedou.sorpi.fr"
 FRONT_MATTER_PATTERN = re.compile(
     r"\A---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|\Z)(.*)\Z",
     re.DOTALL,
 )
 MARKDOWN_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\(([^()\s]+)\)")
+HTML_TAG_PATTERN = re.compile(r"<[^>]+>")
+URL_SCHEME_PATTERN = re.compile(r"^[a-z][a-z0-9+.-]*:", re.IGNORECASE)
 LATEX_ESCAPES = {
     "\\": r"\textbackslash{}",
     "&": r"\&",
@@ -64,6 +67,39 @@ def latex_url(value: Any) -> str:
     if any(character in url for character in "{}\\\r\n"):
         raise GenerationError(f"URL contains an unsupported character: {url!r}")
     return rf"\detokenize{{{url}}}"
+
+
+def site_url(repository_root: Path) -> str:
+    config_path = repository_root / "_config.yml"
+    if not config_path.exists():
+        return DEFAULT_SITE_URL
+    document = read_document_like_yaml(config_path)
+    url = document.get("url", DEFAULT_SITE_URL)
+    baseurl = document.get("baseurl", "")
+    if not isinstance(url, str) or not url.strip():
+        return DEFAULT_SITE_URL
+    if not isinstance(baseurl, str):
+        baseurl = ""
+    return f"{url.strip().rstrip('/')}/{baseurl.strip().strip('/')}".rstrip("/")
+
+
+def read_document_like_yaml(path: Path) -> dict[str, Any]:
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except (OSError, yaml.YAMLError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def absolute_url(value: Any, repository_root: Path) -> str:
+    """Convert site-relative publication links to their deployed URL."""
+    url = str(value or "").strip()
+    if not url or URL_SCHEME_PATTERN.match(url) or url.startswith("//"):
+        return url
+    root = site_url(repository_root)
+    if url.startswith("/"):
+        return f"{root}{url}"
+    return f"{root}/files/{url.lstrip('/')}"
 
 
 def markdown_to_latex(value: str) -> str:
@@ -151,15 +187,18 @@ def publication_latex(document: JekyllDocument) -> str:
     if not isinstance(venue, str) or not venue.strip():
         category = document.data.get("category", "")
         venue = str(category).strip().title()
+    clean_venue, labels = venue_and_labels(venue)
 
     details: list[str] = []
-    if venue:
-        details.append(rf"\textit{{{escape_latex(venue)}}}")
+    if clean_venue:
+        details.append(rf"\textit{{{escape_latex(clean_venue)}}}")
+    details.extend(escape_latex(label) for label in labels)
     details.append(str(publication_date.year))
 
-    paper_url = latex_url(document.data.get("paperurl"))
-    code_url = latex_url(document.data.get("code"))
-    website_url = latex_url(document.data.get("website"))
+    repository_root = document.path.parents[1]
+    paper_url = latex_url(absolute_url(document.data.get("paperurl"), repository_root))
+    code_url = latex_url(absolute_url(document.data.get("code"), repository_root))
+    website_url = latex_url(absolute_url(document.data.get("website"), repository_root))
     if paper_url:
         details.append(rf"\paper{{{paper_url}}}")
     if code_url:
@@ -175,21 +214,63 @@ def publication_latex(document: JekyllDocument) -> str:
     )
 
 
+def venue_and_labels(value: str) -> tuple[str, list[str]]:
+    """Return a printable venue and compact labels such as Spotlight or Oral."""
+    plain = HTML_TAG_PATTERN.sub("", value).replace("&amp;", "&").strip()
+    labels: list[str] = []
+    for label in ("Spotlight", "Oral"):
+        if re.search(rf"\b{label}\b", plain, re.IGNORECASE):
+            labels.append(label)
+
+    venue = plain
+    for label in labels:
+        venue = re.sub(
+            rf"\s*(?:[-–—]|·|,|\(|\[)?\s*\b{label}\b\s*(?:\)|\])?",
+            "",
+            venue,
+            flags=re.IGNORECASE,
+        )
+    return re.sub(r"\s+", " ", venue).strip(" -–—·,"), labels
+
+
+def talk_latex(document: JekyllDocument) -> str:
+    title = required_text(document, "title")
+    talk_date = document_date(document)
+    event = document.data.get("event")
+    venue = required_text(document, "venue")
+    if event is not None and not isinstance(event, str):
+        raise GenerationError(f"Invalid 'event' in {document.path}")
+
+    context = (event or "").strip() or required_text(document, "type")
+
+    return (
+        "\\CVTalk"
+        f"{{{escape_latex(context)}}}"
+        f"{{{escape_latex(venue)}}}"
+        f"{{{talk_date.strftime('%b %Y')}}}"
+        f"{{{escape_latex(title)}}}"
+    )
+
+
 def course_latex(document: JekyllDocument) -> str:
     title = required_text(document, "title")
     institution = required_text(document, "venue")
     role = required_text(document, "type")
     course_date = document_date(document)
+    period = document.data.get("period", "")
     location = document.data.get("location", "")
+    if period is not None and not isinstance(period, str):
+        raise GenerationError(f"Invalid 'period' in {document.path}")
     if location is not None and not isinstance(location, str):
         raise GenerationError(f"Invalid 'location' in {document.path}")
+    date_label = period.strip() if period else str(course_date.year)
 
     entry = (
         "\\CVEntry"
         f"{{{escape_latex(institution)}}}"
         f"{{{escape_latex(location or '')}}}"
         f"{{{escape_latex(title)}}}"
-        f"{{{course_date.year}}}"
+        f"{{{escape_latex(date_label)}}}"
     )
     detail = (
         "\\CVDetail"
@@ -208,9 +289,13 @@ def selected_documents(directory: Path) -> list[JekyllDocument]:
 
 def generate(repository_root: Path = REPOSITORY_ROOT, output_path: Path = OUTPUT_PATH) -> None:
     publications = selected_documents(repository_root / "_publications")
+    talks = selected_documents(repository_root / "_talks")
     courses = selected_documents(repository_root / "_teaching")
 
     publications.sort(
+        key=lambda document: (document_date(document), document.path.name), reverse=True
+    )
+    talks.sort(
         key=lambda document: (document_date(document), document.path.name), reverse=True
     )
     courses.sort(
@@ -225,6 +310,14 @@ def generate(repository_root: Path = REPOSITORY_ROOT, output_path: Path = OUTPUT
             + "\n\n".join(
                 publication_latex(document) for document in publications
             )
+        )
+    if talks:
+        sections.append(
+            r"\Needspace{6\baselineskip}"
+            + "\n"
+            + r"\CVSection{Invited Talks \& Lectures}"
+            + "\n\n"
+            + "\n\n".join(talk_latex(document) for document in talks)
         )
     if courses:
         sections.append(

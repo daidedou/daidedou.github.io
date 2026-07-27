@@ -25,8 +25,21 @@ title: "Course"
 date: 2024-01-01
 venue: "University"
 type: "Master course"
+period: "January 2024 - March 2024"
 ---
 See [course page](https://example.org/course?a=1&b=2).
+"""
+
+TALK = """\
+---
+title: "Talk & Title"
+date: 2025-09-09
+venue: "INPT, Rabat"
+event: "Summer School"
+type: "Lecture"
+location: "Rabat, Morocco"
+---
+This abstract should stay out of the CV.
 """
 
 
@@ -34,8 +47,13 @@ class GeneratorTests(unittest.TestCase):
     def make_repository(self, temporary_directory: str) -> Path:
         root = Path(temporary_directory)
         (root / "_publications").mkdir()
+        (root / "_talks").mkdir()
         (root / "_teaching").mkdir()
+        (root / "_talks" / "talk.md").write_text(TALK, encoding="utf-8")
         (root / "_teaching" / "course.md").write_text(COURSE, encoding="utf-8")
+        (root / "_config.yml").write_text(
+            'url: "https://example.org"\nbaseurl: ""\n', encoding="utf-8"
+        )
         return root
 
     def test_generates_sorted_selected_entries_and_escaped_text(self) -> None:
@@ -49,7 +67,12 @@ class GeneratorTests(unittest.TestCase):
             )
             (root / "_publications" / "newer.md").write_text(
                 PUBLICATION.format(
-                    title="Newer_100%", date="2025-01-01", extra="category: preprint\n"
+                    title="Newer_100%",
+                    date="2025-01-01",
+                    extra=(
+                        "venue: 'Conference - <strong>Spotlight</strong> - Oral'\n"
+                        "paperurl: local/paper.pdf\n"
+                    ),
                 ),
                 encoding="utf-8",
             )
@@ -70,13 +93,30 @@ class GeneratorTests(unittest.TestCase):
             self.assertNotIn("Excluded", generated)
             self.assertIn(r"{Test \& Author}", generated)
             self.assertIn(r"{R\&D}", generated)
-            self.assertIn(r"{Preprint}", generated)
+            self.assertIn(r"\textit{Conference} · Spotlight · Oral", generated)
+            self.assertIn(
+                r"\paper{\detokenize{https://example.org/files/local/paper.pdf}}",
+                generated,
+            )
             self.assertIn(
                 r"\href{\detokenize{https://example.org/course?a=1&b=2}}{course page}",
                 generated,
             )
             self.assertIn(r"\CVPublication{Newer\_100\%}", generated)
-            self.assertIn(r"\CVEntry{University}{}{Course}{2024}", generated)
+            self.assertIn(
+                r"\CVTalk{Summer School}{INPT, Rabat}{Sep 2025}{Talk \& Title}",
+                generated,
+            )
+            self.assertNotIn("This abstract should stay out", generated)
+            self.assertIn(
+                r"\CVEntry{University}{}{Course}{January 2024 - March 2024}",
+                generated,
+            )
+            self.assertIn(
+                "\\Needspace{6\\baselineskip}\n"
+                "\\CVSection{Invited Talks \\& Lectures}",
+                generated,
+            )
             self.assertIn(
                 "\\Needspace{6\\baselineskip}\n"
                 "\\CVSection{Teaching \\& Supervision}",
