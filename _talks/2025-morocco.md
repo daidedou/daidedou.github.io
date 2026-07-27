@@ -1,14 +1,12 @@
 ---
-title: "Talk 2 on Relevant Topic in Your Field"
+title: "Geometric deep learning for non-rigid shapes: From theory to practice"
 collection: talks
-type: "Talk"
-permalink: /talks/2014-02-01-talk-2
-venue: "London School of Testing"
-date: 2014-02-01
-location: "London, UK"
-hidden: true
+type: "Summer school talk"
+venue: "INPT, Rabat"
+event: " Summer School on Multimodal Foundation Models and Generative AI "
+date: 2025-09-09
+location: "Online"
+usemathjax: true
 ---
 
-[More information here](http://example2.com)
-
-This is a description of your talk, which is a markdown files that can be all markdown-ified like any other post. Yay markdown!
+In this talk, we present first the inherent challenges of deep learning on 3D surfaces, in the context of shape analysis. We present the early approaches to tackle this problem and explain why they were failing. We then present two modern architectures: PointNet, a key component in many modern point cloud architecture, and DiffusionNet, a backbone that is still used in state-of-the-art shape matching approaches. We also discuss the need to regularize latent spaces of shapes to reproduce faithful interpolation in the latent space.

@@ -2,7 +2,7 @@
 title: "PatchAlign3D: Local Feature Alignment for Dense 3D Shape Understanding"
 collection: publications
 permalink: /publication/patchalign3d
-date: 2026-02-01
+date: 2026-06-01
 author:
   - name: Souhail Hadgi
     site: https://souhail-hadgi.github.io/

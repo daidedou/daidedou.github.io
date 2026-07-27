@@ -1,10 +1,11 @@
 ---
-title: "Geometric deep learning Teaching assistant"
+title: "Geometric deep learning"
 collection: teaching
-type: "Master course"
+type: "Teaching assistant (Master)"
 permalink: /teaching/2022-info
 venue: "Maths, Vision Learning master (MVA)"
 date: 2024-10-01
-location: "PAris, France"
+period: "2024-2025"
+location: "Paris, France"
 ---
-Teaching assistant during lab sessions: Introduction to geometric objects, learning on shapes, neural shape representations. [Website](https://jdigne.github.io/mva_geom/)
+Preparation and supervision of labs: Introduction to geometry processing, learning on shapes, neural shape representations. [Website](https://jdigne.github.io/mva_geom/)

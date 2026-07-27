@@ -7,7 +7,7 @@ author_profile: false
 usemathjax: true
 collection: publications
 permalink: /publication/pandas
-date: 2026-01-01
+date: 2026-06-01
 teaser: pandas/new_teaser.png
 author:
   - name: Thomas Besnier

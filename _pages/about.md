@@ -20,6 +20,7 @@ My research interests lies in shape analysis, geometric deep learning and more g
 **Updates**
 
 <ul style="list-style-position: inside; list-style-type: disc; margin-left: 0; padding-left:0;">
+  <li>July 2026: Everything up-to-date with a few acceptances! The weather is fine and we survived the heatwaves (until now)!</li>
   <li>February 2026: Three papers added, a few accepted! The weather is ok today (at least it's not rainy).</li>
   <li>October 2025: One paper added, nothing much besides code updates. The weather is sunny today.</li>
   <li>May 2025 (long time no see!): Few papers added, some accepted, some submitted, the weather is sunny today.</li>

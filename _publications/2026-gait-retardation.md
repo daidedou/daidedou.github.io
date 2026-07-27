@@ -2,7 +2,7 @@
 title: "A Non-Invasive 3D Gait Analysis Framework for Quantifying Psychomotor Retardation in Major Depressive Disorder"
 collection: publications
 permalink: /publication/gaitanalysis
-date: 2026-02-17
+date: 2026-05-01
 author:
   - name: Fouad Boutaleb
   - name: Emery Pierson
@@ -15,7 +15,7 @@ author:
     site: https://www.aliamad.com/
   - name: Fabien D'Hondt
     site: https://pro.univ-lille.fr/fabien-dhondt
-category: preprint
+venue: 'IEEE International Conference on Automatic Face and Gesture Recognition (FG)'
 teaser: gait_analysis_teaser.png
 paperurl: https://arxiv.org/abs/2601.19526
 ---

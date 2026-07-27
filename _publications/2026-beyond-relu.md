@@ -2,7 +2,7 @@
 title: "Beyond ReLU: Bifurcation, Oversmoothing, and Topological Priors"
 collection: publications
 permalink: /publication/beyondrelu
-date: 2026-02-17
+date: 2026-07-01
 author:
   - name: Erkan Turan
     site: https://ehturan.github.io/
@@ -14,7 +14,7 @@ author:
     site: https://daidedou.github.io/
   - name: Maks Ovsjanikov
     site: https://www.lix.polytechnique.fr/~maks/
-category: preprint
+venue: 'International Conference on Machine Learning (ICML) - <strong>Spotlight</strong>'
 teaser: beyondrelu-teaser.png
 paperurl: https://arxiv.org/abs/2602.15634
 ---
