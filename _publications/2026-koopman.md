@@ -2,7 +2,7 @@
 title: " Unfolding Generative Flows with Koopman Operators: Fast and Interpretable Sampling "
 collection: publications
 permalink: /publication/koopmanflows
-date: 2026-01-17
+date: 2026-07-01
 author:
   - name: Erkan Turan
     site: https://ehturan.github.io/
@@ -15,7 +15,7 @@ author:
     site: https://daidedou.github.io/
   - name: Maks Ovsjanikov
     site: https://www.lix.polytechnique.fr/~maks/
-category: preprint
+venue: 'International Conference on Machine Learning (ICML)'
 teaser: koopman_flow.png
 paperurl: https://arxiv.org/abs/2506.22304
 ---

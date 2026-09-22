@@ -1,20 +1,8 @@
 ---
 title: "Geometric deep learning: from theory to practice"
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 2em;
-      }
-      </style>
 format:
-  revealjs:
-    reference-location: block
-    # make in-text citations link to the generated reference text
-    link-citations: true
-     # (nice UX) show the full ref on hover
-    citations-hover: true
-
+  revealjs
+author: "Emery Pierson"
 css: styles.css
 bibliography: slides.bib
 ---
@@ -30,7 +18,7 @@ bibliography: slides.bib
 - Geometric deep learning on surfaces for non-rigid shapes
 - (Geometric deep learning in the large-scale era)
 
-## What means geometric deep learning ? 
+## [What means geometric deep learning ?]{.r-fit-text}
 
 Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**
 
@@ -45,7 +33,7 @@ Deep learning have proven success over numerous modalities
 ![Training datasets sizes over time. Left: language; right: vision.](images/w_1440.png)
 
 ## {.smaller}
-### Deep learning: The Multi-Layer Perceptron (MLP) {.smaller}
+### Deep learning: The Multi-Layer Perceptron (MLP) {.r-fit-text}
 
 
 ![&nbsp; ](images/mlp_diagram.png)
@@ -129,7 +117,7 @@ Deep learning have proven success over numerous modalities
 :::
 :::
 
-## What means geometric deep learning ? 
+## [What means geometric deep learning ?]{.r-fit-text}
 
 Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
 
@@ -153,31 +141,36 @@ Geometric deep learning is the field of research that tries to apply the **succe
 
 ![&nbsp;](images/tasks.png)
 
-## The challenge of non-euclidean data: the case of 3D shapes 
+## [The challenge of non-euclidean data]{.r-fit-text}
+### The 3D shape case 
 
 ![Different representations of 3D shapes. Image from Silvia Sellan.](images/sgi-shape-representations.jpg)
 
-## The challenge of non-euclidean data: the case of 3D shapes
+## [The challenge of non-euclidean data]{.r-fit-text}
+### The 3D shape case 
 
 ![Comparison of dataset sizes](images/dataset_size.png)
 
-## The challenge of non-euclidean data: the case of 3D shapes
+## [The challenge of non-euclidean data]{.r-fit-text}
+### The 3D shape case 
 
 ![Left: different transformations of a human shape. Right: Different discretization of the same human shape.](images/humans_challenge.png)
 
-## The challenge of non-euclidean data: the case of 3D shapes
+## [The challenge of non-euclidean data]{.r-fit-text}
+### The 3D shape case 
 
 ![Left: linear and geodesic paths in the shape space. Right: the human shape space is non linear.](images/non_linear.png)
 
 The human shape space can be represented by the manifold of immersions of a human template, equipped with a well-designed Riemannian metric.
 
-## The challenge of non-euclidean data: the case of 3D shapes
+## [The challenge of non-euclidean data]{.r-fit-text}
+### The 3D shape case 
 
 By making computation on those manifolds, we can beat complex deep learning architectures!
 
 ![Comparison of Bare-ESA interpolation against deep learning baselines.](images/compare.gif)
 
-## What means geometric deep learning ? 
+## [What means geometric deep learning ?]{.r-fit-text}
 
 Geometric deep learning is the field of research that tries to apply the **success of deep learning** to **non-euclidean data**.
 

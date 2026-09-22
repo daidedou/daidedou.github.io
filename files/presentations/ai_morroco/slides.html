@@ -10,6 +10,7 @@
 <link href="slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
+  <meta name="author" content="Emery Pierson">
   <title>Geometric deep learning: from theory to practice</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -320,11 +321,6 @@
       margin-right: 0; 
     }
   </style>
-  <style>
-  #title-slide .title {
-    font-size: 2em;
-  }
-  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -334,6 +330,11 @@
   <h1 class="title">Geometric deep learning: from theory to practice</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Emery Pierson 
+</div>
+</div>
 </div>
 
 </section>
@@ -351,7 +352,7 @@
 </ul>
 </section>
 <section id="what-means-geometric-deep-learning" class="slide level2">
-<h2>What means geometric deep learning ?</h2>
+<h2><span class="r-fit-text">What means geometric deep learning ?</span></h2>
 <p>Geometric deep learning is the field of research that tries to apply the <strong>success of deep learning</strong> to <strong>non-euclidean data</strong></p>
 </section>
 <section id="the-deep-learning-era" class="slide level2">
@@ -365,7 +366,7 @@
 <img data-src="images/w_1440.png" class="r-stretch quarto-figure-center"><p class="caption">Training datasets sizes over time. Left: language; right: vision.</p></section>
 <section id="section" class="slide level2 smaller">
 <h2></h2>
-<h3 class="smaller" id="deep-learning-the-multi-layer-perceptron-mlp">Deep learning: The Multi-Layer Perceptron (MLP)</h3>
+<h3 class="r-fit-text" id="deep-learning-the-multi-layer-perceptron-mlp">Deep learning: The Multi-Layer Perceptron (MLP)</h3>
 
 <img data-src="images/mlp_diagram.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p><p><strong>Multi-Layer Perceptron (MLP)</strong> Deep neural network consisting of <span class="math inline">\(L\)</span> layers</p>
 <p><strong>Linear layer</strong> <span class="math inline">\(\mathbf{g}^{(k)} = \xi \left( \mathbf{W}^{(k)} \mathbf{g}^{(k-1)} \right)\)</span></p>
@@ -452,7 +453,7 @@ MLP would have <span class="math inline">\(\approx 10^{12}\)</span> trainable pa
 </div>
 </section>
 <section id="what-means-geometric-deep-learning-1" class="slide level2">
-<h2>What means geometric deep learning ?</h2>
+<h2><span class="r-fit-text">What means geometric deep learning ?</span></h2>
 <p>Geometric deep learning is the field of research that tries to apply the <strong>success of deep learning</strong> to <strong>non-euclidean data</strong>.</p>
 <p><strong>Success of deep learning :</strong> Have a large scale dataset. Applying the original MLP idea, but adapt the linear and non-linear to the underlying structure of data.</p>
 </section>
@@ -474,30 +475,35 @@ MLP would have <span class="math inline">\(\approx 10^{12}\)</span> trainable pa
 <h2>Example of 3D shapes tasks</h2>
 
 <img data-src="images/tasks.png" class="r-stretch quarto-figure-center"><p class="caption">&nbsp;</p></section>
-<section id="the-challenge-of-non-euclidean-data-the-case-of-3d-shapes" class="slide level2">
-<h2>The challenge of non-euclidean data: the case of 3D shapes</h2>
+<section id="the-challenge-of-non-euclidean-data" class="slide level2">
+<h2><span class="r-fit-text">The challenge of non-euclidean data</span></h2>
+<h3 id="the-3d-shape-case">The 3D shape case</h3>
 
 <img data-src="images/sgi-shape-representations.jpg" class="r-stretch quarto-figure-center"><p class="caption">Different representations of 3D shapes. Image from Silvia Sellan.</p></section>
-<section id="the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-1" class="slide level2">
-<h2>The challenge of non-euclidean data: the case of 3D shapes</h2>
+<section id="the-challenge-of-non-euclidean-data-1" class="slide level2">
+<h2><span class="r-fit-text">The challenge of non-euclidean data</span></h2>
+<h3 id="the-3d-shape-case-1">The 3D shape case</h3>
 
 <img data-src="images/dataset_size.png" class="r-stretch quarto-figure-center"><p class="caption">Comparison of dataset sizes</p></section>
-<section id="the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-2" class="slide level2">
-<h2>The challenge of non-euclidean data: the case of 3D shapes</h2>
+<section id="the-challenge-of-non-euclidean-data-2" class="slide level2">
+<h2><span class="r-fit-text">The challenge of non-euclidean data</span></h2>
+<h3 id="the-3d-shape-case-2">The 3D shape case</h3>
 
 <img data-src="images/humans_challenge.png" class="r-stretch quarto-figure-center"><p class="caption">Left: different transformations of a human shape. Right: Different discretization of the same human shape.</p></section>
-<section id="the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-3" class="slide level2">
-<h2>The challenge of non-euclidean data: the case of 3D shapes</h2>
+<section id="the-challenge-of-non-euclidean-data-3" class="slide level2">
+<h2><span class="r-fit-text">The challenge of non-euclidean data</span></h2>
+<h3 id="the-3d-shape-case-3">The 3D shape case</h3>
 
 <img data-src="images/non_linear.png" class="r-stretch quarto-figure-center"><p class="caption">Left: linear and geodesic paths in the shape space. Right: the human shape space is non linear.</p><p>The human shape space can be represented by the manifold of immersions of a human template, equipped with a well-designed Riemannian metric.</p>
 </section>
-<section id="the-challenge-of-non-euclidean-data-the-case-of-3d-shapes-4" class="slide level2">
-<h2>The challenge of non-euclidean data: the case of 3D shapes</h2>
+<section id="the-challenge-of-non-euclidean-data-4" class="slide level2">
+<h2><span class="r-fit-text">The challenge of non-euclidean data</span></h2>
+<h3 id="the-3d-shape-case-4">The 3D shape case</h3>
 <p>By making computation on those manifolds, we can beat complex deep learning architectures!</p>
 
 <img data-src="images/compare.gif" class="r-stretch quarto-figure-center"><p class="caption">Comparison of Bare-ESA interpolation against deep learning baselines.</p></section>
 <section id="what-means-geometric-deep-learning-2" class="slide level2">
-<h2>What means geometric deep learning ?</h2>
+<h2><span class="r-fit-text">What means geometric deep learning ?</span></h2>
 <p>Geometric deep learning is the field of research that tries to apply the <strong>success of deep learning</strong> to <strong>non-euclidean data</strong>.</p>
 <p><strong>Success of deep learning :</strong> Have a <strong>large scale dataset</strong>. Applying the original MLP idea, but adapt the linear and non-linear to the <strong>underlying structure of data</strong>.</p>
 <p><strong>Non-euclidean data :</strong> The geometry of the data space is important! Plus, the datasets size are smaller (in medical imaging, some datasets have only … a few hundreds shapes or less)</p>

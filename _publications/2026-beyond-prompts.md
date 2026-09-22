@@ -6,7 +6,7 @@ author_profile: false
 usemathjax: true
 collection: publications
 permalink: /publication/beyondprompts
-date: 2026-04-01
+date: 2026-09-01
 teaser: beyond_prompts/rabbit_teaser.png
 author:
   - name: Victoria Yue Chen
@@ -17,7 +17,7 @@ author:
     site: https://www.lix.polytechnique.fr/~maillard/
   - name: Maks Ovsjanikov
     site: https://www.lix.polytechnique.fr/~maks/
-category: preprint
+venue: European Conference on Computer Vision (ECCV)
 paperurl: https://daidedou.github.io
 ---
 

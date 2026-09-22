@@ -12,3 +12,19 @@ Gemfile.lock
 node_modules
 package-lock.json
 .vscode
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Generated CV content and LaTeX build products
+cv/generated/academic.tex
+cv/*.aux
+cv/*.fdb_latexmk
+cv/*.fls
+cv/*.log
+cv/*.out
+cv/*.synctex.gz
+cv/*.xdv
+cv/cv.pdf
+files/cv.pdf
