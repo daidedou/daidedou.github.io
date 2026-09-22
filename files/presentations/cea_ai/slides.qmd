@@ -1,0 +1,381 @@
+---
+title: "CoPhi: Conditionnement Physique de la génération 3D"
+author: "Emery Pierson · CEA List / DIASI · SIALV (LVA)"
+format:
+  revealjs:
+    theme: white
+    slide-number: true
+    transition: none
+    width: 1600
+    height: 900
+    margin: 0.06
+    center: false
+    footer: "CoPhi · CEA List / DIASI · SIALV (LVA)"
+css: styles.css
+---
+
+## À propos de moi
+
+::: {.experience-layout}
+::: {.experience-timeline}
+<div class="timeline-label">Expériences de recherche</div>
+<div class="timeline-item active"><span class="timeline-date">2020–2023</span><strong>Doctorat</strong><small>Université de Lille · CRIStAL · 3D-SAM</small></div>
+<div class="timeline-item"><span class="timeline-date">Apr–Jul 2023</span><strong>Postdoc</strong><small>Université de Vienne · Département de Mathématiques</small></div>
+<div class="timeline-item"><span class="timeline-date">Sep–Dec 2023</span><strong>Research Engineer</strong><small>CHU Lille · LilNCog · INTERACTIONS</small></div>
+<div class="timeline-item"><span class="timeline-date">2024–2026</span><strong>Postdoc</strong><small>École Polytechnique · LIX · GeomeriX</small></div>
+:::
+
+::: {.experience-detail}
+<div class="experience-kicker"><span>2020–2023 · Doctorat</span><span>Université de Lille · CRIStAL · 3D-SAM · Pr. Mohamed Daoudi</span></div>
+<h3>Analyse de forme du corps humain: Comparaison et déformation</h3>
+<div class="experience-left">
+<p class="experience-objectives">Objectifs</p>
+<ul>
+<li>Construire des outils géométriques pour comparer des formes non rigides.</li>
+<li>Modéliser les déformations du corps humains.</li>
+<li>Relier géométrie et analyse de données anatomiques.</li>
+</ul>
+<p class="experience-expertise"><strong>Expertise développée :</strong> Géométrie</p>
+<p class="experience-supervision"><strong>Encadrements :</strong> Un stagiaire de M2</p>
+</div>
+<div class="filler-image"><img src="images/humans_lille.png" alt="Modèles humains 3D étudiés à Lille" /></div>
+:::
+:::
+
+## À propos de moi
+
+::: {.experience-layout}
+::: {.experience-timeline}
+<div class="timeline-label">Expériences de recherche</div>
+<div class="timeline-item"><span class="timeline-date">2020–2023</span><strong>Doctorat</strong><small>Université de Lille · CRIStAL · 3D-SAM</small></div>
+<div class="timeline-item active"><span class="timeline-date">Apr–Jul 2023</span><strong>Postdoc</strong><small>Université de Vienne · Département de Mathématiques</small></div>
+<div class="timeline-item"><span class="timeline-date">Sep–Dec 2023</span><strong>Research Engineer</strong><small>CHU Lille · LilNCog · INTERACTIONS</small></div>
+<div class="timeline-item"><span class="timeline-date">2024–2026</span><strong>Postdoc</strong><small>École Polytechnique · LIX · GeomeriX</small></div>
+:::
+
+::: {.experience-detail}
+<div class="experience-kicker"><span>April–July 2023 · Postdoc</span><span>Université de Vienne · Département de Mathématiques · Pr. Martin Bauer</span></div>
+<h3>Analyser de formes (non rigides) non paramétrées</h3>
+<div class="experience-left">
+<p class="experience-objectives">Objectifs</p>
+<ul>
+<li>Étudier des formes indépendants de leur paramétrisation (discrétisation).</li>
+<li>Construire des architectures adaptées à cette problèmatiques.</li>
+<li>Développer des méthodes pour déformer des formes non rigides.</li>
+</ul>
+<p class="experience-expertise"><strong>Expertise développée :</strong> Geometric deep learning</p>
+<p class="experience-supervision"><strong>Encadrements :</strong> Un stagiaire de M2</p>
+</div>
+<div class="filler-image"><img src="images/hands_vienna_cutout.png" alt="Modèles de mains 3D étudiés à Vienne" /></div>
+:::
+:::
+
+## À propos de moi
+
+::: {.experience-layout}
+::: {.experience-timeline}
+<div class="timeline-label">Expériences de recherche</div>
+<div class="timeline-item"><span class="timeline-date">2020–2023</span><strong>Doctorat</strong><small>Université de Lille · CRIStAL · 3D-SAM</small></div>
+<div class="timeline-item"><span class="timeline-date">Apr–Jul 2023</span><strong>Postdoc</strong><small>Université de Vienne · Département de Mathématiques</small></div>
+<div class="timeline-item active"><span class="timeline-date">Sep–Dec 2023</span><strong>Research Engineer</strong><small>CHU Lille · LilNCog · INTERACTIONS</small></div>
+<div class="timeline-item"><span class="timeline-date">2024–2026</span><strong>Postdoc</strong><small>École Polytechnique · LIX · GeomeriX</small></div>
+:::
+
+::: {.experience-detail}
+<div class="experience-kicker"><span>September–December 2023 · Research Engineer</span><span>CHU Lille · LilNCog · INTERACTIONS · Pr. Ali Amad</span></div>
+<h3>CALYPSO: Clinique et AnaLYses PSychiatriques Objectives pour la dépression</h3>
+<div class="experience-left">
+<p class="experience-objectives">Objectifs</p>
+<ul>
+<li>Collecter une base de données objectives de patient dépressifs.</li>
+<li>Transformer ces observations en marqueurs quantifiables de la dépression.</li>
+<li>Corréler ces nouveaux marqueurs avec les réponses aux traitements.</li>
+</ul>
+<p class="experience-expertise"><strong>Expertise développée :</strong> Modèles interprétables</p>
+<p class="experience-supervision"><strong>Encadrements :</strong> Un stagiaire de M2</p>
+</div>
+<div class="filler-image"><img class="calypso-image" src="images/calypso_cropped.png" alt="CALYPSO project" /></div>
+:::
+:::
+
+## À propos de moi
+
+::: {.experience-layout}
+::: {.experience-timeline}
+<div class="timeline-label">Expériences de recherche</div>
+<div class="timeline-item"><span class="timeline-date">2020–2023</span><strong>Doctorat</strong><small>Université de Lille · CRIStAL · 3D-SAM</small></div>
+<div class="timeline-item"><span class="timeline-date">Apr–Jul 2023</span><strong>Postdoc</strong><small>Université de Vienne · Département de Mathématiques</small></div>
+<div class="timeline-item"><span class="timeline-date">Sep–Dec 2023</span><strong>Research Engineer</strong><small>CHU Lille · LilNCog · INTERACTIONS</small></div>
+<div class="timeline-item active"><span class="timeline-date">2024–2026</span><strong>Postdoc</strong><small>École Polytechnique · LIX · GeomeriX</small></div>
+:::
+
+
+::: {.experience-detail}
+<div class="experience-kicker"><span>2024–2026 · Postdoc</span><span>École Polytechnique · LIX · GeomeriX · Pr. Maks Ovsjanikov</span></div>
+<h3>Modèles génératifs géométriques</h3>
+<div class="experience-left">
+<p class="experience-objectives">Objectifs</p>
+<ul>
+<li>Entraîner des modèles génératifs généralistes pour les formes non-rigides.</li>
+<li>Comprendre le fonctionnement des modèles génératifs en utilisant la géométrie.</li>
+<li>Inverser et manipuler les modèles génératifs 3D.</li>
+</ul>
+<p class="experience-expertise"><strong>Expertise développée :</strong> Modèles génératifs géométriques</p>
+<p class="experience-supervision"><strong>Encadrements :</strong> Un stagiaire de M2, 2 doctorants (occasionnel)</p>
+</div>
+<div class="filler-image"><img class="diffumatch-image" src="images/2025-diffumatch.png" alt="DiffuMatch, modèle génératif de formes 3D" /></div>
+:::
+:::
+
+## À propos de moi
+
+::: {.experience-layout}
+::: {.experience-timeline}
+<div class="timeline-label">Expériences de recherche</div>
+<div class="timeline-item active"><span class="timeline-date">2020–2023</span><strong>Doctorat</strong><small>Université de Lille · CRIStAL · 3D-SAM</small></div>
+<div class="timeline-item active"><span class="timeline-date">Apr–Jul 2023</span><strong>Postdoc</strong><small>Université de Vienne · Département de Mathématiques</small></div>
+<div class="timeline-item active"><span class="timeline-date">Sep–Dec 2023</span><strong>Research Engineer</strong><small>CHU Lille · LilNCog · INTERACTIONS</small></div>
+<div class="timeline-item active"><span class="timeline-date">2024–2026</span><strong>Postdoc</strong><small>École Polytechnique · LIX · GeomeriX</small></div>
+:::
+
+::: {.experience-detail .summary-detail}
+<h3>Synthèse</h3>
+
+<div class="summary-section">
+<h4>Expertise</h4>
+<p>Géométrie · Géométric deep learning · Modèles interprétables · Modèles génératifs géométriques</p>
+</div>
+
+<div class="summary-section">
+<h4>Encadrements</h4>
+<p>3 stagiaires de M2 · 2 doctorants (occasionnel)</p>
+</div>
+
+<div class="summary-section summary-publications">
+<h4>Publications</h4>
+<div class="publication-stats">
+<div><strong>12</strong><span>conférences internationales<br>(8 A*)</span></div>
+<div><strong>6</strong><span>venues internationales<br>(4 journaux)</span></div>
+<div><strong>19</strong><span>Total<br>(1 preprint)</span></div>
+</div>
+</div>
+:::
+:::
+
+## Contexte
+
+<div class="context-slide">
+
+<video class="context-video" autoplay loop muted playsinline>
+<source src="images/demo_3dgen.mp4" type="video/mp4">
+</video>
+
+</div>
+
+## Modèles génératifs 3D
+
+::: {.gen3d-slide}
+<ul class="gen3d-pros-cons">
+<li class="positive fragment" data-fragment-index="1"><span>+</span>Réalisme</li>
+<li class="positive fragment" data-fragment-index="2"><span>+</span>Fidélité visuelle</li>
+<li class="negative fragment" data-fragment-index="3"><span>−</span>Optimisation purement visuelle</li>
+<li class="negative fragment" data-fragment-index="4"><span>−</span>Pas de contrôle physique</li>
+</ul>
+
+<p class="gen3d-question fragment" data-fragment-index="5">Comment permettre un conditionnement physique de ces modèles génératifs&nbsp;?</p>
+<h3 class="fragment" data-fragment-index="6">État de l’art</h3>
+
+<div class="state-art-columns">
+<div class="state-art-card fragment" data-fragment-index="7">
+<h4>Transfert fondation 3D</h4>
+<p class="state-positive"><span>+</span> Pallie la rareté</p>
+<p class="state-negative"><span>−</span> Représentation mixte</p>
+</div>
+
+<div class="state-art-card fragment" data-fragment-index="8">
+<h4>Structures de contrôle</h4>
+<p class="state-positive"><span>+</span> Contrôle bien établi</p>
+<p class="state-negative"><span>−</span> Généralisation limitée</p>
+</div>
+
+<div class="state-art-card fragment" data-fragment-index="9">
+<h4>Guidage par simulation physique</h4>
+<p class="state-positive"><span>+</span> Signal physique réel</p>
+<p class="state-negative"><span>−</span> Objets prédéfinis</p>
+</div>
+</div>
+:::
+
+## Modèles génératifs 3D
+
+::: {.gen3d-slide}
+<ul class="gen3d-pros-cons">
+<li class="positive"><span>+</span>Réalisme</li>
+<li class="positive"><span>+</span>Fidélité visuelle</li>
+<li class="negative"><span>−</span>Optimisation purement visuelle</li>
+<li class="negative"><span>−</span>Pas de contrôle physique</li>
+</ul>
+
+<p class="gen3d-question">Comment permettre un conditionnement physique de ces modèles génératifs&nbsp;?</p>
+
+<div class="gen3d-context cophi-context-followup">
+<p><strong>CoPhi est un projet pour une période de 3 ans</strong>, au sein du service DIASI et du service SIALV (laboratoire LVA), cherchant à valider l’hypothèse suivante :</p>
+<blockquote>« une représentation commune et structurée des formes et des CCP permettra de dépasser les approches actuelles et d’améliorer le réalisme physique des méthodes génératives 3D. »</blockquote>
+<p class="ccp-definition">CCP : caractéristiques et contraintes physiques (CCP)</p>
+</div>
+:::
+
+## CoPhi: Conditionnement Physique de la génération 3D
+
+::: {.project-intro}
+<p class="project-statement">CoPhi vise une génération 3D <strong>physique, réaliste et généraliste</strong> : à partir d’une consigne ou d’un cahier des charges, produire un objet dont les propriétés peuvent être vérifiées.</p>
+<div class="project-lots-wrap">
+<p class="project-lots-lead fragment" data-fragment-index="1">CoPhi s’organisera en 3 lots :</p>
+<div class="project-lots">
+<div class="fragment" data-fragment-index="2"><strong>LOT 1</strong><span>Données physiques et benchmark multi-fidélité</span><div class="lot-people"><img src="images/red.png" alt="Profil rouge" /><img src="images/green.png" alt="Profil vert" /><img src="images/blue.png" alt="Profil bleu" /></div></div>
+<div class="fragment" data-fragment-index="3"><strong>LOT 2</strong><span>Représentation commune des formes et des CCP</span><div class="lot-people"><img src="images/red.png" alt="Profil rouge" /><img src="images/green.png" alt="Profil vert" /></div></div>
+<div class="fragment" data-fragment-index="4"><strong>LOT 3</strong><span>Génération 3D conditionnée par les CCP</span><div class="lot-people"><img src="images/red.png" alt="Profil rouge" /><img src="images/green.png" alt="Profil vert" /></div></div>
+</div>
+</div>
+<p class="people-legend fragment" data-fragment-index="1"><span><img src="images/red.png" alt="" /> porteur du projet</span><span><img src="images/green.png" alt="" /> doctorant</span><span><img src="images/blue.png" alt="" /> stagiaire</span></p>
+:::
+
+## LOT 1 : Données physiques
+
+::: {.lot1-focus-slide}
+<div class="lot1-focus-statement">
+<strong>Verrou scientifique et objectif.</strong><br>
+<em>Les données communes formes 3D et CCP sont rares. L’objectif est de constituer le socle expérimental nécessaire à CoPhi.</em>
+</div>
+
+<div class="lot1-focus-goals fragment" data-fragment-index="1">
+<h3>Objectifs</h3>
+<ul>
+<li>Constituer un corpus formes–CCP de grande échelle.</li>
+<li>Produire un jeu de référence expert et multi-fidélité.</li>
+<li>Définir le pipeline reproductible et le protocole d’évaluation.</li>
+</ul>
+</div>
+
+<img class="lot1-focus-figure fragment" data-fragment-index="2" src="images/genphi_lot1_content.svg" alt="LOT 1 : données physiques et CCP" />
+:::
+
+## LOT 2 : Représentation commune
+
+::: {.lot1-focus-slide .lot2-focus-slide}
+<div class="lot1-focus-statement">
+<strong>Verrou scientifique et objectif.</strong><br>
+<em>Les CCP regroupent des informations hétérogènes que les représentations 3D actuelles ne permettent pas d’exprimer. L’objectif est de donner une représentation commune à l’objet et son cahier des charges.</em>
+</div>
+
+<div class="lot1-focus-goals fragment" data-fragment-index="1">
+<h3>Objectifs</h3>
+<ul>
+<li>Représenter conjointement formes et CCP.</li>
+<li>Modifier et optimiser les propriétés physiques dans l’espace latent.</li>
+<li>Aligner la représentation avec les cahiers des charges textuels.</li>
+</ul>
+</div>
+
+<img class="lot1-focus-figure lot2-focus-figure fragment" data-fragment-index="2" src="images/genphi_lot2_content.svg" alt="LOT 2 : représentation commune" />
+:::
+
+## LOT 3 : Génération 3D physique
+
+::: {.lot1-focus-slide .lot3-focus-slide}
+<div class="lot1-focus-statement">
+<strong>Verrou scientifique et objectif.</strong><br>
+<em>La génération 3D actuelle ne peut suivre un cahier des charges physique. Nous conditionnerons un modèle génératif en utilisant notre représentation commune.</em>
+</div>
+
+<div class="lot1-focus-goals fragment" data-fragment-index="1">
+<h3>Objectifs</h3>
+<ul>
+<li>Adapter un modèle génératif 3D pré-entraîné.</li>
+<li>Conditionner la génération par les CCP.</li>
+<li>Évaluer le réalisme physique, la qualité et la diversité des objets générés.</li>
+</ul>
+</div>
+
+<img class="lot1-focus-figure lot3-focus-figure fragment" data-fragment-index="2" src="images/genphi_lot3_content.svg" alt="LOT 3 : génération 3D physique" />
+:::
+
+
+## Programme et équipements prioritaires de recherche (PEPR) IA
+
+::: {.pepr-slide}
+<div class="pepr-pillars">
+<div><strong>IA de confiance<br>et IA distribuée</strong></div>
+<div><strong>IA frugale<br>et IA embarquée</strong></div>
+<div><strong>Nouveaux fondements<br>mathématiques de l’IA</strong></div>
+</div>
+
+:::
+
+## Programme et équipements prioritaires de recherche (PEPR) IA
+
+::: {.pepr-slide}
+<div class="pepr-pillars pepr-pillars-highlight">
+<div><strong><span class="pepr-axis-emphasis">IA de confiance</span><br>et IA distribuée</strong></div>
+<div><strong><span class="pepr-axis-emphasis">IA frugale</span><br>et IA embarquée</strong></div>
+<div><strong>Nouveaux fondements<br>mathématiques de l’IA</strong></div>
+</div>
+:::
+
+## IA frugale
+
+::: {.pepr-followup}
+<p class="pepr-followup-label">Projets :</p>
+
+<div class="pepr-project fragment" data-fragment-index="1"><strong>SHARP</strong> - Principes théoriques et algorithmiques de l’apprentissage frugal</div>
+
+<div class="pepr-project fragment" data-fragment-index="2"><strong>HOLIGRAIL</strong> - Approches holistiques pour des architectures plus efficaces pour l’inférence et l’apprentissage</div>
+
+<p class="pepr-followup-conclusion fragment" data-fragment-index="3">CoPhi privilégiera l’<strong>adaptation de modèles préentraînés</strong> afin de réduire conjointement les besoins en données et en calcul de l’apprentissage. Ces travaux renforceront les collaborations du CEA List sur ces deux projets.</p>
+:::
+
+## IA de confiance
+
+::: {.pepr-followup}
+<p class="pepr-followup-label">Projet :</p>
+
+<div class="pepr-project fragment" data-fragment-index="1">Géné-Pi - <strong>Mathématiques des modèles génératifs</strong></div>
+
+<p class="pepr-followup-conclusion pepr-trust-conclusion fragment" data-fragment-index="2">CoPhi rendra les modèles génératifs<br><strong> plus contrôlables</strong> et leurs <strong>performances quantifiables</strong>. CoPhi ouvrira ainsi une nouvelle voie d’implication du CEA dans le PEPR IA autour de Géné-Pi.</p>
+:::
+
+
+## Contexte scientifique
+
+::: {.scientific-context}
+<div class="scientific-lab lab-lva">
+<h3>LVA</h3>
+<p>Génération de formes 3D, conditionnement spatial et physique des contenus visuels.</p>
+</div>
+
+<div class="scientific-lab lab-lasti">
+<h3>LASTI</h3>
+<p>Modèles génératifs visuels, contrôle et explicabilité des modèles génératifs.</p>
+</div>
+
+<div class="scientific-lab lab-lsi">
+<h3>LSI</h3>
+<p>Apprentissage pour la simulation mécanique et modèles monde pour la robotique.</p>
+</div>
+
+<div class="genphi-box"><strong>Genφ</strong><span>Génération 3D physique consciente</span></div>
+
+<p class="genphi-collaboration">CoPhi développera des synergies naturelles avec Genφ. De plus, il s’intégrera dans un environnement de collaborations déjà établies entre le LVA, le LASTI et le LSI.</p>
+:::
+
+## Conclusion
+
+::: {.conclusion-slide}
+<ul>
+<li class="fragment" data-fragment-index="1"><strong>Contexte :</strong> essor rapide des modèles génératifs 3D.</li>
+<li class="fragment" data-fragment-index="2"><strong>Problème :</strong> absence de contrôle des propriétés physiques.</li>
+<li class="fragment" data-fragment-index="3"><strong>Approche :</strong> une représentation commune formes–CCP pour conditionner la génération.</li>
+<li class="fragment" data-fragment-index="4"><strong>Trois lots :</strong> Données, Représentation commune, Modèle conditionné.</li>
+<li class="fragment" data-fragment-index="5"><strong>Positionnement :</strong> un contexte scientifique adapté au sein du CEA et dans le cadre du PEPR IA.</li>
+</ul>
+:::
