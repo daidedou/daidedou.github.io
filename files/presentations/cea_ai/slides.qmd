@@ -64,7 +64,6 @@ css: styles.css
 <li>Développer des méthodes pour déformer des formes non rigides.</li>
 </ul>
 <p class="experience-expertise"><strong>Expertise développée :</strong> Geometric deep learning</p>
-<p class="experience-supervision"><strong>Encadrements :</strong> Un stagiaire de M2</p>
 </div>
 <div class="filler-image"><img src="images/hands_vienna_cutout.png" alt="Modèles de mains 3D étudiés à Vienne" /></div>
 :::
