@@ -892,7 +892,11 @@
 }
 
 .state-art-card h4 {
+  height: 2.6em;
   margin: 0 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--red-dark);
   font-size: 1.05em;
   text-align: center;
@@ -917,6 +921,16 @@
 
 .state-art-card .state-negative span {
   color: var(--red-dark);
+}
+
+.state-art-ref {
+  display: block;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 0.58em;
+  line-height: 1.15;
+  text-align: left;
 }
 
 .project-context-slide {

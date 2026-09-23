@@ -189,18 +189,21 @@ css: styles.css
 <h4>Transfert fondation 3D</h4>
 <p class="state-positive"><span>+</span> Pallie la rareté</p>
 <p class="state-negative"><span>−</span> Représentation mixte</p>
+<small class="state-art-ref">Wimmer et al. <em>Back to 3D: Few-shot 3D keypoint detection with back-projected 2D features</em></small>
 </div>
 
 <div class="state-art-card fragment" data-fragment-index="8">
 <h4>Structures de contrôle</h4>
 <p class="state-positive"><span>+</span> Contrôle bien établi</p>
 <p class="state-negative"><span>−</span> Généralisation limitée</p>
+<small class="state-art-ref">Mo et al. <em>StructureNet: Hierarchical graph networks for 3D shape generation</em></small>
 </div>
 
 <div class="state-art-card fragment" data-fragment-index="9">
 <h4>Guidage par simulation physique</h4>
 <p class="state-positive"><span>+</span> Signal physique réel</p>
 <p class="state-negative"><span>−</span> Objets prédéfinis</p>
+<small class="state-art-ref">You et al. <em>PhysGen: Physically grounded 3D shape generation for industrial design</em></small>
 </div>
 </div>
 :::
