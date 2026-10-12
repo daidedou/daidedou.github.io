@@ -1,12 +1,9 @@
-
-
 ---
 title: "Leveraging 2D and 3D Vision Foundation Models for Archaeological Artifact Classification"
 collection: publications
 classes: wide
 author_profile: false
 usemathjax: true
-collection: publications
 permalink: /publication/foundation_artifact
 date: 2026-10-01
 author:
@@ -24,7 +21,7 @@ venue: ACM Journal on Computing and Cultural Heritage (JOCCH)
 paperurl: https://daidedou.github.io
 ---
 
-## Victoria Yue Chen, Emery Pierson, [Léopold Maillard](https://www.lix.polytechnique.fr/~maillard/), [Maks Ovsjanikov](https://www.lix.polytechnique.fr/~maks/)
+## Emery Pierson, , [Diego Gomez](https://diego1401.github.io/), [Souhail Hadgi](https://souhail-hadgi.github.io/), [Maks Ovsjanikov](https://www.lix.polytechnique.fr/~maks/),  [Diego Jimenez-Badillo](https://scholar.google.fr/citations?user=mn2EUUIAAAAJ&hl=fr&oi=sra)
 {: style="text-align: center;"}
 
 <div class="column has-text-centered">
