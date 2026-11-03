@@ -28,3 +28,8 @@ cv/*.synctex.gz
 cv/*.xdv
 cv/cv.pdf
 files/cv.pdf
+
+# Quarto presentation build products
+_presentations/_output/
+_presentations/.quarto/
+_presentations/**/*_files/

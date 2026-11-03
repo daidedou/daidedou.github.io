@@ -33,6 +33,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.4.549'
+      - name: Render presentations
+        run: quarto render _presentations
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
@@ -45,7 +51,16 @@ jobs:
         run: python -m unittest discover -s cv -p 'test_*.py' -v
       - name: Generate academic CV content
         run: python cv/generate_cv_data.py
+      # Hash after generation so collection changes are reflected in academic.tex.
+      # Include the workflow to invalidate the PDF when compiler settings change.
+      - name: Cache compiled CV
+        id: cv-cache
+        uses: actions/cache@v4
+        with:
+          path: cv/cv.pdf
+          key: ${{ runner.os }}-cv-pdf-v1-${{ hashFiles('cv/**/*.tex', '.github/workflows/jekyll-gh-pages.yml') }}
       - name: Compile CV with XeLaTeX
+        if: steps.cv-cache.outputs.cache-hit != 'true'
         uses: xu-cheng/latex-action@v4
         with:
           os: debian
@@ -70,6 +85,11 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Copy rendered presentations into the site
+        run: |
+          mkdir -p _site/files/presentations
+          cp -a _presentations/_output/. _site/files/presentations/
+          test -f _site/files/presentations/Foundation_Masks/presentation.html
       - name: Verify CV in the generated site
         run: test -f _site/files/cv.pdf
       - name: Upload artifact

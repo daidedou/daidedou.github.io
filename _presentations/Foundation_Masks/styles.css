@@ -1,0 +1,257 @@
+@font-face { font-family: Inter; src: url('fonts/Inter-Light.woff2') format('woff2'); font-weight: 300; font-display: swap; }
+@font-face { font-family: Inter; src: url('fonts/Inter-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+/* The conference CSS maps its SemiBold file to weight 500. */
+@font-face { font-family: Inter; src: url('fonts/Inter-SemiBold.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: Inter; src: url('fonts/Inter-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+.reveal { font-weight: 300; }
+.reveal .slides { text-align: left; }
+.reveal .slides section { box-sizing: border-box; }
+.reveal p, .reveal li { line-height: 1.45; }
+.reveal li { margin-bottom: .4em; }
+.reveal .eyebrow { font-size: .52em; letter-spacing: .13em; text-transform: uppercase; color: #666; margin-bottom: 1.5em; }
+.reveal .subtitle { font-size: .9em; color: #666; }
+.reveal .small { font-size: .65em; color: #666; }
+.reveal .takeaway { background: #f4f1ec; border-left: 4px solid #666; padding: .6em .85em; margin-top: .8em; }
+.reveal .metric { font-size: 3.4em; font-weight: 300; letter-spacing: -.06em; line-height: 1.1; }
+.reveal .panel { background: #faf9f7; border: 1px solid #ebe7e2; padding: .8em; border-radius: 12px; }
+.reveal .columns { gap: 1.3em; }
+.reveal img { object-fit: contain; max-height: 560px; }
+.reveal figure { margin: 0; }
+.reveal figcaption { font-size: .55em; color: #666; }
+.reveal .title-slide h2 { font-size: 1.85em; max-width: 1300px; line-height: 1.12; }
+.reveal .title-slide .authors { font-size: .65em; margin-top: 1.5em; }
+.reveal .title-slide img { height: 225px; width: 100%; object-fit: contain; }
+.reveal .gallery img { height: 195px; width: 100%; }
+.reveal .gallery p { margin: .2em 0; }
+@media print { .reveal .footer { font-size: 14px; } }
+
+/* Portraits on the opening slide, in manuscript author order. */
+.reveal .title-slide h2 { font-size: 1.65em; margin-bottom: .35em; }
+.reveal .title-slide .eyebrow { margin-bottom: .5em; }
+.reveal .title-slide > p > img { height: 175px; margin: .2em auto; }
+.reveal .author-profiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin-top: 24px; text-align: center; }
+.reveal .title-slide .author-profile img { display: block; width: 132px; height: 132px; max-width: none; margin: 0 auto 14px; border-radius: 50%; object-fit: cover; object-position: center 35%; border: 3px solid #ebe7e2; }
+.reveal .author-name { font-size: 22px; font-weight: 500; line-height: 1.25; }
+.reveal .author-affiliation { font-size: 16px; color: #666; line-height: 1.35; margin-top: 6px; }
+.reveal .title-slide .author-profile img[src$="maks-ovsjanikov.jpg"] { object-position: center top; }
+
+.reveal .title-slide .author-profiles { margin-top: 80px; }
+.reveal .dataset-intro h2 { margin-bottom: .3em; }
+.reveal .dataset-intro img.mask-row { display: block; height: 220px; width: auto; margin: 0 auto .3em; }
+.reveal .dataset-intro h3 { font-size: 1em; font-weight: 500; margin: .45em 0 .15em; }
+.reveal .dataset-intro p, .reveal .dataset-intro li { font-size: .85em; }
+.reveal .dataset-intro p { margin: .2em 0; }
+.reveal .dataset-intro li { margin-bottom: .18em; }
+.reveal .dataset-intro .takeaway { margin-top: .4em; padding: .4em .7em; }
+
+.reveal .approach-slide h2 { margin-bottom: .5em; }
+.reveal .approach-slide h3 { font-size: 1.05em; margin: 0 0 .4em; font-weight: 500; }
+.reveal .approach-slide .column > p { font-size: .8em; margin: .4em 0; }
+.reveal .handcrafted-visual { margin: 12px 0; }
+.reveal .descriptor-flow { display: grid; grid-template-columns: 155px 60px minmax(0, 1fr); height: 245px; align-items: center; gap: 12px; }
+.reveal img.descriptor-mask { width: 155px; height: 210px; object-fit: contain; margin: 0; background: none; max-width: 100%; }
+.reveal .descriptor-arrow { font-size: 52px; font-weight: 300; text-align: center; }
+.reveal img.local-descriptor { display: block; width: 100%; height: 235px; object-fit: contain; margin: 0; }
+.reveal img.descriptor-histograms { display: block; width: 100%; height: 155px; object-fit: contain; margin: 4px auto; }
+.reveal .descriptor-credit { font-size: 15px; color: #666; text-align: center; }
+.reveal .approach-slide .pro-sign, .reveal .approach-slide .con-sign { display: inline-block; font-size: 2em; font-weight: 500; line-height: .8; vertical-align: -.1em; width: .8em; }
+.reveal .approach-slide .pro-sign { color: #218739; }
+.reveal .approach-slide .con-sign { color: #c63832; }
+
+.reveal img.handcrafted-workflow { display: block; width: 100%; height: 385px; object-fit: contain; margin: 0 auto 8px; }
+
+.reveal .approach-slide .handcrafted-visual,
+.reveal .approach-slide .specialized-visual { height: 414px; margin: 12px 0; }
+.reveal img.specialized-workflow { display: block; width: 100%; height: 385px; object-fit: contain; margin: 0 auto 8px; }
+
+.reveal .approach-slide .specialized-visual { display: flex; align-items: center; justify-content: center; }
+.reveal img.specialized-workflow { height: auto; margin: 0; }
+
+.reveal .approach-slide .advantage { display: inline-block; position: relative; }
+.reveal .approach-slide .advantage::after { content: ""; position: absolute; inset: -9px -20px; border: 3px solid #218739; border-radius: 50%; opacity: 0; transition: opacity .2s ease; pointer-events: none; }
+.reveal .approach-slide:has(.best-worlds-question.visible) .advantage::after { opacity: 1; }
+.reveal .approach-slide .best-worlds-question { margin-top: 32px; text-align: center; font-size: 1.25em; font-weight: 500; }
+.reveal .approach-slide .best-worlds-question p { margin: 0; }
+
+.reveal .paradigm-slide h2 { margin-bottom: .4em; }
+.reveal .paradigm-subtitle { font-size: 1.1em; margin-bottom: 20px; }
+.reveal .paradigm-images { position: relative; height: 535px; width: 100%; }
+.reveal .paradigm-images img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-height: none; object-fit: contain; margin: 0; }
+.reveal .paradigm-images .new-paradigm { visibility: hidden; }
+.reveal .paradigm-slide:has(.paradigm-completion.visible) .old-paradigm { visibility: hidden; }
+.reveal .paradigm-slide:has(.paradigm-completion.visible) .new-paradigm { visibility: visible; }
+.reveal .paradigm-slide:has(.paradigm-completion.visible) .paradigm-ellipsis { display: none; }
+.reveal .paradigm-citation { margin-top: 20px; font-size: .52em; color: #666; text-align: center; }
+
+.reveal .paradigm-slide h2 { font-size: 1.4em; margin-bottom: .2em; }
+.reveal .paradigm-slide .paradigm-subtitle { font-size: 1em; margin-bottom: 8px; }
+.reveal .paradigm-slide .paradigm-images { height: 630px; }
+.reveal .paradigm-slide .paradigm-citation { margin-top: 8px; font-size: .45em; }
+
+.reveal .vision-3d-slide .pointcloud-citation { display: none; }
+.reveal .vision-3d-slide:has(.paradigm-completion.visible) .vision-citation { display: none; }
+.reveal .vision-3d-slide:has(.paradigm-completion.visible) .pointcloud-citation { display: block; }
+
+.reveal .vision-3d-slide .foundation-question { margin-top: 16px; font-size: 1.08em; font-weight: 500; text-align: center; }
+.reveal .vision-3d-slide .foundation-question p { margin: 0; }
+.reveal .vision-3d-slide:has(.foundation-question.visible) .paradigm-images { height: 560px; }
+
+.reveal .related-work-slide h2 { font-size: 1.5em; margin-bottom: .3em; }
+.reveal .related-subtitle { color: #666; font-size: .85em; margin-bottom: 28px; }
+.reveal .related-work-slide .columns { gap: 22px; }
+.reveal .related-group { background: #faf9f7; border-top: 3px solid #666; padding: 22px 20px; box-sizing: border-box; }
+.reveal .related-group h3 { font-size: .93em; font-weight: 500; margin: 0 0 22px; }
+.reveal .related-group > p { font-size: .74em; line-height: 1.4; margin: 0 0 22px; }
+.reveal .related-refs { font-size: .55em; line-height: 1.4; }
+.reveal .related-refs p { margin: 12px 0 0; }
+.reveal .related-work-slide .takeaway { font-size: .8em; margin-top: 28px; }
+
+.reveal .visual-related-work .columns { display: flex; gap: 24px; }
+.reveal .visual-related-work .related-group { flex: 1; width: 0 !important; padding: 18px 14px; background: #fff; border-top: 2px solid #ebe7e2; }
+.reveal .visual-related-work .related-group h3 { margin-bottom: 18px; font-size: .9em; }
+.reveal .related-gallery { height: 410px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+.reveal .related-gallery p { margin: 0; min-height: 0; }
+.reveal .related-gallery img { display: block; width: 100%; max-height: none; object-fit: contain; margin: 0; }
+.reveal .related-gallery.single-figure img { height: 410px; }
+.reveal .related-gallery.two-figures p { flex: 1; }
+.reveal .related-gallery.two-figures img { height: 199px; }
+.reveal .visual-related-work .related-refs { font-size: .55em; line-height: 1.5; min-height: 60px; margin-top: 16px; }
+.reveal .visual-related-work .related-refs p { margin: 0; }
+.reveal .visual-related-work .takeaway { margin-top: 12px; }
+
+.reveal .visual-related-work .related-opening { font-size: .85em; margin: 0 0 18px; color: #666; }
+.reveal .related-opening p { margin: 0; }
+.reveal .visual-related-work .related-group { transition: opacity .25s ease, filter .25s ease; }
+.reveal .visual-related-work:has(.related-step-1.visible) .related-step-0,
+.reveal .visual-related-work:has(.related-step-2.visible) .related-step-1,
+.reveal .visual-related-work:has(.related-conclusion.visible) .related-step-2 { filter: grayscale(1); opacity: .3; }
+.reveal .visual-related-work .related-conclusion { font-size: 1.15em; font-weight: 500; margin-top: 20px; text-align: center; }
+.reveal .related-conclusion p { margin: 0; }
+
+.reveal .visual-related-work:has(.related-conclusion.visible) .related-gallery { height: 350px; }
+.reveal .visual-related-work:has(.related-conclusion.visible) .related-gallery.single-figure img { height: 350px; }
+.reveal .visual-related-work:has(.related-conclusion.visible) .related-gallery.two-figures img { height: 169px; }
+.reveal .related-conclusion .related-questions { font-size: .7em; font-weight: 300; line-height: 1.4; margin-top: 16px; }
+
+.reveal .dataset-presentation h2 { font-size: 1.5em; margin-bottom: .6em; }
+.reveal .dataset-presentation .columns { gap: 40px; }
+.reveal .dataset-presentation .column > p, .reveal .dataset-presentation li { font-size: .8em; line-height: 1.45; }
+.reveal .dataset-count { background: #f4f1ec; padding: 12px 16px; font-size: .85em; margin: 24px 0; }
+.reveal .dataset-count p { margin: 0; }
+.reveal .dataset-presentation h3 { font-size: .86em; font-weight: 500; margin-bottom: 20px; }
+.reveal .dataset-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 18px; }
+.reveal .dataset-examples img { display: block; width: 100%; height: 180px; object-fit: contain; margin: 0; }
+.reveal .dataset-examples figcaption { text-align: center; font-size: 22px; color: #222; margin-top: 8px; }
+.reveal .dataset-presentation .small { font-size: .55em; margin-top: 24px; }
+
+.reveal .dataset-presentation .dataset-context { font-size: .78em; line-height: 1.4; margin-bottom: 26px; }
+.reveal .dataset-context p { margin: 0 0 12px; }
+.reveal .dataset-presentation .dataset-examples img { height: 140px; }
+.reveal .dataset-presentation .dataset-examples { gap: 18px; }
+.reveal .dataset-presentation .dataset-count { margin-top: 0; }
+
+.reveal .style-detail h2 { font-size: 1.5em; margin-bottom: .35em; }
+.reveal .style-description { font-size: .76em; line-height: 1.4; }
+.reveal .style-description p { margin: 0 0 12px; }
+.reveal .style-stats { font-size: .58em; color: #666; margin: 0 0 16px; }
+.reveal .style-stats p { margin: 0; }
+.reveal .style-detail img.style-gallery { display: block; width: 100%; height: 540px; max-height: none; object-fit: contain; margin: 0; }
+
+.reveal .style-detail .style-history { font-size: .72em; line-height: 1.4; color: #555; margin: 12px 0; }
+.reveal .style-history p { margin: 0; }
+.reveal .style-detail img.style-gallery { height: 430px; }
+.reveal .style-detail .style-stats { margin-top: 14px; margin-bottom: 8px; }
+
+.reveal .model-list-slide h2 { font-size: 1.5em; margin-bottom: .55em; }
+.reveal .model-list-slide .columns { gap: 60px; }
+.reveal .model-list-slide h3 { font-size: 1.05em; font-weight: 500; padding-bottom: 12px; border-bottom: 2px solid #ebe7e2; margin-bottom: 20px; }
+.reveal .model-entry { min-height: 102px; margin-bottom: 16px; }
+.reveal .model-entry p { font-size: .74em; line-height: 1.35; margin: 5px 0; }
+.reveal .model-entry p:first-child { font-size: .85em; }
+.reveal .model-entry a { color: #666; font-size: .68em; }
+.reveal .model-list-slide .takeaway { font-size: .8em; margin-top: 16px; }
+
+.reveal .inputs-slide h2 { font-size: 1.5em; margin-bottom: 12px; }
+.reveal .input-artifact { text-align: center; margin-bottom: 32px; }
+.reveal .input-artifact img { display: block; width: 250px; height: 250px; object-fit: contain; margin: 0 auto 4px; }
+.reveal .input-artifact > div { font-size: 24px; font-weight: 500; }
+.reveal .input-representations { display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: end; gap: 30px; }
+.reveal .input-representations img, .reveal .input-normal-slot { display: block; width: 200px; height: 200px; object-fit: contain; margin: 0 auto 16px; }
+.reveal .input-representations figcaption { font-size: 26px; text-align: center; color: #222; }
+.reveal .input-rendering-pair { display: grid; grid-template-columns: 1fr 1fr; }
+.reveal .input-renderings-title { text-align: center; font-size: 28px; margin-bottom: 20px; }
+
+.reveal .inputs-slide .input-artifact { margin-bottom: 12px; }
+.reveal .input-arrows { display: block; width: 100%; height: 95px; overflow: visible; margin: 0 0 6px; }
+
+.reveal .evaluation-slide h2 { font-size: 1.5em; margin-bottom: 12px; }
+.reveal .evaluation-slide > p { margin: 0; }
+.reveal .evaluation-slide img.evaluation-image { display: block; width: 100%; height: 650px; max-height: none; object-fit: contain; margin: 0; }
+
+.reveal .retrieval-results .retrieval-summary { margin-top: 24px; padding: 14px 22px; background: #f4f1ec; border-left: 4px solid #666; }
+.reveal .retrieval-summary p { font-size: .76em; line-height: 1.4; margin: 8px 0; }
+
+.reveal .geometry-results h2 { font-size: 1.5em; }
+.reveal .geometry-results > p { font-size: .8em; margin-bottom: 36px; }
+.reveal .geometry-results .panel { padding: 28px; }
+.reveal .geometry-results .panel p { font-size: .78em; }
+.reveal .geometry-gain { font-size: 2.6em; font-weight: 300; margin: 30px 0; letter-spacing: -.04em; }
+.reveal .geometry-gain p { font-size: 1em !important; margin: 0; }
+.reveal .geometry-results .takeaway { font-size: .9em; margin-top: 32px; }
+.reveal .geometry-results .small { font-size: .6em; margin-top: 16px; }
+.reveal .geometry-results .columns { display: flex; gap: 28px; align-items: stretch; }
+.reveal .geometry-results .columns > .column { flex: 1; width: 0 !important; box-sizing: border-box; }
+
+.reveal .confusion-slide h2 { font-size: 1.5em; margin-bottom: .4em; }
+.reveal .confusion-context { font-size: .75em; color: #666; margin-bottom: 24px; }
+.reveal .confusion-context p { margin: 0; }
+.reveal .confusion-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.reveal .confusion-panel p { margin: 0; }
+.reveal .confusion-panel img { display: block; width: 100%; height: 460px; object-fit: contain; max-height: none; margin: 0; }
+.reveal .confusion-slide .small { font-size: .55em; text-align: center; margin-top: 14px; }
+.reveal .confusion-slide .takeaway { font-size: .78em; margin-top: 22px; }
+
+.reveal .confusion-panel img { height: 430px; }
+.reveal .confusion-panel .matrix-name { text-align: center; font-size: 32px; font-weight: 500; margin-top: 8px; }
+.reveal .confusion-panel .matrix-input { text-align: center; font-size: 20px; color: #666; margin-top: 4px; }
+
+.reveal .attention-slide > p { text-align: center; }
+.reveal .attention-slide > p > img { display: block; margin: 0 auto 24px; object-fit: contain; }
+.reveal .attention-slide .small { text-align: center; }
+
+.reveal .clustering-results h2 { font-size: 1.45em; margin-bottom: 16px; }
+.reveal .clustering-summary table { width: 100%; font-size: 22px; margin: 0 auto 6px; }
+.reveal .clustering-summary th, .reveal .clustering-summary td { padding: 7px 12px; }
+.reveal .clustering-results > p { margin: 0; }
+.reveal .clustering-results img.clustering-pca { display: block; height: 370px; width: 100%; object-fit: contain; max-height: none; margin: 8px auto 0; }
+.reveal .clustering-caption { font-size: 18px; color: #666; text-align: center; }
+.reveal .clustering-caption p { margin: 2px 0 14px; }
+.reveal .clustering-explanation { font-size: 25px; line-height: 1.35; padding: 12px 18px; background: #f4f1ec; }
+.reveal .clustering-explanation p { margin: 0; }
+
+.reveal .clustering-results h2 { margin-bottom: 38px; }
+.reveal .clustering-results img.clustering-pca { height: 435px; margin-top: 12px; }
+
+.reveal .clustering-results img.clustering-pca { height: 570px; margin-top: 12px; }
+.reveal .clustering-results { min-height: 800px; }
+ .reveal .clustering-content { position: relative; }
+.reveal .clustering-takeaway-overlay {
+  position: absolute; inset: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(205, 205, 205, .88);
+}
+.reveal .clustering-takeaway-card {
+  width: 1240px; box-sizing: border-box; margin: 0;
+  text-align: left; font-size: .9em;
+}
+.reveal .clustering-takeaway-card p { margin: 0 0 .6em; }
+.reveal .clustering-takeaway-card p:last-child { margin-bottom: 0; }
+
+.reveal .takeaways-limitations h2 { font-size: 1.5em; margin-bottom: 30px; }
+.reveal .takeaways-limitations h3 { font-size: 1em; font-weight: 500; margin: 26px 0 14px; }
+.reveal .takeaways-limitations li { font-size: .82em; margin-bottom: 13px; }
+.reveal .closing-links { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; text-align: center; margin: 30px 0; }
+.reveal .closing-link img { display: block; width: 310px; height: 310px; margin: 0 auto 12px; }
+.reveal .closing-link p { margin: 8px 0; }
+.reveal .closing-link a { font-size: 22px; }
+.reveal .closing-slide .small { text-align: center; margin-top: 30px; }
