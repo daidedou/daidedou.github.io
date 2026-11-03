@@ -1,5 +1,6 @@
 format:
   revealjs:
+    embed-resources: true
     theme: [default, theme.scss]
     css: styles.css
     width: 1600

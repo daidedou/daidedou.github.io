@@ -1,9 +1,8 @@
 project:
   type: default
   output-dir: _output
+  post-render:
+    - python3 _scripts/finalize.py
   render:
     - "**/*.qmd"
-  resources:
-    - "*/images/**"
-    - "*/fonts/**"
 format: revealjs

@@ -33,11 +33,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # Restore rendered output before installing Quarto; exact matches skip both.
+      - name: Cache rendered presentations
+        id: presentations-cache
+        uses: actions/cache@v4
+        with:
+          path: _presentations/_output
+          key: ${{ runner.os }}-presentations-v1-${{ hashFiles('_presentations/**', '.github/workflows/jekyll-gh-pages.yml') }}
       - name: Setup Quarto
+        if: steps.presentations-cache.outputs.cache-hit != 'true'
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.4.549'
       - name: Render presentations
+        if: steps.presentations-cache.outputs.cache-hit != 'true'
         run: quarto render _presentations
       - name: Setup Python
         uses: actions/setup-python@v6

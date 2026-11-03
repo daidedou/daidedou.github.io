@@ -12,27 +12,27 @@ Graphics and Cultural Heritage 2026 · Barcelona · November 2–5
 ```{=html}
 <div class="author-profiles">
   <div class="author-profile">
-    <img src="images/authors/emery-pierson.jpg" alt="Portrait of Emery Pierson" />
+    <img src="images/authors/emery-pierson.webp" alt="Portrait of Emery Pierson" />
     <div class="author-name">Emery Pierson</div>
     <div class="author-affiliation">LIX · École Polytechnique</div>
   </div>
   <div class="author-profile">
-    <img src="images/authors/souhail-hadgi.jpg" alt="Portrait of Souhail Hadgi" />
+    <img src="images/authors/souhail-hadgi.webp" alt="Portrait of Souhail Hadgi" />
     <div class="author-name">Souhail Hadgi</div>
     <div class="author-affiliation">LIX · École Polytechnique</div>
   </div>
   <div class="author-profile">
-    <img src="images/authors/diego-gomez.jpeg" alt="Portrait of Diego Gomez" />
+    <img src="images/authors/diego-gomez.webp" alt="Portrait of Diego Gomez" />
     <div class="author-name">Diego Gomez</div>
     <div class="author-affiliation">LIX · École Polytechnique</div>
   </div>
   <div class="author-profile">
-    <img src="images/authors/maks-ovsjanikov.jpg" alt="Portrait of Maks Ovsjanikov" />
+    <img src="images/authors/maks-ovsjanikov.webp" alt="Portrait of Maks Ovsjanikov" />
     <div class="author-name">Maks Ovsjanikov</div>
     <div class="author-affiliation">LIX · École Polytechnique</div>
   </div>
   <div class="author-profile">
-    <img src="images/authors/diego-jimenez-badillo.png" alt="Portrait of Diego Jiménez-Badillo" />
+    <img src="images/authors/diego-jimenez-badillo.webp" alt="Portrait of Diego Jiménez-Badillo" />
     <div class="author-name">Diego Jiménez-Badillo</div>
     <div class="author-affiliation">INAH · Mexico</div>
   </div>
@@ -45,7 +45,7 @@ Introduce the collaboration between computer graphics researchers and archaeolog
 
 ## Analyzing a cultural heritage dataset. {.dataset-intro}
 
-![](images/mask-examples.png){.mask-row fig-alt="Four stone masks from the Mezcala group in the archaeological collection"}
+![](images/mask-examples.webp){.mask-row fig-alt="Four stone masks from the Mezcala group in the archaeological collection"}
 
 
 ### Challenges
@@ -65,7 +65,7 @@ Use a **handcrafted geometric descriptor**.
 
 ```{=html}
 <div class="handcrafted-visual">
-  <img class="handcrafted-workflow" src="images/handcrafted-workflow.png" alt="3D mask with a red point on its forehead, a long arrow to the local spherical descriptor, then a curved arrow down to orientation histograms" />
+  <img class="handcrafted-workflow" src="images/handcrafted-workflow.webp" alt="3D mask with a red point on its forehead, a long arrow to the local spherical descriptor, then a curved arrow down to orientation histograms" />
   <div class="descriptor-credit">Román-Rangel et al., JOCCH 2016 · <a href="https://doi.org/10.1145/2948069">Figs. 4(a), 3</a></div>
 </div>
 ```
@@ -81,7 +81,7 @@ Learn a **specialized model**.
 
 ```{=html}
 <div class="specialized-visual">
-  <img class="specialized-workflow" src="images/specialized-workflow.png" alt="3D mask passed to a specialized neural network, predicting CLASS: Sultepec" />
+  <img class="specialized-workflow" src="images/specialized-workflow.webp" alt="3D mask passed to a specialized neural network, predicting CLASS: Sultepec" />
 </div>
 ```
 
@@ -100,8 +100,8 @@ Can we get the best of both worlds?
 ```{=html}
 <div class="paradigm-subtitle">From specialized models<span class="paradigm-ellipsis"> ...</span><span class="fragment paradigm-completion" data-fragment-index="0"> to foundation models</span></div>
 <div class="paradigm-images">
-  <img class="old-paradigm" src="images/old_paradigm-transparent.png" alt="Specialized paradigm: separate task-specific datasets train separate models for each task" />
-  <img class="new-paradigm" src="images/new_paradigm-transparent.png" alt="Foundation-model paradigm: broad data train one foundation model, adapted to many downstream tasks" />
+  <img class="old-paradigm" src="images/old_paradigm-transparent.webp" alt="Specialized paradigm: separate task-specific datasets train separate models for each task" />
+  <img class="new-paradigm" src="images/new_paradigm-transparent.webp" alt="Foundation-model paradigm: broad data train one foundation model, adapted to many downstream tasks" />
 </div>
 ```
 
@@ -114,8 +114,8 @@ Bommasani et al., *On the Opportunities and Risks of Foundation Models* (2021). 
 ```{=html}
 <div class="paradigm-subtitle">The same paradigm applies to images<span class="paradigm-ellipsis"> ...</span><span class="fragment paradigm-completion" data-fragment-index="0"> and 3D inputs</span></div>
 <div class="paradigm-images">
-  <img class="old-paradigm" src="images/last_clear_image.png" alt="Frozen DINOv3 image features support classification, retrieval, PCA, detection, segmentation, and depth tasks" />
-  <img class="new-paradigm" src="images/ulip2.png" alt="ULIP-2 aligns text, image, and 3D encoders to support downstream 3D understanding tasks" />
+  <img class="old-paradigm" src="images/last_clear_image.webp" alt="Frozen DINOv3 image features support classification, retrieval, PCA, detection, segmentation, and depth tasks" />
+  <img class="new-paradigm" src="images/ulip2.webp" alt="ULIP-2 aligns text, image, and 3D encoders to support downstream 3D understanding tasks" />
 </div>
 <div class="paradigm-citation vision-citation">Siméoni et al., <em>DINOv3</em> (2025). <a href="https://arxiv.org/pdf/2508.10104">arXiv:2508.10104</a></div>
 <div class="paradigm-citation pointcloud-citation">Xue et al., <em>ULIP-2: Towards Scalable Multimodal Pre-training for 3D Understanding</em>, CVPR 2024. <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Xue_ULIP-2_Towards_Scalable_Multimodal_Pre-training_for_3D_Understanding_CVPR_2024_paper.pdf">Paper</a></div>
@@ -136,7 +136,7 @@ Foundation models already find application in cultural heritage
 ### Segment & document
 
 ::: {.related-gallery .single-figure}
-![](images/related-work/maya-segmentation.png){fig-alt="Shivam et al. Figure 3: original Maya vessel images and segmentation by SAM and fine-tuned SAM"}
+![](images/related-work/maya-segmentation.webp){fig-alt="Shivam et al. Figure 3: original Maya vessel images and segmentation by SAM and fine-tuned SAM"}
 :::
 
 ::: {.related-refs}
@@ -147,9 +147,9 @@ Foundation models already find application in cultural heritage
 ### Retrieve & catalogue
 
 ::: {.related-gallery .two-figures}
-![](images/related-work/muze-method.png){fig-alt="Balauca et al. Figure 5: MUZE image and text encoders with the parseNet attribute prediction network"}
+![](images/related-work/muze-method.webp){fig-alt="Balauca et al. Figure 5: MUZE image and text encoders with the parseNet attribute prediction network"}
 
-![](images/related-work/muze-overview.png){fig-alt="Balauca et al. Figure 1: examples of museum objects and predicted attributes"}
+![](images/related-work/muze-overview.webp){fig-alt="Balauca et al. Figure 1: examples of museum objects and predicted attributes"}
 :::
 
 ::: {.related-refs}
@@ -160,9 +160,9 @@ Foundation models already find application in cultural heritage
 ### Question & reason
 
 ::: {.related-gallery .two-figures}
-![](images/related-work/vasevqa-overview.png){fig-alt="Ge et al. Figure 1: ancient Greek vase questions and the VaseVL framework"}
+![](images/related-work/vasevqa-overview.webp){fig-alt="Ge et al. Figure 1: ancient Greek vase questions and the VaseVL framework"}
 
-![](images/related-work/vasevqa3d-overview.png){fig-alt="Zhang et al. Figure 2: multiple views of 3D pottery with questions, answers, and captions"}
+![](images/related-work/vasevqa3d-overview.webp){fig-alt="Zhang et al. Figure 2: multiple views of 3D pottery with questions, answers, and captions"}
 :::
 
 ::: {.related-refs}
@@ -210,10 +210,10 @@ Carved stone masks recovered from **14 Mexica (Aztec) offerings at the Templo Ma
 
 ```{=html}
 <div class="dataset-examples">
-  <figure><img src="images/Chontal_a.png" alt="Chontal masks: photographs and rendered scans"/><figcaption>Chontal</figcaption></figure>
-  <figure><img src="images/Mezcala_a.png" alt="Mezcala masks: photographs and rendered scans"/><figcaption>Mezcala</figcaption></figure>
-  <figure><img src="images/Sultepec.png" alt="Sultepec masks: photographs and rendered scans"/><figcaption>Sultepec</figcaption></figure>
-  <figure><img src="images/Teotihuacanoid_a.png" alt="Teotihuacanoid masks: photographs and rendered scans"/><figcaption>Teotihuacanoid</figcaption></figure>
+  <figure><img src="images/Chontal_a.webp" alt="Chontal masks: photographs and rendered scans"/><figcaption>Chontal</figcaption></figure>
+  <figure><img src="images/Mezcala_a.webp" alt="Mezcala masks: photographs and rendered scans"/><figcaption>Mezcala</figcaption></figure>
+  <figure><img src="images/Sultepec.webp" alt="Sultepec masks: photographs and rendered scans"/><figcaption>Sultepec</figcaption></figure>
+  <figure><img src="images/Teotihuacanoid_a.webp" alt="Teotihuacanoid masks: photographs and rendered scans"/><figcaption>Teotihuacanoid</figcaption></figure>
 </div>
 ```
 
@@ -243,7 +243,7 @@ Associated with the stone-carving traditions of **Guerrero, southwestern Mexico*
 51 masks · 5 substyles within the Guerrero stone-carving tradition.
 :::
 
-![](images/Chontal_a.png){.style-gallery fig-alt="Representative chontal masks reproduced from the paper, with photographs above corresponding 3D renderings"}
+![](images/Chontal_a.webp){.style-gallery fig-alt="Representative chontal masks reproduced from the paper, with photographs above corresponding 3D renderings"}
 
 ::: notes
 Representative figure reproduced from figures/classes in the manuscript; no individual substyles are labeled on the slide. Photographs appear above the corresponding geometric renderings. The substyle count records the dataset taxonomy within a shared regional/stylistic tradition; it does not establish identical production dates. Historical context and morphology follow final/intro.tex. Offering dates are deposition dates; the masks' production dates and origins remain debated.
@@ -264,7 +264,7 @@ Linked to the **Balsas River region of Guerrero**. Mezcala-style objects remaine
 8 masks · 2 substyles within the Mezcala regional tradition.
 :::
 
-![](images/Mezcala_a.png){.style-gallery fig-alt="Representative mezcala masks reproduced from the paper, with photographs above corresponding 3D renderings"}
+![](images/Mezcala_a.webp){.style-gallery fig-alt="Representative mezcala masks reproduced from the paper, with photographs above corresponding 3D renderings"}
 
 ::: notes
 Representative figure reproduced from figures/classes in the manuscript; no individual substyles are labeled on the slide. Photographs appear above the corresponding geometric renderings. The substyle count records the dataset taxonomy within a shared regional/stylistic tradition; it does not establish identical production dates. Historical context and morphology follow final/intro.tex. Offering dates are deposition dates; the masks' production dates and origins remain debated.
@@ -285,7 +285,7 @@ A localized group within the **Guerrero-related stone-mask traditions** discusse
 6 masks · One stylistic group within the Guerrero-related traditions.
 :::
 
-![](images/Sultepec.png){.style-gallery fig-alt="Representative sultepec masks reproduced from the paper, with photographs above corresponding 3D renderings"}
+![](images/Sultepec.webp){.style-gallery fig-alt="Representative sultepec masks reproduced from the paper, with photographs above corresponding 3D renderings"}
 
 ::: notes
 Representative figure reproduced from figures/classes in the manuscript; no individual substyles are labeled on the slide. Photographs appear above the corresponding geometric renderings. The substyle count records the dataset taxonomy within a shared regional/stylistic tradition; it does not establish identical production dates. Historical context and morphology follow final/intro.tex. Offering dates are deposition dates; the masks' production dates and origins remain debated.
@@ -305,7 +305,7 @@ The style recalls **Teotihuacan**, a major urban center of Classic-period centra
 19 masks · 2 substyles sharing a Teotihuacan-inspired visual tradition.
 :::
 
-![](images/Teotihuacanoid_a.png){.style-gallery fig-alt="Representative teotihuacanoid masks reproduced from the paper, with photographs above corresponding 3D renderings"}
+![](images/Teotihuacanoid_a.webp){.style-gallery fig-alt="Representative teotihuacanoid masks reproduced from the paper, with photographs above corresponding 3D renderings"}
 
 ::: notes
 Representative figure reproduced from figures/classes in the manuscript; no individual substyles are labeled on the slide. Photographs appear above the corresponding geometric renderings. The substyle count records the dataset taxonomy within a shared regional/stylistic tradition; it does not establish identical production dates. Historical context and morphology follow final/intro.tex. Offering dates are deposition dates; the masks' production dates and origins remain debated.
@@ -376,7 +376,7 @@ This slide lists the encoders evaluated in the manuscript, rather than all model
 
 ```{=html}
 <div class="input-artifact">
-  <img src="images/inputs/artifact.png" alt="3D scan of a Sultepec stone mask" />
+  <img src="images/inputs/artifact.webp" alt="3D scan of a Sultepec stone mask" />
   <div>3D artifact</div>
 </div>
 <svg class="input-arrows" viewBox="0 0 1488 95" preserveAspectRatio="none" aria-hidden="true">
@@ -389,14 +389,14 @@ This slide lists the encoders evaluated in the manuscript, rather than all model
   </g>
 </svg>
 <div class="input-representations">
-  <figure class="input-photo"><img src="images/inputs/photograph.png" alt="Photograph of the mask"/><figcaption>Photograph</figcaption></figure>
+  <figure class="input-photo"><img src="images/inputs/photograph.webp" alt="Photograph of the mask"/><figcaption>Photograph</figcaption></figure>
   <div class="input-renderings">
     <div class="input-rendering-pair">
-      <figure><img src="images/inputs/grey.png" alt="Grey rendering of the mask"/><figcaption>Grey rendering</figcaption></figure>
-      <figure class="input-normal"><img src="images/inputs/normal.png" alt="Surface-normal rendering of mask CII_105_0001"/><figcaption>Normal rendering</figcaption></figure>
+      <figure><img src="images/inputs/grey.webp" alt="Grey rendering of the mask"/><figcaption>Grey rendering</figcaption></figure>
+      <figure class="input-normal"><img src="images/inputs/normal.webp" alt="Surface-normal rendering of mask CII_105_0001"/><figcaption>Normal rendering</figcaption></figure>
     </div>
   </div>
-  <figure class="input-pointcloud"><img src="images/inputs/point-cloud.png" alt="Sampled 3D point cloud of the mask"/><figcaption>Point cloud</figcaption></figure>
+  <figure class="input-pointcloud"><img src="images/inputs/point-cloud.webp" alt="Sampled 3D point cloud of the mask"/><figcaption>Point cloud</figcaption></figure>
 </div>
 ```
 
@@ -406,7 +406,7 @@ Artifact, photograph, grey rendering, and point-cloud images are extracted from 
 
 ## Full approach
 
-![](images/overview.png){width=95% fig-alt="Paper overview of foundation models applied to artifact representations"}
+![](images/overview.webp){width=95% fig-alt="Paper overview of foundation models applied to artifact representations"}
 
 
 ::: notes
@@ -415,7 +415,7 @@ No model is fine-tuned on the masks. Expert labels are used to evaluate the repr
 
 ## Evaluation {#evaluation .evaluation-slide}
 
-![](images/methodo.png){.evaluation-image fig-alt="Retrieval, nearest-neighbor classification, and clustering evaluation tasks"}
+![](images/methodo.webp){.evaluation-image fig-alt="Retrieval, nearest-neighbor classification, and clustering evaluation tasks"}
 
 
 ## Frozen models improve nearest-neighbor retrieval {.retrieval-results}
@@ -494,7 +494,7 @@ This is an average tendency on this collection. ViT-Large normal-front is 1.2 po
 
 ::: {.confusion-grid}
 ::: {.confusion-panel}
-![](images/confusion/sph-untitled.png){fig-alt="SPH baseline row-normalized confusion matrix"}
+![](images/confusion/sph-untitled.webp){fig-alt="SPH baseline row-normalized confusion matrix"}
 
 ::: {.matrix-name}
 SPH — baseline
@@ -505,7 +505,7 @@ Mesh
 
 :::
 ::: {.confusion-panel}
-![](images/confusion/clip-grey-untitled.png){fig-alt="CLIP with front-view grey rendering: row-normalized confusion matrix"}
+![](images/confusion/clip-grey-untitled.webp){fig-alt="CLIP with front-view grey rendering: row-normalized confusion matrix"}
 
 ::: {.matrix-name}
 CLIP
@@ -516,7 +516,7 @@ Grey front rendering
 
 :::
 ::: {.confusion-panel}
-![](images/confusion/dinov3-giant-multiview-grey-untitled.png){fig-alt="DINOv3 giant with multiview grey renderings: row-normalized confusion matrix"}
+![](images/confusion/dinov3-giant-multiview-grey-untitled.webp){fig-alt="DINOv3 giant with multiview grey renderings: row-normalized confusion matrix"}
 
 ::: {.matrix-name}
 DINOv3 giant
@@ -553,7 +553,7 @@ Read each diagonal entry as class recall. The row normalization prevents the maj
 | Normalized mutual information | 0.223 | 0.215 | **+0.149** |
 :::
 
-![](images/clustering/clustering-pca.png){.clustering-pca fig-alt="Identical PCA coordinates colored by four expert styles on the left and the three recovered Ward clusters on the right"}
+![](images/clustering/clustering-pca.webp){.clustering-pca fig-alt="Identical PCA coordinates colored by four expert styles on the left and the three recovered Ward clusters on the right"}
 
 ::: {.clustering-caption}
 Best reported ARI: **DINOv3 giant · normal renderings · Ward · ARI 0.491**. Same PCA coordinates; clustering uses the full embeddings.
@@ -582,7 +582,7 @@ Reproduction script: quarto/scripts/plot-clustering-pca.py; outputs and per-samp
 
 ## What regions attract the model’s attention? {#model-attention .attention-slide}
 
-![](images/attention_viz.png){height=470 fig-alt="DINOv2 attention maps on photographs and renderings of four mask styles"}
+![](images/attention_viz.webp){height=470 fig-alt="DINOv2 attention maps on photographs and renderings of four mask styles"}
 
 DINOv2 emphasizes facial structures such as **eyes, noses, and mouths**.
 
