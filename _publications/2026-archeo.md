@@ -55,6 +55,12 @@ paperurl: https://daidedou.github.io
 Archaeological collections increasingly include 3D digitizations, but finding stylistically related objects still depends on expert knowledge and manual cataloguing. We evaluate pretrained vision and 3D foundation models as annotation-free descriptors for 84 pre-Hispanic stone masks with expert-assigned styles from the Museo del Templo Mayor in Mexico City. We compare image and point-cloud embeddings from photographs, grayscale and normal-shaded renderings, and sampled 3D geometry. We evaluate the embeddings on downstream tasks: retrieval, classification, and unsupervised clustering, where foundation embeddings outperform traditional handcrafted descriptors. Our results suggest that geometric cues and semantic supervision of features help to distinguish those artifact styles.  
 {: style="text-align: justify;"}
 
+
+## DATASET
+
+Dataset can be found at this [link](https://investigacion.inah.gob.mx/media/2900).
+Use of the dataset will be subject to the legal notice and conditions of use.
+
 ## More details to come!!
 
 
